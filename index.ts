@@ -1,12 +1,14 @@
-import {
-  Application,
-  Server
-} from 'loopback-next/packages/loopback';
+import {Application, Server} from 'loopback-next/packages/loopback';
+import {VitalsController} from './controllers';
 
 class ExampleApplication extends Application {
   constructor() {
     super();
     const app = this;
+    app.controller(VitalsController);
+
+    app.bind('servers.http.enabled').to(true);
+    app.bind('servers.https.enabled').to(true);
   }
 
   private _startTime : Date;
@@ -14,6 +16,7 @@ class ExampleApplication extends Application {
   async start() {
     this._startTime = new Date();
     const server = new Server();
+    server.bind('applications.code-hub').to(this);
     return server.start();
   }
 
