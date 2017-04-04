@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/strongloop/loopback-next-example/issues"
   },
-  "homepage": "https://github.com/strongloop/loopback-next-example#readme"
+  "homepage": "https://github.com/strongloop/loopback-next-example#readme",
+  "dependencies": {
+    "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
+  }
 }
