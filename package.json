@@ -4,6 +4,8 @@
   "description": "The example that determines what features get worked on in LoopBack-next.",
   "main": "index.js",
   "scripts": {
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
+    "start": "npm run build:live",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +21,11 @@
   "homepage": "https://github.com/strongloop/loopback-next-example#readme",
   "dependencies": {
     "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
+  },
+  "devDependencies": {
+    "ts-node": "^3.0.2",
+    "tsconfig-paths": "^2.1.2",
+    "typescript": "^2.2.2",
+    "lerna": "2.0.0-beta.38"
   }
 }
