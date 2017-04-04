@@ -1,0 +1,20 @@
+{
+  "name": "loopback-next-example",
+  "version": "1.0.0",
+  "description": "The example that determines what features get worked on in LoopBack-next.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongloop/loopback-next-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strongloop/loopback-next-example/issues"
+  },
+  "homepage": "https://github.com/strongloop/loopback-next-example#readme"
+}
