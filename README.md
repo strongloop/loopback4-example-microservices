@@ -8,6 +8,7 @@ The example that determines what features get worked on in LoopBack-next.
 git clone git@github.com:strongloop/loopback-next
 cd loopback-next
 npm i
+npm i -g lerna
 lerna bootstrap
 npm link
 # install loopback-next-example
