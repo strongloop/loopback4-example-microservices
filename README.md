@@ -19,3 +19,5 @@ npm i
 npm link loopback-next
 npm start
 ```
+
+Test it out by running `curl localhost:3000/vitals`, you should see `{uptime: 1000}`.
