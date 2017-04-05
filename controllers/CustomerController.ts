@@ -8,9 +8,6 @@ let ds = new DataSource('CustomerDB', {
     "file": "data.json"
 });
 
-//let Customer = ds.createModel('Customer', require('../models/Customer.json'));
-//var ds = new DataSource('memory');
-
 @api(def)
 export class CustomerController {
    constructor() {
