@@ -17,6 +17,21 @@
     },
     "customerSince": {
       "type": "date"
+    },
+    "street": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "date"
     }
   }
 }
