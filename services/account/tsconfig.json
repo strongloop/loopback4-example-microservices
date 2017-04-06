@@ -1,0 +1,23 @@
+
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*"]
+    },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "inlineSources": true
+  },
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "**/*.d.ts"
+  ]
+}
