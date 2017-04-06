@@ -5,8 +5,8 @@
   },
   "models": {
     "Customer": {
-      "000343223": "{\"customerNumber\":\"000343223\",\"firstName\":\"Siddhi\",\"lastName\":\"Simpson\",\"ssn\":\"141-XX-X800\",\"customerSince\":\"2017-03-14T23:05:18.779Z\",\"addresses\":[{\"customerId\":\"000343223\",\"type\":\"Personal\",\"street\":\"742 Evergreen Terrace\",\"state\":\"OR\",\"city\":\"Springfield\",\"zip\":\"95555\",\"lastUpdated\":\"2017-03-14T23:05:18.599Z\"}]}",
-      "003499223": "{\"customerNumber\":\"003499223\",\"firstName\":\"Simon\",\"lastName\":\"Freerich\",\"ssn\":\"342-XX-XX24\",\"customerSince\":\"2017-03-14T23:26:45.225Z\",\"addresses\":[{\"customerId\":\"003499223\",\"type\":\"Personal\",\"street\":\"3005 chapel ave\",\"state\":\"NewJersey\",\"city\":\"Chapel Ave\",\"zip\":\"08002\",\"lastUpdated\":\"2017-03-14T23:26:45.225Z\"}]}"
+      "000343223": "{\"customerNumber\":\"000343223\",\"firstName\":\"Siddhi\",\"lastName\":\"Simpson\",\"ssn\":\"141-XX-X800\",\"customerSince\":\"2017-03-14T23:05:18.779Z\",\"street\":\"742 Evergreen Terrace\",\"state\":\"OR\",\"city\":\"Springfield\",\"zip\":\"95555\",\"lastUpdated\":\"2017-03-14T23:05:18.599Z\"}",
+      "003499223": "{\"customerNumber\":\"003499223\",\"firstName\":\"Simon\",\"lastName\":\"Freerich\",\"ssn\":\"342-XX-XX24\",\"customerSince\":\"2017-03-14T23:26:45.225Z\",\"street\":\"3005 chapel ave\",\"state\":\"NewJersey\",\"city\":\"Chapel Ave\",\"zip\":\"08002\",\"lastUpdated\":\"2017-03-14T23:26:45.225Z\"}"
     }
   }
 }

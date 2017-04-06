@@ -1,0 +1,66 @@
+import {Application, Server} from 'loopback-next/packages/loopback';
+import {CustomerController} from './controllers';
+
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+class CustomerApplication extends Application {
+  private _startTime : Date;
+
+=======
+class ExampleApplication extends Application {
+>>>>>>> Review Changes for Customer Microservice
+  constructor() {
+    super();
+    const app = this;
+    app.controller(CustomerController);
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+=======
+
+>>>>>>> Review Changes for Customer Microservice
+    app.bind('servers.http.enabled').to(true);
+    app.bind('servers.https.enabled').to(true);
+  }
+
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+  async start() {
+    this._startTime = new Date();
+    const server = new Server();
+    server.bind('applications.customer').to(this);
+=======
+  private _startTime : Date;
+
+  async start() {
+    this._startTime = new Date();
+    const server = new Server();
+    server.bind('applications.code-hub').to(this);
+>>>>>>> Review Changes for Customer Microservice
+    return server.start();
+  }
+
+  info() {
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+    const uptime = Date.now() - this._startTime.getTime();
+    return {uptime: uptime};
+=======
+    return {
+      uptime: Date.now() - this._startTime.getTime(),
+    };
+>>>>>>> Review Changes for Customer Microservice
+  }
+}
+
+// tslint:disable-next-line:no-floating-promises
+main().catch(err => {
+  console.log('Cannot start the app.', err);
+  process.exit(1);
+});
+
+async function main(): Promise<void> {
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+  const app = new CustomerApplication();
+=======
+  const app = new ExampleApplication();
+
+>>>>>>> Review Changes for Customer Microservice
+  await app.start();
+  console.log('Application Info:', app.info());
+}
