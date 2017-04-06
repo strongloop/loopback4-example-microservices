@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/strongloop/loopback-next-example#readme",
   "dependencies": {
-    "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
+    "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git",
+    "loopback-datasource-juggler": "git+ssh://git@github.com/strongloop/loopback-datasource-juggler.git"
   },
   "devDependencies": {
     "@types/node": "^7.0.12",

@@ -1,0 +1,63 @@
+{
+  "name": "Transaction",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "TransactionId": {
+      "type": "string",
+      "id": true,
+      "required": true
+    },
+    "dateTime": {
+      "type": "date",
+      "required": true
+    },
+    "accountNo": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true
+    },
+    "transactionType": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "queryByAccount": {
+      "accepts": [
+        {
+          "arg": "accountNumber",
+          "type": "string",
+          "required": true,
+          "description": "account number",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "transactions",
+          "type": "object",
+          "root": true,
+          "description": "The transaction list"
+        }
+      ],
+      "description": "list of transactions on the account",
+      "http": [
+        {
+          "path": "/account",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
