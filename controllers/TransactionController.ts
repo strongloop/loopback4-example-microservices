@@ -14,8 +14,8 @@ export class TransactionController {
 
     async getTransactions() : Promise<any> {
 
-        let testClass = new TransactionRepository();
-        let txns = await testClass.find();
+        let txnRepo = new TransactionRepository();
+        let txns = await txnRepo.find();
         return Promise.resolve(JSON.stringify(txns));
 
     }
