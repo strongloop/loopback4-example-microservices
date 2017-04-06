@@ -1,11 +1,11 @@
 import {Application, Server} from 'loopback-next/packages/loopback';
-import {VitalsController} from './controllers';
+import {CustomerController} from './controllers';
 
 class ExampleApplication extends Application {
   constructor() {
-    super();  
+    super();
     const app = this;
-    app.controller(VitalsController);
+    app.controller(CustomerController);
 
     app.bind('servers.http.enabled').to(true);
     app.bind('servers.https.enabled').to(true);
