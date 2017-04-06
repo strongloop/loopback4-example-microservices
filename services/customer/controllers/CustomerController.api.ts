@@ -24,8 +24,28 @@ export const def = {
                 description: 'SSN of a customer',
               },
               customerSince: {
-                type: 'datetime',
+                type: 'date',
                 description: 'Duration of a customer',
+              },
+              street: {
+                type: 'string',
+                description: 'street of a customer',
+              },
+              state: {
+                type: 'string',
+                description: 'state of a customer',
+              },
+              city: {
+                type: 'string',
+                description: 'city of a customer',
+              },
+              zip: {
+                type: 'string',
+                description: 'zip of a customer',
+              },
+              lastUpdated: {
+                type: 'string',
+                description: 'lastUpdated date of address of a customer',
               },
             },
           },

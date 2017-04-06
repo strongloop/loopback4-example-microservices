@@ -1,0 +1,35 @@
+import juggler = require('loopback-datasource-juggler');
+// change to import ... later
+const modelDefinition = require('./models/customer.def.json');
+
+
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+export class  CustomerRepository  {
+  _CustomerModel: any;
+
+  constructor() {
+    const DataSource = juggler.DataSource;
+    const ds = new DataSource('CustomerDB', {
+      connector: 'memory',
+      // change to ./models/customer.data.json
+=======
+export class CustomerRepository {
+_CustomerModel: any;
+constructor() {
+    const DataSource = juggler.DataSource;
+    const ds = new DataSource('CustomerDB', {
+      connector: 'memory',
+      // change to ./models/transaction.data.json
+>>>>>>> Review Changes for Customer Microservice
+      file: './repositories/customer/models/customer.data.json'
+    });
+    this._CustomerModel = ds.define('Customer', modelDefinition);
+  }
+<<<<<<< feef5f52490ce3899aa0489eb185ee5f63d124ca
+
+=======
+>>>>>>> Review Changes for Customer Microservice
+  async find(): Promise<any> {
+    return await this._CustomerModel.find();
+  }
+}
