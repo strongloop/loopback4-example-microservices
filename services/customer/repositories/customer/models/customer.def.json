@@ -1,9 +1,5 @@
 {
   "name": "Customer",
-  "idInjection": false,
-  "options": {
-    "validateUpsert": true
-  },
   "properties": {
     "customerNumber": {
       "type": "string",
@@ -22,16 +18,5 @@
     "customerSince": {
       "type": "date"
     }
-  },
-  "validations": [],
-  "relations": {
-    "address": {
-      "type": "embedsMany",
-      "model": "Address",
-      "scope": {
-        "include": "linked"
-      }
-    }
-  },
-  "acls": []
+  }
 }

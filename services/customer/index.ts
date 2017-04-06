@@ -1,29 +1,27 @@
 import {Application, Server} from 'loopback-next/packages/loopback';
 import {CustomerController} from './controllers';
 
-class ExampleApplication extends Application {
+class CustomerApplication extends Application {
+  private _startTime : Date;
+
   constructor() {
     super();
     const app = this;
     app.controller(CustomerController);
-
     app.bind('servers.http.enabled').to(true);
     app.bind('servers.https.enabled').to(true);
   }
 
-  private _startTime : Date;
-
   async start() {
     this._startTime = new Date();
     const server = new Server();
-    server.bind('applications.code-hub').to(this);
+    server.bind('applications.customer').to(this);
     return server.start();
   }
 
   info() {
-    return {
-      uptime: Date.now() - this._startTime.getTime(),
-    };
+    const uptime = Date.now() - this._startTime.getTime();
+    return {uptime: uptime};
   }
 }
 
@@ -34,8 +32,7 @@ main().catch(err => {
 });
 
 async function main(): Promise<void> {
-  const app = new ExampleApplication();
-
+  const app = new CustomerApplication();
   await app.start();
   console.log('Application Info:', app.info());
 }
