@@ -1,1 +1,4 @@
 node_modules
+del.sh
+.idea
+npm-debug.log
