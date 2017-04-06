@@ -1,32 +1,18 @@
 {
-  "name": "accounts",
+  "name": "account",
   "version": "1.0.0",
-  "description": "accounts service",
+  "description": "",
   "main": "index.js",
-  "debug": "ts-node --inspect index.ts",
-  "scripts": {
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
-    "start": "ts-node index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "loopback-datasource-juggler": "^3.4.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/strongloop/loopback-next-example.git"
+  "devDependencies": {
+    "@types/node": "^7.0.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/strongloop/loopback-next-example/issues"
-  },
-  "homepage": "https://github.com/strongloop/loopback-next-example#readme",
-  "dependencies": {
-    "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
-  },
-  "devDependencies": {
-    "@types/node": "^7.0.12",
-    "lerna": "2.0.0-beta.38",
-    "tsconfig-paths": "^2.1.2",
-    "typescript": "^2.2.2"
-  }
+  "license": "ISC"
 }
