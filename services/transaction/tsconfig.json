@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/loopback-next/packages/*"]
+      "*": ["*"]
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
