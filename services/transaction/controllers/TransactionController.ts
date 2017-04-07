@@ -5,8 +5,8 @@ import {TransactionRepository} from '../repositories/transaction';
 @api(def)
 export class TransactionController {
   async getTransactions() : Promise<any> {
-    const repository = new TransactionRepository();
-    const transactions = await repository.find();
+    const repo = new TransactionRepository();
+    const transactions = await repo.find();
     return Promise.resolve(JSON.stringify(transactions));
   }
 }
