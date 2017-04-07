@@ -14,7 +14,7 @@ class CustomerApplication extends Application {
 
   async start() {
     this._startTime = new Date();
-    const server = new Server();
+    const server = new Server({port: 3002});
     server.bind('applications.customer').to(this);
     return server.start();
   }
