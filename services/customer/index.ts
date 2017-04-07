@@ -25,7 +25,6 @@ class CustomerApplication extends Application {
   }
 }
 
-// tslint:disable-next-line:no-floating-promises
 main().catch(err => {
   console.log('Cannot start the app.', err);
   process.exit(1);

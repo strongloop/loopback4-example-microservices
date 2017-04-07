@@ -1,7 +1,6 @@
 {
   "ids": {
-    "Customer": 3499227,
-    "Address": 2
+    "Customer": 3499227
   },
   "models": {
     "Customer": {
