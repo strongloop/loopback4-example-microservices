@@ -1,0 +1,26 @@
+{
+   "swagger":"2.0",
+   "info":{
+      "version":"1.0.0",
+      "title":"customer"
+   },
+   "host": "localhost:3002",
+   "basePath":"/",
+   "paths":{
+      "/customers":{
+        "get":{
+            "summary":"Find all instances of the model matched by filter from the data source.",
+            "operationId":"find",
+            "responses":{
+               "200":{
+                  "description":"Request was successful",
+                  "schema":{
+                     "type":"string"
+                  }
+               }
+            },
+            "deprecated":false
+         }  
+      }
+   }
+}
