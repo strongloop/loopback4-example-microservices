@@ -4,6 +4,24 @@ export const def = {
     '/customers': {
       get: {
         'x-operation-name': 'getCustomers',
+        "parameters":[  
+               {  
+                  "name":"id",
+                  "in":"query",
+                  "description":"Model id",
+                  "required":true,
+                  "type":"string",
+                  "format":"JSON"
+               },
+               {  
+                  "name":"filter",
+                  "in":"query",
+                  "description":"Filter defining fields and include - must be a JSON-encoded string ({\"something\":\"value\"})",
+                  "required":false,
+                  "type":"string",
+                  "format":"JSON"
+               }
+            ],
         responses: {
           200: {
             schema: {
