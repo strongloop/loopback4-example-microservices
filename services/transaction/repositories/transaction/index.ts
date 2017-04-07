@@ -13,7 +13,7 @@ export class TransactionRepository {
     this._TransactionModel = ds.define('Transaction', modelDefinition);
   }
 
-  async find(): Promise<any> {
-    return await this._TransactionModel.find();
+  async find(id): Promise<any> {
+    return await this._TransactionModel.find({accountNo: id});
   }
 }

@@ -8,8 +8,10 @@ const ds = new DataSource('AccountService', {
 
 export class AccountRepository {
   constructor() {}
-  async find(): Promise<any> {
+  async find(accountNumber): Promise<any> {
+    console.log(accountNumber);
     let model = ds.createModel('AccountService', {});
-    return await model.find();
+    let account = await model.findById({id: accountNumber});
+    return account && account.obj || [];
   }
 }

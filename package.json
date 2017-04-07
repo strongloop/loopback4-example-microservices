@@ -20,8 +20,9 @@
   },
   "homepage": "https://github.com/strongloop/loopback-next-example#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "loopback-connector-swagger": "^3.2.0",
-    "loopback-datasource-juggler": "git+ssh://git@github.com/strongloop/loopback-datasource-juggler.git",
+    "loopback-datasource-juggler": "^3.4.1",
     "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
   },
   "devDependencies": {

@@ -8,8 +8,9 @@ const ds = new DataSource('TransactionService', {
 
 export class TransactionRepository {
   constructor() {}
-  async find(): Promise<any> {
+  async find(accountNumber): Promise<any> {
     let model = ds.createModel('TransactionService', {});
-    return await model.find();
+    let transaction = await model.findById({id: accountNumber});
+    return transaction && transaction.obj || [];
   }
 }

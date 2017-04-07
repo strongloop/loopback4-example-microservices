@@ -13,7 +13,7 @@ export class CustomerRepository  {
     this._CustomerModel = ds.define('Customer', modelDefinition);
   }
 
-  async find(): Promise<any> {
-    return await this._CustomerModel.find();
+  async find(id): Promise<any> {
+    return await this._CustomerModel.find({customerNumber: id});
   }
 }

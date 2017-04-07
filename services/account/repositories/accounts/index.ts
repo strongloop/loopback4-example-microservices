@@ -12,7 +12,7 @@ export class AccountRepository {
     this._AccountModel = ds.define('Account', modelDefinition);
   }
 
-  async find(): Promise<any> {
-    return await this._AccountModel.find();
+  async find(id): Promise<any> {
+    return await this._AccountModel.find({accountNumber: id});
   }
 }

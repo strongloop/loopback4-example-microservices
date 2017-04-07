@@ -4,9 +4,9 @@ import {CustomerRepository} from '../repositories/customer';
 
 @api(def)
 export class CustomerController {
-  async getCustomers(): Promise<any> {
-    const repo = new CustomerRepository();
-    const customers = await repo.find();
+  async getCustomers(filter): Promise<any> {
+    const repository = new CustomerRepository();
+    const customers = await repository.find(filter);
     return Promise.resolve(JSON.stringify(customers));
   }
 }
