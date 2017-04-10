@@ -1,8 +1,8 @@
-# loopback-next-example
+# loopback-next-example
 
 The example that determines what features get worked on in LoopBack-next in order to demonstrate best practices for building scalable Microservices.
 
-## Installation
+## Installation
 
 ```
 # install loopback-next
@@ -20,14 +20,12 @@ npm i
 npm link loopback-next
 ```
 
-## Execution
+## Execution
 
 ```
-cd loopback-next-example
 bin/start_all.sh
 ```
 
-## Working
-
- - The services folder contains 3 microservices which include [account](https://github.com/strongloop/loopback-next-example/tree/master/services/facade/repositories/account), [customer](https://github.com/strongloop/loopback-next-example/tree/master/services/facade/repositories/customer), [transaction](https://github.com/strongloop/loopback-next-example/tree/master/services/facade/repositories/transaction).
- - Loopback-next-example returns the summary of the above 3 entities in form of json.
+## Working
+ - The services folder contains 3 microservices which include [account](https://github.com/strongloop/loopback-next-example/tree/master/services/facade/repositories/account), [customer](https://github.com/strongloop/loopback-next-example/tree/master/services/facade/repositories/customer), [transaction](https://github.com/strongloop/loopback-next-example/tree/master/services/facade/repositories/transaction)
+ - Loopback-next-example returns the summary of the above 3 entities in form of json.
