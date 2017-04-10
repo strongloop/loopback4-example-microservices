@@ -8,9 +8,9 @@ const ds = new DataSource('CustomerService', {
 
 export class CustomerRepository {
   constructor() {}
-  async find(accountNumber): Promise<any> {
+  async find(customerNumber): Promise<any> {
     let model = ds.createModel('CustomerService', {});
-    let customer = await model.findById({id: accountNumber});
+    let customer = await model.findById({id: customerNumber});
     return customer && customer.obj || [];
   }
 }

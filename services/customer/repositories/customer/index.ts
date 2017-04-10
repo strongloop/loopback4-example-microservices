@@ -14,6 +14,6 @@ export class CustomerRepository  {
   }
 
   async find(id): Promise<any> {
-    return await this._CustomerModel.find({customerNumber: id});
+    return await this._CustomerModel.find({where: {id: id}});
   }
 }

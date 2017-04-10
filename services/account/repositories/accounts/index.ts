@@ -13,6 +13,6 @@ export class AccountRepository {
   }
 
   async find(id): Promise<any> {
-    return await this._AccountModel.find({accountNumber: id});
+    return await this._AccountModel.find({where: {id: id}});
   }
 }

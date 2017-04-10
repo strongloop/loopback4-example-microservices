@@ -7,6 +7,10 @@ export class TransactionController {
   async getTransactions(filter) : Promise<any> {
     const repository = new TransactionRepository();
     const transactions = await repository.find(filter);
-    return Promise.resolve(JSON.stringify(transactions));
+    const response = [];
+    transactions.forEach(element => {
+      response.push(element.toJSON());
+    });
+    return Promise.resolve(response);
   }
 }

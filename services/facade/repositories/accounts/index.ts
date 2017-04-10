@@ -9,7 +9,6 @@ const ds = new DataSource('AccountService', {
 export class AccountRepository {
   constructor() {}
   async find(accountNumber): Promise<any> {
-    console.log(accountNumber);
     let model = ds.createModel('AccountService', {});
     let account = await model.findById({id: accountNumber});
     return account && account.obj || [];
