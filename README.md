@@ -1,7 +1,4 @@
 # loopback-next-example
-
-This is an example that determines what features get worked on in LoopBack-next in order to demonstrate best practices for building scalable Microservices.
-
 In Loopback (2.x/3.x), models were responsible for both accessing data in other systems (databases, SOAP services, etc.) and providing the application's external REST API. This made it easy to quickly build a REST interface for an existing database, but difficult to customize the REST API and fine-tune it to the needs of application clients.
 
 LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
