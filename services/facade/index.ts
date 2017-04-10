@@ -1,11 +1,11 @@
 import {Application, Server} from 'loopback-next/packages/loopback';
-import {FacadeController} from './controllers';
+import {AccountController} from './controllers';
 
 class ExampleApplication extends Application {
   constructor() {
     super();  
     const app = this;
-    app.controller(FacadeController);
+    app.controller(AccountController);
 
     app.bind('servers.http.enabled').to(true);
     app.bind('servers.https.enabled').to(true);
@@ -16,7 +16,7 @@ class ExampleApplication extends Application {
   async start() {
     this._startTime = new Date();
     const server = new Server();
-    server.bind('applications.code-hub').to(this);
+    server.bind('applications.example').to(this);
     return server.start();
   }
 
@@ -27,7 +27,6 @@ class ExampleApplication extends Application {
   }
 }
 
-// tslint:disable-next-line:no-floating-promises
 main().catch(err => {
   console.log('Cannot start the app.', err);
   process.exit(1);
@@ -35,7 +34,6 @@ main().catch(err => {
 
 async function main(): Promise<void> {
   const app = new ExampleApplication();
-
   await app.start();
   console.log('Application Info:', app.info());
 }

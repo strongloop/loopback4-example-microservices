@@ -1,4 +1,19 @@
 import juggler = require('loopback-datasource-juggler');
+
+export class TransactionRepository {
+  service: TransactionService;
+
+  constructor() {
+    this.service = new TransactionService();
+  }
+
+  async find(accountNumber) {
+    return await this.service.find({id: accountNumber});
+  }
+}
+
+// mixin of data source into service is not yet available, swagger.json needs to
+// be loaded synchronously
 const DataSource = juggler.DataSource;
 var SwaggerClient = require('swagger-client');
 const ds = new DataSource('TransactionService', {
@@ -6,11 +21,13 @@ const ds = new DataSource('TransactionService', {
   spec: 'repositories/transaction/models/swagger.json'
 });
 
-export class TransactionRepository {
-  constructor() {}
-  async find(accountNumber): Promise<any> {
-    let model = ds.createModel('TransactionService', {});
-    let transaction = await model.findById({id: accountNumber});
-    return transaction && transaction.obj || [];
+export class TransactionService {
+  model: any;
+  constructor() {
+    this.model = ds.createModel('TransactionService', {});
+  }
+  async find(filter): Promise<any> {
+    let response = await this.model.findById(filter);
+    return response && response.obj || [];
   }
 }
