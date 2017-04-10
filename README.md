@@ -18,7 +18,8 @@ git clone git@github.com:strongloop/loopback-next-example
 cd loopback-next-example
 npm i
 npm link loopback-next
-./bin/start_all.sh
+chmod +x bin/*
+./bin/start.sh
 ```
 
 ### Make a request to get the account summary screen data, and get account.
@@ -27,6 +28,13 @@ npm link loopback-next
 ./bin/get-account-summary.sh
 ./bin/get-account.sh
 ```
+
+### To stop the facade and all micro-services
+
+```
+./bin/stop.sh
+```
+
 
 ### Working
  - The services folder contains 3 microservices which include [account](https://github.com/strongloop/loopback-next-example/tree/master/services/account), [customer](https://github.com/strongloop/loopback-next-example/tree/master/services/customer), [transaction](https://github.com/strongloop/loopback-next-example/tree/master/services/transaction)
