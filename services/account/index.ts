@@ -1,5 +1,5 @@
 import {Application, Server} from 'loopback-next/packages/loopback';
-import {AccountController} from './controllers';
+import {AccountController} from './controllers/AccountController';
 
 class AccountsApplication extends Application {
   private _startTime: Date;
@@ -25,7 +25,6 @@ class AccountsApplication extends Application {
   }
 }
 
-// tslint:disable-next-line:no-floating-promises
 main().catch(err => {
   console.log('Cannot start the app.', err);
   process.exit(1);

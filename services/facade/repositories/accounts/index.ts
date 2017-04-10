@@ -1,16 +1,45 @@
 import juggler = require('loopback-datasource-juggler');
+
+export class AccountRepository {
+  service: AccountService;
+
+  constructor() {
+    this.service = new AccountService();
+  }
+
+  async find(accountNumber) {
+    return await this.service.find({id: accountNumber});
+  }
+
+  async findOne(accountNumber) {
+    return await this.service.findOne({id: accountNumber});
+  }
+}
+
+// mixin of data source into service is not yet available, swagger.json needs to
+// be loaded synchronously
 const DataSource = juggler.DataSource;
-var SwaggerClient = require('swagger-client');
 const ds = new DataSource('AccountService', {
   connector: 'swagger',
   spec: 'repositories/accounts/models/swagger.json'
 });
+class AccountService {
+  model: any;
+  
+  constructor() {
+    this.model = ds.createModel('AccountService', {});
+  }
 
-export class AccountRepository {
-  constructor() {}
-  async find(accountNumber): Promise<any> {
-    let model = ds.createModel('AccountService', {});
-    let account = await model.findById({id: accountNumber});
-    return account && account.obj || [];
+  async find(filter) {
+    const res = await this.model.findById(filter);
+    const accounts = res && res.obj || [];
+    return accounts;
+  }
+
+  async findOne(filter) {
+    const res = await this.model.findOne(filter);
+    // fix me
+    const accounts = res && res.obj || [];
+    return accounts && accounts.obj || [];
   }
 }

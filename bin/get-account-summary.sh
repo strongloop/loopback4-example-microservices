@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-time curl -s http://localhost:3000/accountsummary?accountNumber=CHK52321122 | jq
+time curl -s http://localhost:3000/account/summary?accountNumber=CHK52321122 | jq

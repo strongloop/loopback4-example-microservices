@@ -1,2 +1,1 @@
-export * from './VitalsController';
-export * from './FacadeController';
+export * from './AccountController';

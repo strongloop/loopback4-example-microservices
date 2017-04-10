@@ -2,28 +2,15 @@ import {def} from './AccountController.api';
 import {api, inject} from 'loopback-next/packages/loopback';
 import {AccountRepository} from '../repositories/accounts';
 
-@api(def)
+@api(def) 
 export class AccountController {
    constructor() {
    }
-   public async getAccount(accountNumber) : Promise<Accounts>{
+   public async getAccount(accountNumber) {
       const repository = new AccountRepository();
       const accounts = await repository.find(accountNumber);
       const account = accounts.length && accounts.length > 0? accounts[0]: {};
-      const accountModel = new Accounts(account.toJSON());
+      const accountModel = account.toJSON();
       return accountModel;
    }
-}
-
-export class Accounts {
-  accountNumber: string
-  customerNumber: string
-  balance: number
-  branch: string
-  avgBalance: number
-  minimumBalance: number
-
-  constructor(data: Partial<Accounts>) {
-     Object.assign(this, data);  
-  }
 }
