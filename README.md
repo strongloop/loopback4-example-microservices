@@ -2,7 +2,7 @@
 
 The example that determines what features get worked on in LoopBack-next in order to demonstrate best practices for building scalable Microservices.
 
-## Installation
+## Download and run the code
 
 ```
 # install loopback-next
@@ -21,7 +21,7 @@ npm link loopback-next
 bin/start_all.sh
 ```
 
-## Execution
+## Make a request to get the account summary screen data, and get account.
 
 ```
 ./bin/get-account-summary.sh
