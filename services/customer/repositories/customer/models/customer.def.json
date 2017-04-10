@@ -1,7 +1,7 @@
 {
   "name": "Customer",
   "properties": {
-    "customerNumber": {
+    "id": {
       "type": "string",
       "id": true,
       "required": true
