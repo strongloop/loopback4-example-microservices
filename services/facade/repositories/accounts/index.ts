@@ -35,11 +35,4 @@ class AccountService {
     const accounts = res && res.obj || [];
     return accounts;
   }
-
-  async findOne(filter) {
-    const res = await this.model.findOne(filter);
-    // fix me
-    const accounts = res && res.obj || [];
-    return accounts && accounts.obj || [];
-  }
 }

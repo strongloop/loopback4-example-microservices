@@ -28,7 +28,7 @@ export class AccountController {
   }
 
   async getAccount(accountNumber): Promise<any> {
-    const account = this.accountRepository.findOne(accountNumber);
+    const account = await this.accountRepository.find(accountNumber);
     return Promise.resolve(JSON.stringify(account));
   }
 }
