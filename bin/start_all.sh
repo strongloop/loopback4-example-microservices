@@ -5,10 +5,23 @@ sleep 2
 
 echo "Starting services..."
 cd services/account
+npm i
+npm link loopback-next
 ts-node index.ts &
 cd ../customer
+npm i
+npm link loopback-next
 ts-node index.ts &
 cd ../transaction
+npm i
+npm link loopback-next
 ts-node index.ts &
-sleep 10
+sleep 5
+cd ../facade
+npm i
+npm link loopback-next
+ts-node index.ts &
 echo "Starting started up!!"
+sleep 5
+
+curl http://localhost:3000/accountsummary?accountNumber=CHK52321122 | jq
