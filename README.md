@@ -2,9 +2,9 @@
 
 The example that determines what features get worked on in LoopBack-next in order to demonstrate best practices for building scalable Microservices.
 
-## Installation & Run
+### Download and run the code
 
-**install loopback-next**
+**Install loopback-next**
 ```
 $ git clone git@github.com:strongloop/loopback-next
 $ cd loopback-next
@@ -14,7 +14,7 @@ $ lerna bootstrap
 $ npm link
 ```
 
-**install loopback-next-example**
+**Install loopback-next-example**
 ```
 $ cd ..
 $ git clone git@github.com:strongloop/loopback-next-example
@@ -38,7 +38,7 @@ $ bin/get-account.sh
 $ bin/stop.sh
 ```
 
-## Working
+### Working
 
  - The services folder contains 3 microservices which include [account](https://github.com/strongloop/loopback-next-example/tree/master/services/account), [customer](https://github.com/strongloop/loopback-next-example/tree/master/services/customer), [transaction](https://github.com/strongloop/loopback-next-example/tree/master/services/transaction)
  - Loopback-next-example returns the summary of the above 3 entities in form of json.
