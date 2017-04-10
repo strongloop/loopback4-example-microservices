@@ -4,7 +4,7 @@ The example that determines what features get worked on in LoopBack-ne
 
 ### Download and run the code
 
-**install loopback-next**
+**Install loopback-next**
 ```
 $ git clone git@github.com:strongloop/loopback-next
 $ cd loopback-next
@@ -14,14 +14,13 @@ $ lerna bootstrap
 $ npm link
 ```
 
-**install loopback-next-example**
+**Install loopback-next-example**
 ```
 $ cd ..
 $ git clone git@github.com:strongloop/loopback-next-example
 $ cd loopback-next-example
 $ npm i
 $ npm link loopback-next
-$ chmod +x bin/*
 $ bin/start.sh
 ```
 
