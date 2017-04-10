@@ -4,15 +4,18 @@ The example that determines what features get worked on in LoopBack-ne
 
 ## Installation
 
+**install loopback-next**
 ```
-# install loopback-next
 git clone git@github.com:strongloop/loopback-next
 cd loopback-next
 npm i
 npm i -g lerna
 lerna bootstrap
 npm link
-# install loopback-next-example
+```
+
+**install loopback-next-example**
+```
 cd ..
 git clone git@github.com:strongloop/loopback-next-example
 cd loopback-next-example
@@ -20,12 +23,15 @@ npm i
 npm link loopback-next
 ```
 
-## Execution
+`Note: steps to run loopback-next-example are mentioned in next step, proceed to next step.`
+
+## Run
 
 ```
 bin/start_all.sh
 ```
 
 ## Working
+
  - The services folder contains 3 microservices which include [account](https://github.com/strongloop/loopback-next-example/tree/master/services/account), [customer](https://github.com/strongloop/loopback-next-example/tree/master/services/customer), [transaction](https://github.com/strongloop/loopback-next-example/tree/master/services/transaction)
  - Loopback-next-example returns the summary of the above 3 entities in form of json.
