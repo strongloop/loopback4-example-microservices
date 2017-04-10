@@ -7,6 +7,7 @@ export class CustomerController {
   async getCustomers(filter): Promise<any> {
     const repository = new CustomerRepository();
     const customers = await repository.find(filter);
-    return Promise.resolve(JSON.stringify(customers));
+    const customer = customers.length && customers.length > 0? customers[0]: {};
+    return Promise.resolve(customer.toJSON());
   }
 }

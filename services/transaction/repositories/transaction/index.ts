@@ -1,4 +1,5 @@
 import juggler = require('loopback-datasource-juggler');
+const modelDefinition = require('./models/transaction.def.json');
 
 export class TransactionRepository {
   _TransactionModel: any;
@@ -9,11 +10,10 @@ export class TransactionRepository {
       connector: 'memory',
       file: './repositories/transaction/models/transaction.data.json'
     });
-    const modelDefinition = require('./models/transaction.def.json');
     this._TransactionModel = ds.define('Transaction', modelDefinition);
   }
 
   async find(id): Promise<any> {
-    return await this._TransactionModel.find({accountNo: id});
+    return await this._TransactionModel.find({where: {accountNo: id}});
   }
 }
