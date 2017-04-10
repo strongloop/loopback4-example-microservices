@@ -23,6 +23,8 @@ npm link loopback-next
 ts-node index.ts &
 sleep 5
 echo "Started all services!!"
-
-echo "Making account summary call to facade"
-curl http://localhost:3000/accountsummary?accountNumber=CHK52321122 | jq
+echo " "
+echo "To run the app, execute: "
+echo "./bin/get-account-summary.sh"
+echo "./bin/get-account.sh"
+echo " "
