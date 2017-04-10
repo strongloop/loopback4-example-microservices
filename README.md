@@ -6,6 +6,8 @@ In Loopback (2.x/3.x), models were responsible for both accessing data in other 
 
 LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
 
+In this example the facade uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservices. These repositories are nothing but swagger connectors to the corresponding services.
+
 ### Download and run the code
 
 **Install loopback-next**
