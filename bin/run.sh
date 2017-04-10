@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Testing Account"
 curl http://localhost:3001/accounts | jq
 
