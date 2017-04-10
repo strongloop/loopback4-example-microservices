@@ -21,8 +21,6 @@ cd ../facade
 npm i
 npm link loopback-next
 ts-node index.ts &
-cd ../..
-ts-node index.ts &
 sleep 5
 echo "Started all services!!"
 
