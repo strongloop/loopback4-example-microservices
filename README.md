@@ -18,12 +18,14 @@ git clone git@github.com:strongloop/loopback-next-example
 cd loopback-next-example
 npm i
 npm link loopback-next
+bin/start_all.sh
 ```
 
 ## Execution
 
 ```
-bin/start_all.sh
+./bin/get-account-summary.sh
+./bin/get-account.sh
 ```
 
 ## Working
