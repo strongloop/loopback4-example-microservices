@@ -3,7 +3,7 @@ In Loopback (2.x/3.x), models were responsible for both accessing data in other 
 
 LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
 
-In this example the facade uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservices. These repositories are nothing but swagger connectors to the corresponding services.
+In this example the facade uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservices. These repositories are nothing but swagger connectors to the corresponding services. Facade accesses Account, Customer and Transaction services on ports 3001, 3002 & 3003 respectively. The services folder is the one where all the services as well facade recides. The services all use the in memory database connector, to connect to the in memory db.
 
 ### Download and run the code
 
