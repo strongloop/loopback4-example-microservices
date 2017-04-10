@@ -10,10 +10,6 @@ export class AccountRepository {
   async find(accountNumber) {
     return await this.service.find({id: accountNumber});
   }
-
-  async findOne(accountNumber) {
-    return await this.service.findOne({id: accountNumber});
-  }
 }
 
 // mixin of data source into service is not yet available, swagger.json needs to
