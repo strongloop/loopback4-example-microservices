@@ -6,7 +6,6 @@ class ExampleApplication extends Application {
     super();  
     const app = this;
     app.controller(AccountController);
-
     app.bind('servers.http.enabled').to(true);
     app.bind('servers.https.enabled').to(true);
   }

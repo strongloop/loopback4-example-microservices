@@ -18,16 +18,18 @@ const DataSource = juggler.DataSource;
 var SwaggerClient = require('swagger-client');
 const ds = new DataSource('CustomerService', {
   connector: 'swagger',
-  spec: 'repositories/customer/models/swagger.json'
+  spec: 'repositories/customer/swagger.json'
 });
 
 export class CustomerService {
   model: any;
+
   constructor() {
     this.model = ds.createModel('CustomerService', {});
   }
+
   async find(filter): Promise<any> {
-    let response = await this.model.findById(filter);
+    const response = await this.model.findById(filter);
     return response && response.obj || [];
   }
 }

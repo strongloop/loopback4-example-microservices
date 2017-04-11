@@ -1,34 +1,20 @@
 {
-  "name": "loopback-next-example",
+  "name": "facade",
   "version": "1.0.0",
-  "description": "The example that determines what features get worked on in LoopBack-next.",
+  "description": "The facade microservice.",
   "main": "index.js",
+  "dependencies": {
+    "loopback-connector-swagger": "^3.2.0",
+    "loopback-datasource-juggler": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.12"
+  },
   "scripts": {
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
     "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/strongloop/loopback-next-example.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/strongloop/loopback-next-example/issues"
-  },
-  "homepage": "https://github.com/strongloop/loopback-next-example#readme",
-  "dependencies": {
-    "bluebird": "^3.5.0",
-    "loopback-connector-swagger": "^3.2.0",
-    "loopback-datasource-juggler": "^3.4.1",
-    "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
-  },
-  "devDependencies": {
-    "@types/node": "^7.0.12",
-    "lerna": "2.0.0-beta.38",
-    "tsconfig-paths": "^2.1.2",
-    "typescript": "^2.2.2"
-  }
+  "license": "ISC"
 }

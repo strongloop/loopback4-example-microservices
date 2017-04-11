@@ -8,7 +8,7 @@ export class AccountRepository {
   }
 
   async find(accountNumber) {
-    return await this.service.find({id: accountNumber});
+    return await this.service.find({id: accountNumber}); 
   }
 }
 
@@ -17,7 +17,7 @@ export class AccountRepository {
 const DataSource = juggler.DataSource;
 const ds = new DataSource('AccountService', {
   connector: 'swagger',
-  spec: 'repositories/accounts/models/swagger.json'
+  spec: 'repositories/accounts/swagger.json'
 });
 class AccountService {
   model: any;
@@ -27,8 +27,8 @@ class AccountService {
   }
 
   async find(filter) {
-    const res = await this.model.findById(filter);
-    const accounts = res && res.obj || [];
-    return accounts;
+    const response = await this.model.findById(filter);
+    const accounts = response && response.obj || [];
+    return accounts.length ? accounts[0] : {};
   }
 }

@@ -1,8 +1,8 @@
 {
   "name": "customer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The customer microservice.",
+  "main": "index.ts",
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1"
   },
