@@ -1,7 +1,7 @@
 {
   "name": "transaction",
   "version": "1.0.0",
-  "description": "",
+  "description": "The transaction microservice.",
   "main": "index.js",
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1"

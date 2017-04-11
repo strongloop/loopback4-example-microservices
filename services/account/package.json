@@ -1,8 +1,8 @@
 {
   "name": "account",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The account microservice.",
+  "main": "index.ts",
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1"
   },
@@ -10,6 +10,7 @@
     "@types/node": "^7.0.12"
   },
   "scripts": {
+    "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -17,7 +17,7 @@ export const def = {
           200: {
             schema: {
               summary: {
-                type: 'string', // shouldn't this be a json?
+                type: 'string',
                 description: 'The JSON representation of the aggregate account data',
               }
             },
@@ -41,7 +41,7 @@ export const def = {
           200: {
             schema: {
               summary: {
-                type: 'string', // shouldn't this be a json?
+                type: 'string',
                 description: 'The JSON representation of the account data',
               }
             },
