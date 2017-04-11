@@ -16,9 +16,84 @@ export const def = {
         responses: {
           200: {
             schema: {
-              summary: {
-                type: 'string',
-                description: 'The JSON representation of the aggregate account data',
+              accounts: {
+                type: 'object',
+                properties: {
+                  accountNumber: {
+                    type:'string',
+                    description:'account number',
+                  },
+                  customerNumber: {
+                    type:'string',
+                    description:'customer number',
+                  },
+                  type: {
+                    type:'string',
+                    description:'savings or checking',
+                  },
+                  balance: {
+                    type:'number',
+                    description:'balance amount',
+                  },
+                  minimumBalance: {
+                    type:'number',
+                    description:'account minimum balance',
+                  },
+                  avgBalance: {
+                    type:'number',
+                    description:'average balance',
+                  }
+                }
+              },
+              customer: {
+                type: 'array',
+                items: [
+                  {
+                    type: 'object',
+                    properties: {
+                      customerNumber: {
+                        type: 'string',
+                        description: 'The information of customers',
+                      },
+                      firstName: {
+                        type: 'string',
+                        description: 'Fist Name of a customer',
+                      },
+                      lastName: {
+                        type: 'string',
+                        description: 'Last Name of a customer',
+                      },
+                      ssn: {
+                        type: 'string',
+                        description: 'SSN of a customer',
+                      },
+                      customerSince: {
+                        type: 'datetime',
+                        description: 'Duration of a customer',
+                      },
+                      street: {
+                        type: 'string',
+                        description: 'street of a customer',
+                      },
+                      state: {
+                        type: 'string',
+                        description: 'state of a customer',
+                      },
+                      city: {
+                        type: 'string',
+                        description: 'city of a customer',
+                      },
+                      zip: {
+                        type: 'string',
+                        description: 'zip of a customer',
+                      },
+                      lastUpdated: {
+                        type: 'string',
+                        description: 'lastUpdated date of address of customer',
+                      },
+                    }
+                  }
+                ]
               }
             },
           },
@@ -40,9 +115,29 @@ export const def = {
         responses: {
           200: {
             schema: {
-              summary: {
-                type: 'string',
-                description: 'The JSON representation of the account data',
+              accountNumber: {
+                type:'string',
+                description:'account number',
+              },
+              customerNumber: {
+                type:'string',
+                description:'customer number',
+              },
+              type: {
+                type:'string',
+                description:'savings or checking',
+              },
+              balance: {
+                type:'number',
+                description:'balance amount',
+              },
+              minimumBalance: {
+                type:'number',
+                description:'account minimum balance',
+              },
+              avgBalance: {
+                type:'number',
+                description:'average balance',
               }
             },
           },
