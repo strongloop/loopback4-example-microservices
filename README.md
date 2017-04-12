@@ -152,6 +152,7 @@ Stopped facade and all the services!
 <td><a href="http://github.com/deepakrkris">Deepak Rajamohan<img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a></td>
 </tr>
 </table>
+
 [See all contributors](https://github.com/strongloop/loopback-next-example/graphs/contributors)
 
 # Contributing
