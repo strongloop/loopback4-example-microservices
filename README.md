@@ -18,7 +18,7 @@ In loopback-next-example we demonstrate this loose coupling. The facade here use
 
 ### Install Dependencies and clone loopback-next-example
 ```
-bin/build
+bin/build.sh
 ```
 
 ## Usage
