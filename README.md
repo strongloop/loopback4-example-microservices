@@ -155,8 +155,8 @@ Stopped facade and all the services!
 
 # Contributing
 
-- [[Guidelines]]
-- [[Join the team]]
+ - [Guidelines]()
+ - [Join the team]()
 
 [See all contributors](https://github.com/strongloop/loopback-next-example/graphs/contributors)
 
