@@ -39,11 +39,20 @@ $ bin/start
 ```
 **Sample Output**
 ```
+Stopping service if any running...
 Starting services...
-Application Info: { uptime: 10 }
-Application Info: { uptime: 13 }
+Started account service, Pid: XXXXX
+Started customer service, PID: XXXXX
+Started transaction service, PID: XXXXX
+Started facade service, PID: XXXXX
+Application Info: { uptime: 14 }
+Application Info: { uptime: 15 }
 Application Info: { uptime: 13 }
 Application Info: { uptime: 11 }
+Started all services!!
+To run the app, execute: 
+./bin/get-account-summary
+./bin/get-account
 ```
 
 ## Usage
