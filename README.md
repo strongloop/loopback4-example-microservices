@@ -32,7 +32,7 @@ $ bin/build
 
 ## Run
 
-### To start the facade and all micro-services
+### To start the facade and all microservices
 
 ```
 $ bin/start
@@ -141,7 +141,24 @@ $ bin/stop
 Stopped facade and all the services!
 ```
 
-# Contributors
+# Team
+
+<table>
+<tr>
+<td><a href="http://github.com/ritch">Ritchie Martori<img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60"></a></td>
+<td><a href="http://github.com/superkhau">Simon Ho<img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60"></a></td>
+<td><a href="http://github.com/siddhipai">Siddhi Pai<img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60"></a></td>
+<td><a href="http://github.com/mpatsute">Mahesh Patsute<img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60"></a></td>
+<td><a href="http://github.com/deepakrkris">Deepak Rajamohan<img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a></td>
+</tr>
+</table>
+
+# Contributing
+
+- [[Guidelines]]
+- [[Join the team]]
+
+[See all contributors](https://github.com/strongloop/loopback-next/graphs/contributors)
 
 
 # License
