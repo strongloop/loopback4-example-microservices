@@ -62,7 +62,7 @@ To run the app, execute:
 Then run the [`get-account-summary`](https://github.com/strongloop/loopback-next-example/blob/master/bin/get-account-summary#L2)
 script to make a request to the facade to get the the summary of account id CCHK52321122:
 ```
-$ bin/get-account-summary.sh
+$ bin/get-account-summary
 ```
 **Sample Output**
 ```
@@ -105,7 +105,7 @@ $ bin/get-account-summary.sh
 Then run the [`get-account`](https://github.com/strongloop/loopback-next-example/blob/master/bin/get-account#L2)
 script to make a request to the facade to get the account :
 ```
-$ bin/get-account.sh
+$ bin/get-account
 ```
 **Sample Output**
 ```
