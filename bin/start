@@ -2,38 +2,23 @@
 
 # First stop if anything
 echo "Stopping service if any running..."
-ps -ef | grep "[i]ndex.ts" | awk '{print $2}' | xargs kill -9
-
-echo "Installing..."
-cd services/account
-npm i
-npm link loopback-next
-cd ../customer
-npm i
-npm link loopback-next
-cd ../transaction
-npm i
-npm link loopback-next
-cd ../facade
-npm i
-npm link loopback-next
+ps -ef | grep "[l]b-next" | awk '{print $2}' | xargs kill -9
 
 echo "Starting services..."
 
-cd ../account
-ts-node index.ts &
+cd services/account
+ts-node index.ts lb-next-account-micro-serv & echo "Started account service, Pid:" $!
 
 cd ../customer
-ts-node index.ts &
+ts-node index.ts lb-next-customer-micro-serv & echo "Started customer service, PID:" $!
 
 cd ../transaction
-ts-node index.ts &
+ts-node index.ts lb-next-transaction-micro-serv & echo "Started transaction service, PID:" $!
 
-sleep 5
 cd ../facade
-ts-node index.ts &
-sleep 5
+ts-node index.ts lb-next-facade-micro-serv & echo "Started facade service, PID:" $!
 
+sleep 5
 echo "Started all services!!"
 echo "To run the app, execute: "
 echo "./bin/get-account-summary"
