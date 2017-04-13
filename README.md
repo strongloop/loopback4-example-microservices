@@ -106,7 +106,7 @@ You should see:
 
 > The data above is the account summary for the Account with ID `CCHK52321122`.
 
-### "Perform a HTTP GET request to retrieve account data" for consistency with previous command
+### Perform a HTTP GET request to retrieve account data
 
 ```
 $ ./bin/get-account
