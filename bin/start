@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # First stop if anything
-echo "Stopping service if any running..."
+echo "Stopping microservices related to the example..."
 ps -ef | grep "[l]b-next" | awk '{print $2}' | xargs kill -9
 
 echo "Starting services..."
 
 cd services/account
-ts-node index.ts lb-next-account-micro-serv & echo "Started account service, Pid:" $!
+ts-node index.ts lb-next-account-micro-serv & echo "Started account service, PID:" $!
 
 cd ../customer
 ts-node index.ts lb-next-customer-micro-serv & echo "Started customer service, PID:" $!
@@ -19,7 +19,7 @@ cd ../facade
 ts-node index.ts lb-next-facade-micro-serv & echo "Started facade service, PID:" $!
 
 sleep 5
-echo "Started all services!!"
-echo "To run the app, execute: "
+echo "All microservices started successfully."
+echo "To test the application, run the get account summary script:"
 echo "./bin/get-account-summary"
 echo "./bin/get-account"
