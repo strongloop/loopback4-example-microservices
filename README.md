@@ -146,7 +146,7 @@ You should see:
 ```
 All microservices stopped successfully.
 ```
-### Whats different in Loopback.next?
+### What's different in Loopback 4.x ?
 
 In Loopback (2.x/3.x), models were responsible for both accessing data in other systems (databases, SOAP services, etc.) and providing the application's external REST API. This made it easy to quickly build a REST interface for an existing database, but difficult to customize the REST API and fine-tune it to the needs of application clients.
 
