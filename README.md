@@ -9,7 +9,6 @@ LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where t
 In loopback-next-example we demonstrate this loose coupling. The facade here uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservice. These repositories are nothing but swagger connectors to the corresponding services running locally on the given ports, defined in swagger configurations of the services. These ports are 3001, 3002 & 3003 for Account, Customer and Transaction services respectively. The services along with the facade, reside in services folder. Each of the services has its own set of repositories, which can be connections to one or many other dependent services. In a typical scenario, there will atleast be one repository which represents the DB access for that model. In our loopback-next-example all the services Accout, Customer and Transaction have one repository that represents the DB access and uses the in memory database connector, to connect to the in memory db.
 
 ## Installation
-
 ### Prerequisites
 
 Make sure you have the following installed: 
@@ -18,7 +17,7 @@ Make sure you have the following installed:
 - [TypeScript](https://www.typescriptlang.org/) >= 2.0.0 `npm i -g typescript`
 - [TypeScript Node](https://github.com/TypeStrong/ts-node) >= 3.0.0 `npm i -g ts-node`
 
-### Install loopback-next
+### First, install loopback-next:
 
 ```
 $ git clone git@github.com:strongloop/loopback-next
@@ -26,7 +25,7 @@ $ cd loopback-next
 $ ./bin/build
 ```
 
-### Install loopback-next-example dependencies
+### Then install loopback-next-example:
 
 ```
 $ cd ..
@@ -36,14 +35,13 @@ $ ./bin/build
 ```
 
 ## Usage
-
 ### Start all microservices
 
 ```
 $ ./bin/start
 ```
 
-#### Sample Output
+#### You should see:
 
 ```
 Stopping microservices related to the example...
@@ -68,7 +66,7 @@ To test the application, run the get account summary script:
 $ ./bin/get-account-summary
 ```
 
-#### Sample Output
+#### You should see:
 
 ```
 {
@@ -104,15 +102,16 @@ $ ./bin/get-account-summary
       "transactionType": "debit"
     }
 ```
+
 > The data above is the account summary for the Account with ID `CCHK52321122`.
 
-### Make a request to get the account
+### "Perform a HTTP GET request to retrieve account data" for consistency with previous command
 
 ```
 $ ./bin/get-account
 ```
 
-#### Sample Output
+#### You should see:
 
 ```
 [
@@ -136,15 +135,16 @@ $ ./bin/get-account
   }
 ]
 ```
+
 > The data above is the account details for account with ID `CCHK52321122`.
 
-### To stop the facade and all micro-services
+### To stop the facade and all microservices
 
 ```
 $ ./bin/stop
 ```
 
-#### Sample Output
+#### You should see:
 
 ```
 All microservices stopped successfully.
