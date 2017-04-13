@@ -6,7 +6,7 @@ In Loopback (2.x/3.x), models were responsible for both accessing data in other 
 
 LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
 
-In loopback-next-example we demonstrate this loose coupling. The facade here is the top level service that serves the account summary api, and is dependent on the three Account, Customer and Transaction services. The facade only aggregates the call to the three services. It can vary independently. We can define the apis in facade the way we want, and is not coupled with the DB models.
+In loopback-next-example we demonstrate this loose coupling. Facade is our the top level service that serves the account summary api, and is dependent on the three Account, Customer and Transaction services. But the facade only aggregates the call to the three services, and not tighly coupled with the service implementation, and thats why it can vary independent of the three services. We can define the apis in facade the way we want. Thus code responsible for data access and manipulation is seperated from the code responsible for implementing client side APIs.
 
 ## Installation
 ### Prerequisites
