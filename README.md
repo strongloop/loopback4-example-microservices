@@ -6,40 +6,47 @@ In Loopback (2.x/3.x), models were responsible for both accessing data in other 
 
 LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
 
-In loopback-next-example we demonstrate this loose coupling. The facade here uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservice. These repositories are nothing but swagger connectors to the corresponding services running locally on the given ports, defined in swagger configurations of the services. These ports are 3001, 3002 & 3003 for Account, Customer and Transaction services respectively. The services along with the facade, reside in services folder. Each of the services has its own set of repositories, which can be connections to one or many other dependent services. In a typical scenario, there will at least be one repository which represents the DB access for that model. In our loopback-next-example all the services Accout, Customer and Transaction have one repository that represents the DB access and uses the in memory database connector, to connect to the in memory db.
+In loopback-next-example we demonstrate this loose coupling. The facade here uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservice. These repositories are nothing but swagger connectors to the corresponding services running locally on the given ports, defined in swagger configurations of the services. These ports are 3001, 3002 & 3003 for Account, Customer and Transaction services respectively. The services along with the facade, reside in services folder. Each of the services has its own set of repositories, which can be connections to one or many other dependent services. In a typical scenario, there will atleast be one repository which represents the DB access for that model. In our loopback-next-example all the services Accout, Customer and Transaction have one repository that represents the DB access and uses the in memory database connector, to connect to the in memory db.
 
 ## Installation
 
-### prerequisites
- - https://github.com/strongloop/loopback-next/wiki/README#installation
- - node >= v6.0
- - ts-node >= v3.0.2
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org) >= 7.0.0
+- [TypeScript](https://www.typescriptlang.org/) >= 2.0.0 `npm i -g typescript`
+- [TypeScript Node](https://github.com/TypeStrong/ts-node) >= 3.0.0 `npm i -g ts-node`
 
 ### Install loopback-next
+
 ```
 $ git clone git@github.com:strongloop/loopback-next
 $ cd loopback-next
-$ bin/build
+$ ./bin/build
 ```
 
-### Install dependencies for loopback-next-example
+### Install loopback-next-example dependencies
+
 ```
 $ cd ..
 $ git clone git@github.com:strongloop/loopback-next-example
 $ cd loopback-next-example
-$ bin/build
+$ ./bin/build
 ```
 
-## Run
+## Usage
 
-### To start the facade and all microservices
+### Start all microservices
 
 ```
-$ bin/start
+$ ./bin/start
 ```
-**Sample Output**
+
+#### Sample Output
+
 ```
-Stopping service if any running...
+Stopping microservices related to the example...
 Starting services...
 Started account service, Pid: XXXXX
 Started customer service, PID: XXXXX
@@ -49,22 +56,20 @@ Application Info: { uptime: 14 }
 Application Info: { uptime: 15 }
 Application Info: { uptime: 13 }
 Application Info: { uptime: 11 }
-Started all services!!
-To run the app, execute: 
+All microservices started successfully.
+To test the application, run the get account summary script:
 ./bin/get-account-summary
 ./bin/get-account
 ```
 
-## Usage
+### Perform a HTTP GET request to retrieve account summary data
 
-### Make a request to get the account summary screen data
+```
+$ ./bin/get-account-summary
+```
 
-Then run the [`get-account-summary`](https://github.com/strongloop/loopback-next-example/blob/master/bin/get-account-summary#L2)
-script to make a request to the facade to get the the summary of account id CCHK52321122:
-```
-$ bin/get-account-summary
-```
-**Sample Output**
+#### Sample Output
+
 ```
 {
   "account": {
@@ -99,15 +104,16 @@ $ bin/get-account-summary
       "transactionType": "debit"
     }
 ```
+> The data above is the account summary for the Account with ID `CCHK52321122`.
 
 ### Make a request to get the account
 
-Then run the [`get-account`](https://github.com/strongloop/loopback-next-example/blob/master/bin/get-account#L2)
-script to make a request to the facade to get the account :
 ```
 $ bin/get-account
 ```
-**Sample Output**
+
+#### Sample Output
+
 ```
 [
   {
@@ -130,18 +136,27 @@ $ bin/get-account
   }
 ]
 ```
+> The data above is the account details for account with ID `CCHK52321122`.
 
 ### To stop the facade and all micro-services
 
 ```
 $ bin/stop
 ```
-**Sample Output**
+
+#### Sample Output
+
 ```
-Stopped facade and all the services!
+All microservices stopped successfully.
 ```
 
 # Team
+
+Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
+:-:|:-:|:-:|:-:|:-:
+<a href="http://github.com/ritch"><img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60">|<a href="http://github.com/superkhau"><img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60"></a>|<a href="http://github.com/siddhipai"><img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60"></a>|<a href="http://github.com/mpatsute"><img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60">|<a href="http://github.com/deepakrkris"><img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a>
+
+[See all contributors](https://github.com/strongloop/loopback-next/graphs/contributors)
 
 <table>
 <tr>
@@ -157,8 +172,8 @@ Stopped facade and all the services!
 
 # Contributing
 
- - [Guidelines]()
- - [Join the team]()
+- [Guidelines](https://github.com/strongloop/loopback-next-example/wiki/Contribution-guidelines)
+- [Join the team](https://github.com/strongloop/loopback-next-example/wiki/Join-the-team)
 
 # License
 
