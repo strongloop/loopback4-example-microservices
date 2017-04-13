@@ -6,7 +6,7 @@ In Loopback (2.x/3.x), models were responsible for both accessing data in other 
 
 LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
 
-In loopback-next-example we demonstrate this loose coupling. The facade here uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservice. These repositories are nothing but swagger connectors to the corresponding services running locally on the given ports, defined in swagger configurations of the services. These ports are 3001, 3002 & 3003 for Account, Customer and Transaction services respectively. The services along with the facade, reside in services folder. Each of the services has its own set of repositories, which can be connections to one or many other dependent services. In a typical scenario, there will atleast be one repository which represents the DB access for that model. In our loopback-next-example all the services Accout, Customer and Transaction have one repository that represents the DB access and uses the in memory database connector, to connect to the in memory db.
+In loopback-next-example we demonstrate this loose coupling. The facade here uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservice. These repositories are nothing but swagger connectors to the corresponding services running locally on the given ports, defined in swagger configurations of the services. 
 
 ## Installation
 ### Prerequisites
@@ -148,6 +148,15 @@ $ ./bin/stop
 
 ```
 All microservices stopped successfully.
+```
+
+#### Directory Layout and implementation details
+
+```
+In the given example we have a facade service which gets the account summary and is dependent on three other services Account, Customer and Transaction. These services are all bundled in the services folder. Each service has a set of respositories define in [service]/repositories folder. The repositories are the connections from that service to other services, for example from facade to the three dependent services, or to the databases, for example from account to the account db, customer to customer db etc. Each service also has a couple of controller classes, on of which [service].api.ts define the routes, and another [service].ts that provides the implementation.
+
+These services Account, Customer and Transaction run on ports are 3001, 3002 & 3003 respectively. These can be found in swagger definitions of the facades repositories (eg facade/repositories/accounts/swagger.json). Facade calls each of these services on the respective ports.
+
 ```
 
 # Team
