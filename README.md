@@ -109,7 +109,7 @@ $ ./bin/get-account-summary
 ### Make a request to get the account
 
 ```
-$ bin/get-account
+$ ./bin/get-account
 ```
 
 #### Sample Output
@@ -141,7 +141,7 @@ $ bin/get-account
 ### To stop the facade and all micro-services
 
 ```
-$ bin/stop
+$ ./bin/stop
 ```
 
 #### Sample Output
