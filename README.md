@@ -156,18 +156,6 @@ Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
 :-:|:-:|:-:|:-:|:-:
 <a href="http://github.com/ritch"><img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60">|<a href="http://github.com/superkhau"><img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60"></a>|<a href="http://github.com/siddhipai"><img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60"></a>|<a href="http://github.com/mpatsute"><img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60">|<a href="http://github.com/deepakrkris"><img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a>
 
-[See all contributors](https://github.com/strongloop/loopback-next/graphs/contributors)
-
-<table>
-<tr>
-<td><a href="http://github.com/ritch">Ritchie Martori<img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60"></a></td>
-<td><a href="http://github.com/superkhau">Simon Ho<img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60"></a></td>
-<td><a href="http://github.com/siddhipai">Siddhi Pai<img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60"></a></td>
-<td><a href="http://github.com/mpatsute">Mahesh Patsute<img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60"></a></td>
-<td><a href="http://github.com/deepakrkris">Deepak Rajamohan<img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a></td>
-</tr>
-</table>
-
 [See all contributors](https://github.com/strongloop/loopback-next-example/graphs/contributors)
 
 # Contributing
