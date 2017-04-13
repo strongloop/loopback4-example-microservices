@@ -15,7 +15,7 @@ Make sure you have the following installed:
 Then install loopback-next:
 
 ```
-$ git clone git@github.com:strongloop/loopback-next
+$ git clone https://github.com/strongloop/loopback-next
 $ cd loopback-next
 $ ./bin/build
 ```
@@ -24,7 +24,7 @@ Then install loopback-next-example:
 
 ```
 $ cd ..
-$ git clone git@github.com:strongloop/loopback-next-example
+$ git clone https://github.com/strongloop/loopback-next-example
 $ cd loopback-next-example
 $ ./bin/build
 ```
