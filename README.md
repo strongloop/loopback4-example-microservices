@@ -4,12 +4,6 @@
 
 To demonstrate how to use LoopBack.next and some of the recommended best practices.
 
-In Loopback (2.x/3.x), models were responsible for both accessing data in other systems (databases, SOAP services, etc.) and providing the application's external REST API. This made it easy to quickly build a REST interface for an existing database, but difficult to customize the REST API and fine-tune it to the needs of application clients.
-
-LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
-
-In loopback-next-example we demonstrate this loose coupling. The facade here uses a set of repositories one corresponding to each of the Account, Customer & Transaction microservice. These repositories are nothing but swagger connectors to the corresponding services running locally on the given ports, defined in swagger configurations of the services. These ports are 3001, 3002 & 3003 for Account, Customer and Transaction services respectively. The services along with the facade, reside in services folder. Each of the services has its own set of repositories, which can be connections to one or many other dependent services. In a typical scenario, there will atleast be one repository which represents the DB access for that model. In our loopback-next-example all the services Accout, Customer and Transaction have one repository that represents the DB access and uses the in memory database connector, to connect to the in memory db.
-
 ## Installation
 
 Make sure you have the following installed: 
@@ -21,7 +15,7 @@ Make sure you have the following installed:
 Then install loopback-next:
 
 ```
-$ git clone git@github.com:strongloop/loopback-next
+$ git clone https://github.com/strongloop/loopback-next
 $ cd loopback-next
 $ ./bin/build
 ```
@@ -30,7 +24,7 @@ Then install loopback-next-example:
 
 ```
 $ cd ..
-$ git clone git@github.com:strongloop/loopback-next-example
+$ git clone https://github.com/strongloop/loopback-next-example
 $ cd loopback-next-example
 $ ./bin/build
 ```
@@ -152,6 +146,13 @@ You should see:
 ```
 All microservices stopped successfully.
 ```
+### Whats different in Loopback.next?
+
+In Loopback (2.x/3.x), models were responsible for both accessing data in other systems (databases, SOAP services, etc.) and providing the application's external REST API. This made it easy to quickly build a REST interface for an existing database, but difficult to customize the REST API and fine-tune it to the needs of application clients.
+
+LoopBack v4 is moving to the well-known Model-(View-)Controller pattern, where the code responsible for data access and manipulation is separated from the code responsible for implementing the REST API.
+
+In loopback-next-example we demonstrate this loose coupling. Facade is our the top level service that serves the account summary api, and is dependent on the three Account, Customer and Transaction services. But the facade only aggregates the call to the three services, and not tighly coupled with the service implementation, and thats why it can vary independent of the three services. We can define the apis in facade the way we want. Thus code responsible for data access and manipulation is seperated from the code responsible for implementing client side APIs.
 
 # Team
 
