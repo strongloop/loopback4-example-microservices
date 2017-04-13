@@ -150,7 +150,7 @@ $ ./bin/stop
 All microservices stopped successfully.
 ```
 
-#### Directory Layout and implementation details
+### Directory Layout and implementation details
 
 In the given example we have a facade service which gets the account summary and is dependent on three other services Account, Customer and Transaction. These services are all bundled in the services folder. Each service has a set of respositories define in [service]/repositories folder. The repositories are the connections from that service to other services, for example from facade to the three dependent services, or to the databases, for example from account to the account db, customer to customer db etc. Each service also has a couple of controller classes, on of which [service].api.ts define the routes, and another [service].ts that provides the implementation.
 
