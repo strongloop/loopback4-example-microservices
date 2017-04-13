@@ -152,12 +152,9 @@ All microservices stopped successfully.
 
 #### Directory Layout and implementation details
 
-```
 In the given example we have a facade service which gets the account summary and is dependent on three other services Account, Customer and Transaction. These services are all bundled in the services folder. Each service has a set of respositories define in [service]/repositories folder. The repositories are the connections from that service to other services, for example from facade to the three dependent services, or to the databases, for example from account to the account db, customer to customer db etc. Each service also has a couple of controller classes, on of which [service].api.ts define the routes, and another [service].ts that provides the implementation.
 
 These services Account, Customer and Transaction run on ports are 3001, 3002 & 3003 respectively. These can be found in swagger definitions of the facades repositories (eg facade/repositories/accounts/swagger.json). Facade calls each of these services on the respective ports.
-
-```
 
 # Team
 
