@@ -12,7 +12,7 @@ In loopback-next-example we demonstrate this loose coupling. The facade here use
 
 ### Prerequisites
 
-Make sure you have the following installed:
+Make sure you have the following installed: 
 
 - [Node.js](https://nodejs.org) >= 7.0.0
 - [TypeScript](https://www.typescriptlang.org/) >= 2.0.0 `npm i -g typescript`
