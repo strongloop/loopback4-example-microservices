@@ -5,6 +5,7 @@
   "main": "facade/index.js",
   "scripts": {
     "build": "./bin/build",
+    "restart": "npm run stop && npm run build && npm run start",
     "start": "./bin/start",
     "stop": "./bin/stop",
     "test": "./bin/get-account-summary"
