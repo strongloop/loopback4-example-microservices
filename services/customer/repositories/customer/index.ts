@@ -1,19 +1,6 @@
 import juggler = require('loopback-datasource-juggler');
 
 export class CustomerRepository  {
-  service: any;
-
-  constructor() {
-    this.service = new CustomerService();
-  }
-
-  async find(id): Promise<any> {
-    return await this.service.find({where: {id: id}});
-  }
-}
-
-// mixin of data source into service is not yet available
-export class CustomerService  {
   model: any;
 
   constructor() {
@@ -26,7 +13,7 @@ export class CustomerService  {
     this.model = ds.define('Customer', modelDefinition);
   }
 
-  async find(filter): Promise<any> {
-    return await this.model.find(filter);
+  async find(id): Promise<any> {
+    return await this.model.find({where: {id: id}});
   }
 }
