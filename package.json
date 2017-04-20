@@ -5,7 +5,7 @@
   "main": "facade/index.js",
   "scripts": {
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
-    "start": ".bin/start_all.sh",
+    "start": "./bin/build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
