@@ -6,6 +6,7 @@
   "scripts": {
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
     "start": "./bin/start",
+    "stop": "./bin/stop",
     "test": "./bin/get-account-summary"
   },
   "repository": {
