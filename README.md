@@ -6,7 +6,7 @@ To demonstrate how to use LoopBack.next and some of the recommended best practic
 
 ## Installation
 
-Make sure you have the following installed: 
+Make sure you have the following installed:
 
 - [Node.js](https://nodejs.org) >= 7.0.0
 - [TypeScript](https://www.typescriptlang.org/) >= 2.0.0 `npm i -g typescript`
@@ -29,7 +29,7 @@ $ cd loopback-next-example
 $ ./bin/build
 ```
 
-## Usage
+## Basic use
 
 ### Start all microservices
 
