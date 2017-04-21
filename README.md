@@ -24,7 +24,6 @@ npm run bootstrap
 npm link
 
 # install loopback-next-example
-```shell
 cd ..
 git clone https://github.com/strongloop/loopback-next-example
 cd loopback-next-example
