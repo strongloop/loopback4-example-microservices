@@ -2,7 +2,7 @@
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/strongloop/loopback)
 
-To demonstrate how to use LoopBack.next and some of the recommended best practices.
+How to use LoopBack.next and some of the recommended best practices.
 
 ## Installation
 
