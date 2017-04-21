@@ -40,7 +40,7 @@ npm start
 curl localhost:3000/account/summary?accountNumber=CHK52321122
 
 # perform GET request to retrive account data
-curl -s localhost:3001/accounts?accountNumber=CHK52321122
+curl localhost:3001/accounts?accountNumber=CHK52321122
 
 # stop all microservices
 npm stop
