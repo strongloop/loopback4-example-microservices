@@ -31,32 +31,32 @@ npm run build # or ./bin/build
 
 ## Basic use
 
-### Start all microservices
+Start all microservices
 
 ```shell
 npm start
 ```
 
-### Perform a HTTP GET request to retrieve account summary data
+Perform a HTTP GET request to retrieve account summary data
 
 ```shell
 curl localhost:3000/account/summary?accountNumber=CHK52321122
 ```
 
-### Perform a HTTP GET request to retrieve account data
+Perform a HTTP GET request to retrieve account data
 
 ```
 curl -s localhost:3001/accounts?accountNumber=CHK52321122
 ```
 
-### To stop the facade and all microservices
+Stop all microservices
 
 ```
 npm stop
 ```
 
-> Helper scripts for all the above commands are also available in
-> https://github.com/strongloop/loopback-next-example/tree/master/bin
+> Helper scripts for each commands is available in the [`/bin`](https://github.com/strongloop/loopback-next-example/tree/master/bin)
+directory.
 
 ### What's different in Loopback 4.x ?
 
