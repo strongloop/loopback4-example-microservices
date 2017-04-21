@@ -2,7 +2,7 @@ const juggler = require('loopback-datasource-juggler');
 const modelDefinition = require('./models/account/model-definition.json');
 
 export class AccountRepository {
-  model: Account;
+  model: PersistedModel;
 
   constructor() {
     const DataSource = juggler.DataSource;
@@ -18,6 +18,6 @@ export class AccountRepository {
   }
 }
 
-interface Account {
+interface PersistedModel {
   find: Function
 }

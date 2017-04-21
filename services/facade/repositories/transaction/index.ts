@@ -10,7 +10,7 @@ const ds = new DataSource('TransactionService', {
 });
 
 export class TransactionRepository {
-  model: Transaction;
+  model: PersistedModel;
 
   constructor() {
     this.model = ds.createModel('TransactionService', {});
@@ -22,6 +22,6 @@ export class TransactionRepository {
   }
 }
 
-interface Transaction {
+interface PersistedModel {
   findById: Function
 }

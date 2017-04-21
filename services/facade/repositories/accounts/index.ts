@@ -9,7 +9,7 @@ const ds = new DataSource('AccountService', {
 });
 
 export class AccountRepository {
-  model: Account;
+  model: PersistedModel;
 
   constructor() {
     this.model = ds.createModel('AccountService', {});
@@ -22,6 +22,6 @@ export class AccountRepository {
   }
 }
 
-interface Account {
+interface PersistedModel {
   findById: Function
 }
