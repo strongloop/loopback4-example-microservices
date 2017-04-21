@@ -1,7 +1,7 @@
 {
   "name": "facade",
   "version": "1.0.0",
-  "description": "The facade microservice.",
+  "description": "The Facade microservice.",
   "main": "index.ts",
   "dependencies": {
     "loopback-connector-swagger": "^3.2.0",
