@@ -1,7 +1,7 @@
-import {Application, Server} from 'loopback-next/packages/loopback';
-import {AccountController} from './controllers/AccountController';
+import { Application, Server } from 'loopback-next/packages/loopback';
+import { AccountController } from './controllers/AccountController';
 
-class AccountsApplication extends Application {
+class AccountMicroservice extends Application {
   private _startTime: Date;
 
   constructor() {
@@ -14,24 +14,24 @@ class AccountsApplication extends Application {
 
   async start() {
     this._startTime = new Date();
-    const server = new Server({port: 3001});
+    const server = new Server({ port: 3001 });
     server.bind('applications.accounts').to(this);
     return server.start();
   }
 
   info() {
     const uptime = Date.now() - this._startTime.getTime();
-    return {uptime: uptime};
+    return { uptime: uptime };
   }
+}
+
+async function main(): Promise<void> {
+  const app = new AccountMicroservice();
+  await app.start();
+  console.log('Application Info:', app.info());
 }
 
 main().catch(err => {
   console.log('Cannot start the app.', err);
   process.exit(1);
 });
-
-async function main(): Promise<void> {
-  const app = new AccountsApplication();
-  await app.start();
-  console.log('Application Info:', app.info());
-}

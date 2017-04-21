@@ -1,11 +1,16 @@
-import {def} from './AccountController.api';
-import {api, inject} from 'loopback-next/packages/loopback';
-import {AccountRepository} from '../repositories/accounts';
+import { api } from 'loopback-next/packages/loopback';
+import { def } from './AccountController.api';
+import { AccountRepository } from '../repositories/account';
 
-@api(def) 
+@api(def)
 export class AccountController {
-   async getAccount(accountNumber) {
-      const repository = new AccountRepository();
-      return await repository.find(accountNumber);
-   }
+  repository: AccountRepository;
+
+  constructor() {
+    this.repository = new AccountRepository();
+  }
+
+  async getAccount(accountNumber) {
+    return await this.repository.find(accountNumber);
+  }
 }
