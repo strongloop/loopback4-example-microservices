@@ -15,23 +15,20 @@ Make sure you have the following installed:
 - [TypeScript](https://www.typescriptlang.org/index.html#download-links) >= 2.0.0 `npm i -g typescript`
 - [TypeScript Node](https://github.com/TypeStrong/ts-node#installation) >= 3.0.0 `npm i -g ts-node`
 
-Then install loopback-next:
-
 ```shell
+# install and link loopback-next
 git clone https://github.com/strongloop/loopback-next
 cd loopback-next
 npm install
 npm run bootstrap
 npm link
-```
 
-Then install loopback-next-example:
-
+# install loopback-next-example
 ```shell
 cd ..
 git clone https://github.com/strongloop/loopback-next-example
 cd loopback-next-example
-npm run build # or ./bin/build
+npm run build
 ```
 
 ## Basic use
