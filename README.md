@@ -8,144 +8,56 @@ How to build scalable microservices using LoopBack.next.
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org) >= 7.0.0
+- [Node.js](https://nodejs.org/en/download/) >= 7.0.0
 - [TypeScript](https://www.typescriptlang.org/) >= 2.0.0 `npm i -g typescript`
 - [TypeScript Node](https://github.com/TypeStrong/ts-node) >= 3.0.0 `npm i -g ts-node`
 
 Then install loopback-next:
 
-```
-$ git clone https://github.com/strongloop/loopback-next
-$ cd loopback-next
-$ ./bin/build
+```shell
+git clone https://github.com/strongloop/loopback-next
+cd loopback-next
+npm start
 ```
 
 Then install loopback-next-example:
 
-```
-$ cd ..
-$ git clone https://github.com/strongloop/loopback-next-example
-$ cd loopback-next-example
-$ ./bin/build
+```shell
+cd ..
+git clone https://github.com/strongloop/loopback-next-example
+cd loopback-next-example
+npm run build # or ./bin/build
 ```
 
 ## Basic use
 
 ### Start all microservices
 
-```
-$ ./bin/start
-```
-
-You should see:
-
-```
-Stopping microservices related to the example...
-Starting services...
-Started account service, Pid: XXXXX
-Started customer service, PID: XXXXX
-Started transaction service, PID: XXXXX
-Started facade service, PID: XXXXX
-Application Info: { uptime: 14 }
-Application Info: { uptime: 15 }
-Application Info: { uptime: 13 }
-Application Info: { uptime: 11 }
-All microservices started successfully.
-To test the application, run the get account summary script:
-./bin/get-account-summary
-./bin/get-account
+```shell
+npm start
 ```
 
 ### Perform a HTTP GET request to retrieve account summary data
 
+```shell
+curl localhost:3000/account/summary?accountNumber=CHK52321122
 ```
-$ ./bin/get-account-summary
-```
-
-You should see:
-
-```
-{
-  "account": {
-    "customerNumber": "000343223",
-    "balance": 85.84,
-    "branch": "Foster City",
-    "type": "Checking",
-    "avgBalance": 398.93,
-    "minimumBalance": 10,
-    "id": "CHK52321122"
-  },
-  "customer": [
-    {
-      "firstName": "Ron",
-      "lastName": "Simpson",
-      "ssn": "141-XX-X800",
-      "customerSince": "2017-03-14T23:05:18.779Z",
-      "street": "742 Evergreen Terrace",
-      "state": "OR",
-      "city": "Springfield",
-      "zip": "95555",
-      "lastUpdated": "2017-03-14T23:05:18.599Z",
-      "id": "000343223"
-    }
-  ],
-  "transaction": [
-    {
-      "TransactionId": "DEBIT0001",
-      "dateTime": "2017-03-11T00:27:52.422Z",
-      "accountNo": "CHK52321122",
-      "amount": 20,
-      "transactionType": "debit"
-    }
-  ]
-```
-
-> The data above is the account summary for the Account with ID `CCHK52321122`.
 
 ### Perform a HTTP GET request to retrieve account data
 
 ```
-$ ./bin/get-account
+curl -s localhost:3001/accounts?accountNumber=CHK52321122
 ```
-
-You should see:
-
-```
-[
-  {
-    "customerNumber": "000343223",
-    "balance": 85.84,
-    "branch": "Foster City",
-    "type": "Checking",
-    "avgBalance": 398.93,
-    "minimumBalance": 10,
-    "id": "CHK52321122"
-  },
-  {
-    "customerNumber": "003499223",
-    "balance": 99.99,
-    "branch": "Foster City",
-    "type": "Checking",
-    "avgBalance": 500.93,
-    "minimumBalance": 10,
-    "id": "CHK54520000"
-  }
-]
-```
-
-> The data above is the account details for account with ID `CCHK52321122`.
 
 ### To stop the facade and all microservices
 
 ```
-$ ./bin/stop
+npm stop
 ```
 
-You should see:
+> Helper scripts for all the above commands are also available in
+> https://github.com/strongloop/loopback-next-example/tree/master/bin
 
-```
-All microservices stopped successfully.
-```
 ### What's different in Loopback 4.x ?
 
 In Loopback (2.x/3.x), models were responsible for both accessing data in other systems (databases, SOAP services, etc.) and providing the application's external REST API. This made it easy to quickly build a REST interface for an existing database, but difficult to customize the REST API and fine-tune it to the needs of application clients.
@@ -158,14 +70,14 @@ In loopback-next-example we demonstrate this loose coupling. Facade is our the t
 
 Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
 :-:|:-:|:-:|:-:|:-:
-<a href="http://github.com/ritch"><img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60">|<a href="http://github.com/superkhau"><img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60"></a>|<a href="http://github.com/siddhipai"><img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60"></a>|<a href="http://github.com/mpatsute"><img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60">|<a href="http://github.com/deepakrkris"><img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a>
+[<img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60">](http://github.com/ritch")|<a href="http://github.com/superkhau"><img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60"></a>|<a href="http://github.com/siddhipai"><img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60"></a>|<a href="http://github.com/mpatsute"><img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60">|<a href="http://github.com/deepakrkris"><img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60"></a>
 
 [See all contributors](https://github.com/strongloop/loopback-next-example/graphs/contributors)
 
 # Contributing
 
-- [Guidelines](https://github.com/strongloop/loopback-next-example/wiki/Contribution-guidelines)
-- [Join the team](https://github.com/strongloop/loopback-next-example/wiki/Join-the-team)
+- [Guidelines](https://github.com/strongloop/loopback-next/wiki/Contributing)
+- [Join the team](https://github.com/strongloop/loopback-next/wiki/Contributing#join-the-team)
 
 # License
 
