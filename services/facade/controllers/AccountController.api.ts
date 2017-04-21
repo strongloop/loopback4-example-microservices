@@ -8,7 +8,7 @@ export const def = {
           {
             name: 'accountNumber',
             in: 'query',
-            description: 'The aggregreate account data from all microservices',
+            description: 'The account number to use when retrieving data from the underlying microservices.',
             required: true,
             type: 'string',
           }
@@ -20,28 +20,28 @@ export const def = {
                 type: 'object',
                 properties: {
                   accountNumber: {
-                    type:'string',
-                    description:'account number',
+                    type: 'string',
+                    description: 'account number',
                   },
                   customerNumber: {
-                    type:'string',
-                    description:'customer number',
+                    type: 'string',
+                    description: 'customer number',
                   },
                   type: {
-                    type:'string',
-                    description:'savings or checking',
+                    type: 'string',
+                    description: 'savings or checking',
                   },
                   balance: {
-                    type:'number',
-                    description:'balance amount',
+                    type: 'number',
+                    description: 'balance amount',
                   },
                   minimumBalance: {
-                    type:'number',
-                    description:'account minimum balance',
+                    type: 'number',
+                    description: 'account minimum balance',
                   },
                   avgBalance: {
-                    type:'number',
-                    description:'average balance',
+                    type: 'number',
+                    description: 'average balance',
                   }
                 }
               },
@@ -116,28 +116,28 @@ export const def = {
           200: {
             schema: {
               accountNumber: {
-                type:'string',
-                description:'account number',
+                type: 'string',
+                description: 'account number',
               },
               customerNumber: {
-                type:'string',
-                description:'customer number',
+                type: 'string',
+                description: 'customer number',
               },
               type: {
-                type:'string',
-                description:'savings or checking',
+                type: 'string',
+                description: 'savings or checking',
               },
               balance: {
-                type:'number',
-                description:'balance amount',
+                type: 'number',
+                description: 'balance amount',
               },
               minimumBalance: {
-                type:'number',
-                description:'account minimum balance',
+                type: 'number',
+                description: 'account minimum balance',
               },
               avgBalance: {
-                type:'number',
-                description:'average balance',
+                type: 'number',
+                description: 'average balance',
               }
             },
           },

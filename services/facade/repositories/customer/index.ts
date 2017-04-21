@@ -1,19 +1,7 @@
 import juggler = require('loopback-datasource-juggler');
 
-export class CustomerRepository {
-  service: CustomerService;
-
-  constructor() {
-    this.service = new CustomerService();
-  }
-
-  async find(customerNumber) {
-    return await this.service.find({id: customerNumber});
-  }
-}
-
 // mixin of data source into service is not yet available, swagger.json needs to
-// be loaded synchronously
+// be loaded synchronously (ie. can't instantiate in the class constructor)
 const DataSource = juggler.DataSource;
 var SwaggerClient = require('swagger-client');
 const ds = new DataSource('CustomerService', {
@@ -21,15 +9,19 @@ const ds = new DataSource('CustomerService', {
   spec: 'repositories/customer/swagger.json'
 });
 
-export class CustomerService {
-  model: any;
+export class CustomerRepository {
+  model: Customer;
 
   constructor() {
     this.model = ds.createModel('CustomerService', {});
   }
 
-  async find(filter): Promise<any> {
-    const response = await this.model.findById(filter);
+  async find(customerNumber) {
+    const response = await this.model.findById({ id: customerNumber });
     return response && response.obj || [];
   }
+}
+
+interface Customer {
+  findById: Function
 }
