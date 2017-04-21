@@ -1,25 +1,21 @@
 #!/usr/bin/env bash
+./bin/stop
 
-# First stop if anything
-echo "Stopping microservices related to the example..."
-ps -ef | grep "[l]b-next" | awk '{print $2}' | xargs kill -9
-
-echo "Starting services..."
-
+echo "Starting microservices..."
 cd services/account
-ts-node index.ts lb-next-account-micro-serv & echo "Started account service, PID:" $!
+ts-node index.ts lb-next-account-micro-serv &
+echo "Started Account microservice, PID:" $!
+cd ../customer && \
+ts-node index.ts lb-next-customer-micro-serv &
+echo "Started Customer microservice, PID:" $!
+cd ../transaction && \
+ts-node index.ts lb-next-transaction-micro-serv &
+echo "Started Transaction microservice, PID:" $!
+cd ../facade && \
+ts-node index.ts lb-next-facade-micro-serv &
+echo "Started Facade microservice, PID:" $!
 
-cd ../customer
-ts-node index.ts lb-next-customer-micro-serv & echo "Started customer service, PID:" $!
+sleep 3
 
-cd ../transaction
-ts-node index.ts lb-next-transaction-micro-serv & echo "Started transaction service, PID:" $!
-
-cd ../facade
-ts-node index.ts lb-next-facade-micro-serv & echo "Started facade service, PID:" $!
-
-sleep 5
-echo "All microservices started successfully."
-echo "To test the application, run the get account summary script:"
-echo "./bin/get-account-summary"
-echo "./bin/get-account"
+echo 'All microservices started successfully.'
+echo 'To test the application, run "npm start".'
