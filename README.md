@@ -44,13 +44,12 @@ curl localhost:3000/account/summary?accountNumber=CHK52321122
 # perform GET request to retrive account data
 curl -s localhost:3001/accounts?accountNumber=CHK52321122
 
-# Stop all microservices
+# stop all microservices
 npm stop
 ```
 
-> Helper scripts for each commands is available in the [`/bin`](https://github.com/strongloop/loopback-next-example/tree/master/bin)
+> Helper scripts for the above commands are in [`/bin`](https://github.com/strongloop/loopback-next-example/tree/master/bin)
 directory.
-
 
 # Team
 
@@ -67,4 +66,4 @@ Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
 
 # License
 
-[MIT](https://github.com/strongloop/loopback-next-example/blob/master/LICENSE)
+MIT
