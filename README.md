@@ -20,7 +20,9 @@ Then install loopback-next:
 ```shell
 git clone https://github.com/strongloop/loopback-next
 cd loopback-next
-npm start
+npm i
+npm run bootstrap
+npm test
 ```
 
 Then install loopback-next-example:
