@@ -1,7 +1,7 @@
 {
   "name": "account",
   "version": "1.0.0",
-  "description": "The account microservice.",
+  "description": "The Account microservice.",
   "main": "index.ts",
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1"
