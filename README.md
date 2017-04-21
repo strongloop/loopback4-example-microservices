@@ -67,3 +67,7 @@ Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
 # License
 
 MIT
+
+---
+
+[LoopBack.next](https://github.com/strongloop/loopback-next)
