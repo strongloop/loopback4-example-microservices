@@ -18,4 +18,4 @@ echo "Started Facade microservice, PID: $!"
 sleep 5
 
 echo 'All microservices started successfully.'
-echo 'To test the application, run "npm start".'
+echo 'To test the application, run "npm test".'
