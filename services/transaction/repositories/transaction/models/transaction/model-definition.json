@@ -3,8 +3,8 @@
   "properties": {
     "TransactionId": {
       "type": "string",
-      "id": true,
-      "required": true
+      "required": true,
+      "id": true
     },
     "dateTime": {
       "type": "date",

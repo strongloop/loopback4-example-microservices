@@ -4,30 +4,30 @@ export const def = {
     '/transactions': {
       get: {
         'x-operation-name': 'getTransactions',
-       parameters:[  
-               {  
-                 name:'id',
-                 in:'query',
-                 description:'Model id',
-                 required:true,
-                 type:'string',
-                 format:'JSON'
-               },
-               {  
-                 name:'filter',
-                 in:'query',
-                 description:'Filter defining fields and include - must be a JSON-encoded string ({\'something\:\'value\'})',
-                 required:false,
-                 type:'string',
-                 format:'JSON'
-               }
-            ],
+        parameters: [
+          {
+            name: 'id',
+            in: 'query',
+            description: 'The transaction id',
+            required: true,
+            type: 'string',
+            format: 'JSON'
+          },
+          {
+            name: 'filter',
+            in: 'query',
+            description: 'The criteria used to narrow down the number of transactions returned.',
+            required: false,
+            type: 'string',
+            format: 'JSON'
+          }
+        ],
         responses: {
           200: {
             schema: {
               TransactionId: {
                 type: 'string',
-                description: 'Unique identifier for the transaction.',
+                description: 'The unique identifier for the transaction.',
               },
               dateTime: {
                 type: 'date',
@@ -35,7 +35,7 @@ export const def = {
               },
               accountNo: {
                 type: 'string',
-                description: 'The number of the associated account.'
+                description: 'The associated account number.'
               },
               amount: {
                 type: 'number',
@@ -43,7 +43,7 @@ export const def = {
               },
               transactionType: {
                 type: 'string',
-                description: 'The type of transaction. Can be credit or debit.'
+                description: 'The type of transaction. Can be "credit" or "debit".'
               }
             },
           },

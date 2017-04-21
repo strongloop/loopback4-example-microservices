@@ -1,8 +1,8 @@
-import {Application, Server} from 'loopback-next/packages/loopback';
-import {TransactionController} from './controllers';
+import { Application, Server } from 'loopback-next/packages/loopback';
+import { TransactionController } from './controllers/TransactionController';
 
 class TransactionApplication extends Application {
-  private _startTime: Date;
+  private startTime: Date;
 
   constructor() {
     super();
@@ -13,26 +13,25 @@ class TransactionApplication extends Application {
   }
 
   async start() {
-    this._startTime = new Date();
-    const server = new Server({port: 3003});
+    this.startTime = new Date();
+    const server = new Server({ port: 3003 });
     server.bind('applications.transaction').to(this);
     return server.start();
   }
 
   info() {
-    const uptime = Date.now() - this._startTime.getTime();
-    return {uptime: uptime};
+    const uptime = Date.now() - this.startTime.getTime();
+    return { uptime: uptime };
   }
 }
-
-// tslint:disable-next-line:no-floating-promises
-main().catch(err => {
-  console.log('Cannot start the app.', err);
-  process.exit(1);
-});
 
 async function main(): Promise<void> {
   const app = new TransactionApplication();
   await app.start();
   console.log('Application Info:', app.info());
 }
+
+main().catch(err => {
+  console.log('Cannot start the app.', err);
+  process.exit(1);
+});

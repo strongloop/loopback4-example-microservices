@@ -1,8 +1,8 @@
 {
   "name": "transaction",
   "version": "1.0.0",
-  "description": "The transaction microservice.",
-  "main": "index.js",
+  "description": "The Transaction microservice.",
+  "main": "index.ts",
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1"
   },
@@ -13,7 +13,12 @@
     "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "loopback-next",
+    "example",
+    "transaction",
+    "microservice"
+  ],
+  "author": "IBM",
+  "license": "MIT"
 }
