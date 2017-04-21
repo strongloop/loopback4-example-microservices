@@ -31,27 +31,17 @@ npm run build # or ./bin/build
 
 ## Basic use
 
-Start all microservices
-
 ```shell
+# start all microservices
 npm start
-```
 
-Perform a HTTP GET request to retrieve account summary data
-
-```shell
+# perform GET request to retrieve account summary data
 curl localhost:3000/account/summary?accountNumber=CHK52321122
-```
 
-Perform a HTTP GET request to retrieve account data
-
-```
+# perform GET request to retrive account data
 curl -s localhost:3001/accounts?accountNumber=CHK52321122
-```
 
-Stop all microservices
-
-```
+# Stop all microservices
 npm stop
 ```
 
