@@ -2,7 +2,7 @@
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/strongloop/loopback)
 
-How to use LoopBack.next and some recommended best practices.
+How to use LoopBack.next and some recommended best practices for scalable microservices.
 
 ## Installation
 
