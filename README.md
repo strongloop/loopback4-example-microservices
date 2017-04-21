@@ -22,7 +22,7 @@ git clone https://github.com/strongloop/loopback-next
 cd loopback-next
 npm install
 npm run bootstrap
-npm test
+npm link
 ```
 
 Then install loopback-next-example:
