@@ -1,36 +1,27 @@
 {
   "name": "loopback-next-example",
   "version": "1.0.0",
-  "description": "The example that determines what features get worked on in LoopBack-next.",
+  "description": "How to use LoopBack.next and some recommended best practices.",
   "main": "facade/index.js",
   "scripts": {
-    "build": "./bin/build",
+    "build": "bin/build",
     "restart": "npm run stop && npm run build && npm run start",
-    "start": "./bin/start",
-    "stop": "./bin/stop",
-    "test": "./bin/get-account-summary"
+    "start": "bin/start",
+    "stop": "bin/stop",
+    "test": "bin/get-account-summary"
   },
+  "keywords": [
+    "loopback-next",
+    "example"
+  ],
+  "author": "IBM",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strongloop/loopback-next-example.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/strongloop/loopback-next-example/issues"
   },
-  "homepage": "https://github.com/strongloop/loopback-next-example#readme",
-  "dependencies": {
-    "bluebird": "^3.5.0",
-    "loopback-connector-swagger": "^3.2.0",
-    "loopback-datasource-juggler": "^3.4.1",
-    "loopback-next": "git+ssh://git@github.com/strongloop/loopback-next.git"
-  },
-  "devDependencies": {
-    "@types/node": "^7.0.12",
-    "lerna": "2.0.0-beta.38",
-    "tsconfig-paths": "^2.1.2",
-    "typescript": "^2.2.2"
-  }
+  "homepage": "https://github.com/strongloop/loopback-next-example#readme"
 }
