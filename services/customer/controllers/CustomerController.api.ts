@@ -4,66 +4,66 @@ export const def = {
     '/customers': {
       get: {
         'x-operation-name': 'getCustomers',
-       parameters:[  
-               {  
-                 name:'id',
-                 in:'query',
-                 description:'Model id',
-                 required:true,
-                 type:'string',
-                 format:'JSON'
-               },
-               {  
-                 name:'filter',
-                 in:'query',
-                 description:'Filter defining fields and include - must be a JSON-encoded string ({\'something\:\'value\'})',
-                 required:false,
-                 type:'string',
-                 format:'JSON'
-               }
-            ],
+        parameters: [
+          {
+            name: 'id',
+            in: 'query',
+            description: 'The customer id.',
+            required: true,
+            type: 'string',
+            format: 'JSON'
+          },
+          {
+            name: 'filter',
+            in: 'query',
+            description: 'The criteria used to narrow down the number of customers returned.',
+            required: false,
+            type: 'string',
+            format: 'JSON'
+          }
+        ],
         responses: {
           200: {
             schema: {
               customerNumber: {
                 type: 'string',
-                description: 'The information of customers',
+                description: 'The customer number.',
               },
               firstName: {
                 type: 'string',
-                description: 'Fist Name of a customer',
+                description: 'The customer\'s first name.',
               },
               lastName: {
                 type: 'string',
-                description: 'Last Name of a customer',
+                description: 'The customer\'s last name.',
               },
               ssn: {
                 type: 'string',
-                description: 'SSN of a customer',
+                description: 'The customer\'s social security number.',
               },
               customerSince: {
                 type: 'datetime',
-                description: 'Duration of a customer',
+                description: 'The customer\'s registration date.'
               },
               street: {
                 type: 'string',
-                description: 'street of a customer',
+                description: 'The street name of the customer\'s address.',
               },
               state: {
                 type: 'string',
-                description: 'state of a customer',
+                description: 'The state of the customer\'s address.',
               },
               city: {
                 type: 'string',
-                description: 'city of a customer',
+                description: 'The city of the customer\'s address.',
               },
               zip: {
                 type: 'string',
-                description: 'zip of a customer',
+                description: 'The zip code of the customer\'s address.',
               },
               lastUpdated: {
                 type: 'string',
-                description: 'lastUpdated date of address of customer',
+                description: 'The last time the customer\'s information was updated.',
               },
             },
           },

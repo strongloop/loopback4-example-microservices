@@ -1,7 +1,7 @@
 {
   "name": "customer",
   "version": "1.0.0",
-  "description": "The customer microservice.",
+  "description": "The Customer microservice.",
   "main": "index.ts",
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1"
@@ -13,7 +13,12 @@
     "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "loopback-next",
+    "example",
+    "customer",
+    "microservice"
+  ],
+  "author": "IBM",
+  "license": "MIT"
 }

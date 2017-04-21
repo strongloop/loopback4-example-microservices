@@ -1,12 +1,16 @@
-import {api} from 'loopback-next/packages/loopback';
-import {def} from './CustomerController.api';
-import {CustomerRepository} from '../repositories/customer';
+import { api } from 'loopback-next/packages/loopback';
+import { def } from './CustomerController.api';
+import { CustomerRepository } from '../repositories/customer';
 
 @api(def)
 export class CustomerController {
+  repository: CustomerRepository;
+
+  constructor() {
+    this.repository = new CustomerRepository();
+  }
+
   async getCustomers(filter): Promise<any> {
-    const repository = new CustomerRepository();
-    const customers = await repository.find(filter);
-    return Promise.resolve(customers);
+    return await this.repository.find(filter);
   }
 }

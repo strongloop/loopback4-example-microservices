@@ -1,8 +1,8 @@
-import {Application, Server} from 'loopback-next/packages/loopback';
-import {CustomerController} from './controllers';
+import { Application, Server } from 'loopback-next/packages/loopback';
+import { CustomerController } from './controllers/CustomerController';
 
 class CustomerApplication extends Application {
-  private _startTime : Date;
+  private _startTime: Date;
 
   constructor() {
     super();
@@ -14,24 +14,24 @@ class CustomerApplication extends Application {
 
   async start() {
     this._startTime = new Date();
-    const server = new Server({port: 3002});
+    const server = new Server({ port: 3002 });
     server.bind('applications.customer').to(this);
     return server.start();
   }
 
   info() {
     const uptime = Date.now() - this._startTime.getTime();
-    return {uptime: uptime};
+    return { uptime: uptime };
   }
 }
-
-main().catch(err => {
-  console.log('Cannot start the app.', err);
-  process.exit(1);
-});
 
 async function main(): Promise<void> {
   const app = new CustomerApplication();
   await app.start();
   console.log('Application Info:', app.info());
 }
+
+main().catch(err => {
+  console.log('Cannot start the app.', err);
+  process.exit(1);
+});
