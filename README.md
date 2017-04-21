@@ -4,8 +4,8 @@
 
 How to build scalable microservices using LoopBack.next.
 
-> What's the difference between LoopBack.next and the current version of
-> Loopback See [LoopBack 3 vs LoopBack 4](https://github.com/strongloop/loopback-next/wiki/FAQ#loopback-3-vs-loopback-4)
+_What's the difference between LoopBack.next and the current version of
+Loopback?  See [LoopBack 3 vs LoopBack 4](https://github.com/strongloop/loopback-next/wiki/FAQ#loopback-3-vs-loopback-4)._
 
 ## Installation
 
