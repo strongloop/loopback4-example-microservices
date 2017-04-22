@@ -65,7 +65,3 @@ Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
 # License
 
 MIT
-
----
-
-[loopback.io](http://loopback.io/)
