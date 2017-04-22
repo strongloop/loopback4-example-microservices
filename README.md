@@ -68,4 +68,4 @@ MIT
 
 ---
 
-[LoopBack.next](https://github.com/strongloop/loopback-next)
+[loopback.io](http://loopback.io/)
