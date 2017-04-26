@@ -1,6 +1,6 @@
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/strongloop/loopback)
-
 # loopback-next-example
+
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/strongloop/loopback)
 
 How to build scalable microservices using LoopBack.next.
 
