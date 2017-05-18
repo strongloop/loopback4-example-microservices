@@ -1,4 +1,4 @@
-import { api } from 'loopback-next/packages/loopback';
+import { api } from 'loopback-next/packages/core';
 import { def } from './TransactionController.api';
 import { TransactionRepository } from '../repositories/transaction';
 

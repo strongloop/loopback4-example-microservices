@@ -1,4 +1,4 @@
-import { Application, Server } from 'loopback-next/packages/loopback';
+import { Application, Server } from 'loopback-next/packages/core';
 import { TransactionController } from './controllers/TransactionController';
 
 class TransactionApplication extends Application {
