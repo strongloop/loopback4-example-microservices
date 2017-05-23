@@ -1,4 +1,4 @@
-import { api } from 'loopback-next/packages/loopback';
+import { api } from 'loopback-next/packages/core';
 import { def } from './AccountController.api';
 import { AccountRepository } from '../repositories/account';
 
