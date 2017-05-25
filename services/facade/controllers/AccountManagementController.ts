@@ -1,5 +1,5 @@
 import { api } from 'loopback-next/packages/core';
-import { def } from './AccountController.api';
+import { def } from './AccountManagementController.api';
 import { AccountRepository } from '../repositories/accounts';
 import { CustomerRepository } from '../repositories/customer';
 import { TransactionRepository } from '../repositories/transaction';
