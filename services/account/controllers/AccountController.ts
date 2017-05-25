@@ -13,4 +13,8 @@ export class AccountController {
   async getAccount(accountNumber) {
     return await this.repository.find(accountNumber);
   }
+
+ async createAccount(id, customerNumber, balance, branch, type, avgBalance, minimumBalance) {
+    return await this.repository.create(id, customerNumber, balance, branch, type, avgBalance, minimumBalance);
+  }
 }
