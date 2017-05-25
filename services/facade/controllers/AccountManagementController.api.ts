@@ -100,49 +100,54 @@ export const def = {
         },
       },
     },
-    '/account': {
-      get: {
-        'x-operation-name': 'getAccount',
+    '/account/create': {
+      post: {
+        'x-operation-name': 'createAccount',
         parameters: [
           {
-            name: 'accountNumber',
-            in: 'query',
-            description: 'The account data for the given account number',
+            name: 'accountInstance',
+            in: 'body',
+            description: 'The account instance.',
             required: true,
-            type: 'string',
+            type: 'object',
+            format: 'JSON'
           }
         ],
         responses: {
           200: {
             schema: {
-              accountNumber: {
+              id: {
                 type: 'string',
-                description: 'account number',
+                description: 'The account id.',
               },
               customerNumber: {
                 type: 'string',
-                description: 'customer number',
-              },
-              type: {
-                type: 'string',
-                description: 'savings or checking',
+                description: 'The customer number.',
               },
               balance: {
                 type: 'number',
-                description: 'balance amount',
+                description: 'The balance of the account.',
+              },
+              branch: {
+                type: 'string',
+                description: 'The bank branch.',
+              },
+              type: {
+                type: 'string',
+                description: 'The type of account ("savings" or "chequing").',
               },
               minimumBalance: {
                 type: 'number',
-                description: 'account minimum balance',
+                description: 'The minimum balance for the account.',
               },
               avgBalance: {
                 type: 'number',
-                description: 'average balance',
-              }
+                description: 'The average balance of the account.',
+              },
             },
           },
         },
-      }
+      },
     }
   },
 };

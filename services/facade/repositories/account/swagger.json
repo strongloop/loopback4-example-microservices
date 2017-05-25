@@ -39,6 +39,31 @@
         },
         "deprecated": false
       }
+    }, 
+    "/accounts/create": {
+      "post": {
+        "summary": "Create an account instance.",
+        "operationId": "create",
+        "parameters": [
+          {
+            "name": "accountInstance",
+            "in": "body",
+            "description": "The account instance.",
+            "required": true,
+            "type": "object",
+            "format": "JSON"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request was successful",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "deprecated": false
+      }
     }
   }
 }

@@ -5,7 +5,7 @@ import juggler = require('loopback-datasource-juggler');
 const DataSource = juggler.DataSource;
 const ds = new DataSource('AccountService', {
   connector: 'swagger',
-  spec: 'repositories/accounts/swagger.json'
+  spec: 'repositories/account/swagger.json'
 });
 
 export class AccountRepository {
@@ -20,8 +20,13 @@ export class AccountRepository {
     const accounts = response && response.obj || [];
     return accounts.length ? accounts[0] : {};
   }
+
+  async create(accountInstance): Promise<any> {
+    return await this.model.create(accountInstance);
+  }
 }
 
 interface PersistedModel {
   findById: Function
+  create: Function
 }

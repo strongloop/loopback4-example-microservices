@@ -1,6 +1,6 @@
 import { api } from 'loopback-next/packages/core';
 import { def } from './AccountManagementController.api';
-import { AccountRepository } from '../repositories/accounts';
+import { AccountRepository } from '../repositories/account';
 import { CustomerRepository } from '../repositories/customer';
 import { TransactionRepository } from '../repositories/transaction';
 import bluebird = require('bluebird');
@@ -29,6 +29,11 @@ export class AccountController {
 
   async getAccount(accountNumber): Promise<any> {
     const account = await this.accountRepository.find(accountNumber);
+    return JSON.stringify(account);
+  }
+
+  async createAccount(accountInstance): Promise<any> {
+    const account = await this.accountRepository.create(accountInstance);
     return JSON.stringify(account);
   }
 }

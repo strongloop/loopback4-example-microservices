@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+curl --data "id=1&customerNumber=234&balance=150&branch=Toronto&type=Chequing&avgBalance=150&minimumBalance=10" 'http://localhost:3001/accounts/create'
+# curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+#    "id": "1", \ 
+#    "customerNumber": "003499224", \ 
+#    "balance": 150, \ 
+#    "branch": "Toronto", \ 
+#    "type": "Checking", \ 
+#    "avgBalance": 150, \ 
+#    "minimumBalance": 10 \ 
+#  }' 'http://localhost:3001/account/create'
