@@ -1,5 +1,5 @@
 import { Application, Server } from 'loopback-next/packages/core';
-import { AccountController } from './controllers/AccountController';
+import { AccountController } from './controllers/AccountManagementController';
 
 class FacadeMicroservice extends Application {
   private startTime: Date;
