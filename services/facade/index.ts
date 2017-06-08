@@ -13,7 +13,7 @@ class FacadeMicroservice extends Application {
 
   async start() {
     this.startTime = new Date();
-    const server = new Server();
+    const server = new Server(this);
     server.bind('applications.facade').to(this);
     return server.start();
   }

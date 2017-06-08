@@ -14,7 +14,7 @@ class TransactionApplication extends Application {
 
   async start() {
     this.startTime = new Date();
-    const server = new Server({ port: 3003 });
+    const server = new Server(this, { port: 3003 });
     server.bind('applications.transaction').to(this);
     return server.start();
   }
