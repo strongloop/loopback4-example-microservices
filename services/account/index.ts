@@ -1,7 +1,7 @@
 import { Application, Server } from 'loopback-next/packages/core';
 import { AccountController } from './controllers/AccountController';
 
-class AccountMicroservice extends Application {
+export class AccountMicroservice extends Application {
   private _startTime: Date;
 
   constructor() {
@@ -31,7 +31,9 @@ async function main(): Promise<void> {
   console.log('Application Info:', app.info());
 }
 
-main().catch(err => {
-  console.log('Cannot start the app.', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.log('Cannot start the app.', err);
+    process.exit(1);
+  });
+}
