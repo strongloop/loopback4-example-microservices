@@ -1,45 +1,38 @@
-const juggler = require('loopback-datasource-juggler');
+import {juggler, DataSourceConstructor} from
+'../../node_modules/@loopback/repository/lib6/legacy-juggler-bridge';
+import { Where } from '@loopback/repository';
+import { Filter } from '@loopback/repository/';
 const modelDefinition = require('./models/account/model-definition.json');
 
 export class AccountRepository {
-  model: PersistedModel;
+  model: juggler.ModelBase
 
   constructor() {
-    const DataSource = juggler.DataSource;
-    // const ds = new DataSource('local-fs', {
-    //   connector: 'memory',
-    //   file: './repositories/account/datasources/local-fs/data.json'
-    // });
-    const ds = new DataSource('local-fs', {
+    const ds = new DataSourceConstructor({
       connector: 'mysql',
       host: 'localhost',
       port: 3306,
-      database: 'testdb',
-      password: 'pass',
+      database: 'test-db',
+      password: 'dis-mysql',
       user: 'root',
     });
-    this.model = ds.define('Account', modelDefinition.properties);
+    ds.name = 'mysqlDs';
+    this.model = ds.createModel('Account', modelDefinition.properties, {});
   }
 
-  async find(id): Promise<any> {
-    return await this.model.find({ where: { id: id } });
+  async find(filter): Promise<Account[]> {
+    return await this.model.find(filter);
   }
 
-  async create(id, customerNumber, balance, branch, type, avgBalance, minimumBalance): Promise<any> {
-    let accountInstance = {
-      id: id,
-      customerNumber: customerNumber,
-      balance: balance,
-      branch: branch,
-      type: type,
-      avgBalance: avgBalance,
-      minimumBalance: minimumBalance
-    }
+  async create(accountInstance): Promise<Account> {
     return await this.model.create(accountInstance);
   }
-}
-
-interface PersistedModel {
-  find: Function
-  create: Function
+  
+  async update(where, data): Promise<Account[]> {
+    return await this.model.updateAll(where, data, {});
+  }
+  
+  async deleteAccount(where): Promise<any> {
+    return await this.model.destroyAll(where);
+  }
 }
