@@ -1,0 +1,17 @@
+{
+  "name": "Todo",
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
