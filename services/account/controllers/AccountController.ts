@@ -12,7 +12,13 @@ export class AccountController {
   }
 
   async getAccount(filter) {
-    return await this.repository.find(JSON.parse(filter));
+    try {
+      filter = JSON.parse(filter);
+    } catch(err) {
+      return Promise.reject(err);
+    }
+
+    return await this.repository.find(filter);
   }
 
  async createAccount(accountInstance) {
@@ -20,7 +26,13 @@ export class AccountController {
   }
 
   async updateAccount(where, data) {
-    return await this.repository.update(JSON.parse(where), data);
+    try {
+      where = JSON.parse(where);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+    
+    return await this.repository.update(where, data);
   }
 
    async deleteAccount(where) {

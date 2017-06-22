@@ -10,8 +10,7 @@ export const def = {
             in: 'query',
             description: 'The criteria used to narrow down the number of accounts returned.',
             required: false,
-            type: 'string',
-            format: 'JSON'
+            type: 'object'
           }
         ],
         responses: {
@@ -54,8 +53,7 @@ export const def = {
             in: 'query',
             description: 'The criteria used to narrow down the number of accounts returned.',
             required: false,
-            type: 'string',
-            format: 'JSON'
+            type: 'object'
           },
          {
             name: 'data',
@@ -90,8 +88,7 @@ export const def = {
             in: 'query',
             description: 'The criteria used to narrow down which account instances to delete.',
             required: true,
-            type:'string',
-            format: 'JSON'
+            type:'object'
           }
         ],
         responses: {
