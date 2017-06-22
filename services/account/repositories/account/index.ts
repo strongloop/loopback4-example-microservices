@@ -1,22 +1,16 @@
-import {juggler, DataSourceConstructor} from
-'../../node_modules/@loopback/repository/lib6/legacy-juggler-bridge';
-import { Where } from '@loopback/repository';
-import { Filter } from '@loopback/repository/';
+const juggler = require('loopback-datasource-juggler');
 const modelDefinition = require('./models/account/model-definition.json');
 
 export class AccountRepository {
-  model: juggler.ModelBase
+  model;
 
-  constructor() {
-    const ds = new DataSourceConstructor({
-      connector: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      database: 'test-db',
-      password: 'dis-mysql',
-      user: 'root',
+  constructor(file?:string) {
+    const DataSource = juggler.DataSource;
+    const ds = new DataSource('local-fs', {
+      connector: 'memory',
+      file: file || './repositories/account/datasources/local-fs/data.json'
     });
-    ds.name = 'mysqlDs';
+
     this.model = ds.createModel('Account', modelDefinition.properties, {});
   }
 
@@ -28,7 +22,7 @@ export class AccountRepository {
     return await this.model.create(accountInstance);
   }
   
-  async update(where, data): Promise<Account[]> {
+  async update(where, data): Promise<any> {
     return await this.model.updateAll(where, data, {});
   }
   
