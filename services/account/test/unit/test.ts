@@ -41,7 +41,7 @@ describe("AccountController Unit Test Suite", () => {
 
   describe('AccountController.getAccount("")', () => {
     it("rejects promise for invalid args", async () => {
-      var flag = true;
+      let flag = true;
       try {
         await accCtrl.getAccount("");
       } catch (err) {
@@ -76,7 +76,7 @@ describe("AccountController Unit Test Suite", () => {
 
   describe("AccountController.createAccount(brokenAcc)", () => {
     it("fails to create with an Invalid Account instance.", async () => {
-      var works = true;
+      let works = true;
       try {
         await accCtrl.createAccount(brokenAcc);
       } catch (err) {
