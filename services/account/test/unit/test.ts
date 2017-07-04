@@ -1,7 +1,9 @@
 // test/unit/test.js
+import 'mocha';
 import { AccountController } from "../../controllers/AccountController";
 import { expect } from "@loopback/testlab";
 import { AccountRepository } from "../../repositories/account";
+import * as path from 'path';
 
 let accCtrl;
 
@@ -136,5 +138,8 @@ describe("AccountController Unit Test Suite", () => {
 
 function createAccountController() {
   accCtrl = new AccountController();
-  accCtrl.repository = new AccountRepository("./test/unit/test.data.json");
+
+  accCtrl.repository = new AccountRepository(
+    path.resolve(__dirname, "test.data.json")
+  );
 }
