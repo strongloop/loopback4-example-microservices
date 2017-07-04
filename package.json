@@ -8,7 +8,10 @@
     "restart": "npm run stop && npm run build && npm run start",
     "start": "bin/start",
     "stop": "bin/stop",
-    "test": "bin/get-account-summary"
+    "test": "node bin/test.js"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "keywords": [
     "loopback-next",
@@ -23,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/strongloop/loopback-next-example/issues"
   },
-  "homepage": "https://github.com/strongloop/loopback-next-example#readme"
+  "homepage": "https://github.com/strongloop/loopback-next-example#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "mocha": "^3.4.2",
+    "ts-node": "^3.1.0",
+    "typescript": "^2.4.1"
+  }
 }
