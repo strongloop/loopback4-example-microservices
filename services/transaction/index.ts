@@ -1,4 +1,4 @@
-import { Application, Server } from '@loopback/core';
+import { Application } from '@loopback/core';
 import { TransactionController } from './controllers/TransactionController';
 
 const app = new Application();
