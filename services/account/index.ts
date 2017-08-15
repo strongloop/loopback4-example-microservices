@@ -1,34 +1,41 @@
-import { Application, Server } from 'loopback-next/packages/core';
+import { Application } from 'loopback-next/packages/core';
 import { AccountController } from './controllers/AccountController';
+import * as http from 'http';
 
-class AccountMicroservice extends Application {
-  private _startTime: Date;
+const app = new Application();
+app.controller(AccountController);
 
-  constructor() {
-    super();
-    const app = this;
-    app.controller(AccountController);
-    app.bind('servers.http.enabled').to(true);
-    app.bind('servers.https.enabled').to(true);
-  }
+app.bind('servers.http.enabled').to(true);
+app.bind('servers.https.enabled').to(true);
+app.bind('applications.accounts').to(this);
 
-  async start() {
-    this._startTime = new Date();
-    const server = new Server(this, { port: 3001 });
-    server.bind('applications.accounts').to(this);
-    return server.start();
-  }
+// class AccountMicroservice extends Application {
+//   private _startTime: Date;
 
-  info() {
-    const uptime = Date.now() - this._startTime.getTime();
-    return { uptime: uptime };
-  }
-}
+//   constructor() {
+//     super();
+//     const app = this;
+//     app.controller(AccountController);
+//     app.bind('servers.http.enabled').to(true);
+//     app.bind('servers.https.enabled').to(true);
+//   }
+
+//   async start() {
+//     this._startTime = new Date();
+//     const server = new Server(this, { port: 3001 });
+//     server.bind('applications.accounts').to(this);
+//     return server.start();
+//   }
+
+//   info() {
+//     const uptime = Date.now() - this._startTime.getTime();
+//     return { uptime: uptime };
+//   }
+// }
 
 async function main(): Promise<void> {
-  const app = new AccountMicroservice();
   await app.start();
-  console.log('Application Info:', app.info());
+  console.log('Application Started on port:', app.getSync('http.port'));
 }
 
 main().catch(err => {
