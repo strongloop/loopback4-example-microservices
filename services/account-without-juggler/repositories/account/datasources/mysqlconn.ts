@@ -1,7 +1,7 @@
 const debug = require('debug')('loopback:repositories:account:datasources:connections:mysql');
 const mysql = require('mysql');
 const db = require('mysql-promise')();
-import { CrudConnector } from 'loopback-next/packages/repository/src/crud-connector';
+import { CrudConnector } from '@loopback/repository/src/crud-connector';
 import {
   Class,
   DataSource,
@@ -11,7 +11,7 @@ import {
   ObjectType,
   Options,
   Where
-} from 'loopback-next/packages/repository';
+} from '@loopback/repository';
 
 export class MySqlConn implements CrudConnector {
   //fixme make connection strongly typed

@@ -1,37 +1,11 @@
-import { Application, Server } from 'loopback-next/packages/core';
+import { Application, Server } from '@loopback/core';
 import { TransactionController } from './controllers/TransactionController';
 
-class TransactionApplication extends Application {
-  private startTime: Date;
+const app = new Application();
 
-  constructor() {
-    super();
-    const app = this;
-    app.controller(TransactionController);
-    app.bind('servers.http.enabled').to(true);
-    app.bind('servers.https.enabled').to(true);
-  }
+app.controller(TransactionController);
+app.bind('http.port').to(3003);
 
-  async start() {
-    this.startTime = new Date();
-    const server = new Server(this, { port: 3003 });
-    server.bind('applications.transaction').to(this);
-    return server.start();
-  }
+app.start();
 
-  info() {
-    const uptime = Date.now() - this.startTime.getTime();
-    return { uptime: uptime };
-  }
-}
-
-async function main(): Promise<void> {
-  const app = new TransactionApplication();
-  await app.start();
-  console.log('Application Info:', app.info());
-}
-
-main().catch(err => {
-  console.log('Cannot start the app.', err);
-  process.exit(1);
-});
+console.log('Application started on port:', app.getSync('http.port'));

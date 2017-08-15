@@ -1,9 +1,9 @@
-import { model } from 'loopback-next/packages/repository/';
+import { model } from '@loopback/repository/';
 import {
   Entity,
   ModelDefinition,
   PropertyDefinition
-} from 'loopback-next/packages/repository';
+} from '@loopback/repository';
 
 @model(require('./account/model-definition'))
 export class Account extends Entity {

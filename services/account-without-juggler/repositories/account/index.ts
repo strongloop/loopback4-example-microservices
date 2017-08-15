@@ -1,4 +1,4 @@
-import { CrudRepositoryImpl } from 'loopback-next/packages/repository';
+import { CrudRepositoryImpl } from '@loopback/repository';
 import { MySqlDs } from './datasources/mysqlds';
 import { Account } from './models/Account';
 
