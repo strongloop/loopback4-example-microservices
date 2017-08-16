@@ -4,7 +4,8 @@
   "description": "The Transaction microservice.",
   "main": "index.ts",
   "dependencies": {
-    "loopback-datasource-juggler": "^3.4.1"
+    "loopback-datasource-juggler": "^3.4.1",
+    "@loopback/core": "^4.0.0-alpha.10"
   },
   "devDependencies": {
     "@types/node": "^7.0.12"

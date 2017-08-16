@@ -6,6 +6,7 @@ const app = new Application();
 
 app.controller(AccountController);
 app.bind('http.port').to(3001);
+app.bind('repositories.account').toClass(AccountRepository);
 
 app.start();
 

@@ -14,12 +14,12 @@
     "node": ">=8"
   },
   "devDependencies": {
-    "@loopback/testlab": "^4.0.0-alpha.2",
+    "@loopback/testlab": "^4.0.0-alpha.6",
     "mocha": "^3.3.0"
   },
   "dependencies": {
-    "@loopback/core": "^4.0.0-alpha.9",
-    "@loopback/repository": "^4.0.0-alpha.3",
+    "@loopback/core": "^4.0.0-alpha.10",
+    "@loopback/repository": "^4.0.0-alpha.5",
     "@types/lodash": "^4.14.67",
     "loopback-connector-mysql": "^4.2.0",
     "ts-node": "^3.0.4",
