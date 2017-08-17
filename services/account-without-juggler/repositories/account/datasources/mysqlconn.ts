@@ -1,9 +1,9 @@
 const debug = require('debug')('loopback:repositories:account:datasources:connections:mysql');
 const mysql = require('mysql');
 const db = require('mysql-promise')();
-import { CrudConnector } from '@loopback/repository/src/crud-connector';
 import {
   Class,
+  CrudConnector,
   DataSource,
   Entity,
   EntityData,
@@ -100,7 +100,7 @@ export class MySqlConn implements CrudConnector {
 
   findById(
     modelClass: Class<Entity>,
-    id: Number,
+    id: any,
     options: Options
   ): Promise<EntityData> {
     throw new Error('Not implemented yet.');
@@ -132,7 +132,7 @@ export class MySqlConn implements CrudConnector {
 
   updateById(
     modelClass: Class<Entity>,
-    id: Number,
+    id: any,
     data: EntityData,
     options: Options
   ): Promise<boolean> {
@@ -155,7 +155,7 @@ export class MySqlConn implements CrudConnector {
 
   replaceById(
     modelClass: Class<Entity>,
-    id: Number,
+    id: any,
     data: EntityData,
     options: Options
   ): Promise<boolean> {
@@ -172,7 +172,7 @@ export class MySqlConn implements CrudConnector {
 
   deleteById(
     modelClass: Class<Entity>,
-    id: Number,
+    id: any,
     options: Options
   ): Promise<boolean> {
     let self = this;
@@ -197,7 +197,7 @@ export class MySqlConn implements CrudConnector {
 
   exists(
     modelClass: Class<Entity>,
-    id: Number,
+    id: any,
     options: Options
   ): Promise<boolean> {
     throw new Error('Not implemented yet.');
