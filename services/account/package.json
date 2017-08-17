@@ -7,6 +7,7 @@
     "@loopback/core": "^4.0.0-alpha.10",
     "@loopback/repository": "^4.0.0-alpha.5",
     "loopback-connector-mysql": "^4.2.0",
+    "loopback-datasource-juggler": "^3.4.1",
     "ts-node": "^3.1.0",
     "typescript": "^2.3.4"
   },

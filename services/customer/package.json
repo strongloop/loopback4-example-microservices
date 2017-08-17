@@ -5,7 +5,8 @@
   "main": "index.ts",
   "dependencies": {
     "@loopback/core": "^4.0.0-alpha.10",
-    "@loopback/repository": "^4.0.0-alpha.5"
+    "@loopback/repository": "^4.0.0-alpha.5",
+    "loopback-datasource-juggler": "^3.4.1"
   },
   "devDependencies": {
     "@types/node": "^7.0.12"
