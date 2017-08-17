@@ -1,23 +1,18 @@
-import juggler = require('loopback-datasource-juggler');
+import { juggler, DataSourceConstructor } from '@loopback/repository';
 const modelDefinition = require('./models/customer/model-definition.json');
 
 export class CustomerRepository  {
-  model: PersistedModel;
+  model;
 
   constructor() {
-    const DataSource = juggler.DataSource;
-    const ds = new DataSource('local-fs', {
+    const ds: juggler.DataSource = new DataSourceConstructor('local-fs', {
       connector: 'memory',
       file: './repositories/customer/datasources/local-fs/data.json'
     });
-    this.model = ds.define('Customer', modelDefinition);
+    this.model = ds.createModel('Customer', modelDefinition);
   }
 
   async find(id): Promise<any> {
     return await this.model.find({where: {id: id}});
   }
-}
-
-interface PersistedModel {
-  find: Function
 }

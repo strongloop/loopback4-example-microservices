@@ -1,7 +1,8 @@
-import { api } from 'loopback-next/packages/core';
+import { api } from '@loopback/core';
 import { def } from './AccountController.api';
 import { AccountRepository } from '../repositories/account';
-import { inject } from 'loopback-next/packages/context';
+import { inject } from '@loopback/context';
+import { Account } from '../repositories/account/models/Account';
 
 @api(def)
 export class AccountController {

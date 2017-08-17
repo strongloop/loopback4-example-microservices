@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-npm i && npm link loopback-next
 cd services/account
-npm i && npm link loopback-next
+npm i
 cd ../customer
-npm i && npm link loopback-next
+npm i
 cd ../transaction
-npm i && npm link loopback-next
+npm i
 cd ../facade
-npm i && npm link loopback-next
+npm i

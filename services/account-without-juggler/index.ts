@@ -1,4 +1,4 @@
-import { Application, Server } from 'loopback-next/packages/core';
+import { Application } from '@loopback/core';
 import { AccountController } from './controllers/AccountController';
 import { AccountRepository } from './repositories/account';
 
@@ -7,30 +7,32 @@ class AccountMicroservice extends Application {
 
   constructor() {
     super();
+
     const app = this;
     app.controller(AccountController);
+    app.bind('http.port').to(3001);
     app.bind('repositories.account').toClass(AccountRepository);
-    app.bind('servers.http.enabled').to(true);
-    app.bind('servers.https.enabled').to(true);
   }
 
   async start() {
     this._startTime = new Date();
-    const server = new Server(this, { port: 3001 });
-    server.bind('applications.accounts').to(this);
-    return server.start();
+    return super.start();
   }
 
-  info() {
-    const uptime = Date.now() - this._startTime.getTime();
-    return { uptime: uptime };
+  async info() {
+    const port: Number = await this.get('http.port');
+
+    return {
+      uptime: Date.now() - this._startTime.getTime(),
+      url: 'http://127.0.0.1:' + port,
+    };
   }
 }
 
 async function main(): Promise<void> {
   const app = new AccountMicroservice();
   await app.start();
-  console.log('Application Info:', app.info());
+  console.log('Application Info:', await app.info());
 }
 
 main().catch(err => {

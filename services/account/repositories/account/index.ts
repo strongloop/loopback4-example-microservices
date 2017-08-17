@@ -1,12 +1,11 @@
-const juggler = require('loopback-datasource-juggler');
+import { juggler, DataSourceConstructor } from '@loopback/repository/';
 const modelDefinition = require('./models/account/model-definition.json');
 
 export class AccountRepository {
   model;
 
   constructor(file?:string) {
-    const DataSource = juggler.DataSource;
-    const ds = new DataSource('local-fs', {
+    const ds: juggler.DataSource = new DataSourceConstructor('local-fs', {
       connector: 'memory',
       file: file || './repositories/account/datasources/local-fs/data.json'
     });
