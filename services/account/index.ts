@@ -6,9 +6,7 @@ class AccountMicroservice extends Application {
 
   constructor() {
     super();
-
     const app = this;
-
     app.bind('http.port').to(3001);
     app.controller(AccountController);
   }
