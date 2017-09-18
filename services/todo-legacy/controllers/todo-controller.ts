@@ -2,11 +2,12 @@ import { api, Application, inject } from '@loopback/core';
 import { def } from './todo-controller.api';
 import { Todo } from '../models/todo';
 import * as util from 'util';
-import { EntityCrudRepository } from '@loopback/repository';
+import { EntityCrudRepository, repository } from '@loopback/repository';
 
 @api(def)
 export class TodoController {
-  @inject('repositories.todo') repository: EntityCrudRepository<Todo, number>;
+  @repository(Todo, 'ds')
+  repository: EntityCrudRepository<Todo, number>;
 
   constructor() {}
  
