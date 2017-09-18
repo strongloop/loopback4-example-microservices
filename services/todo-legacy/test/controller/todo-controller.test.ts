@@ -20,12 +20,8 @@ describe('TodoController', () => {
     name: 'ds',
     connector: 'memory'
   });
-  let todoLegacy: any = datasource.createModel(
-    Todo.name,
-    require('../../models/todo-model.json')
-  );
   let repository = new DefaultCrudRepository<Todo, number>(
-    todoLegacy,
+    Todo,
     datasource
   );
   controller.repository = repository;

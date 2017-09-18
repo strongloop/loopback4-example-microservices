@@ -1,11 +1,11 @@
-import { Application, Server } from '@loopback/core';
+import { Application } from '@loopback/core';
 import { TodoApplication } from './application';
 
 
 async function main(): Promise<void> {
   const app = new TodoApplication();
   await app.start();
-  console.log('Application Info:', app.info());
+  console.log('Application Info:', await app.info());
 }
 
 main().catch(err => {
