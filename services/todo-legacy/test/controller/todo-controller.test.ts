@@ -11,7 +11,7 @@ import { Todo } from '../../models/todo';
 
 import * as util from 'util';
 
-describe('TodoController', () => {
+describe('TodoController unit test case', () => {
   let controller = new TodoController();
   // NOTE: Creating the datasource and model definition with
   // the real functions, and then stubbing them is easier than
