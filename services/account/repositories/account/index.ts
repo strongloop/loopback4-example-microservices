@@ -1,4 +1,4 @@
-import { juggler, DataSourceConstructor } from '@loopback/repository/';
+import { juggler, DataSourceConstructor } from '@loopback/repository';
 const modelDefinition = require('./models/account/model-definition.json');
 
 export class AccountRepository {

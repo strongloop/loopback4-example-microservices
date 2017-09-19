@@ -71,7 +71,7 @@ Returns:
 }
 ```
 
-### Get Todo by ID
+### Get Account by ID
 
 `GET /accounts/?filter={"where": {"id": "30"}}`
 

@@ -9,4 +9,3 @@ export class AccountRepository extends CrudRepositoryImpl<Account, string> {
     super(ds, Account);
   }
 }
-
