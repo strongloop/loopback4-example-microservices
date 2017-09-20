@@ -18,6 +18,7 @@ class FacadeMicroservice extends Application {
     const port: Number = await this.get('http.port');
 
     return {
+      appName: "facade",
       uptime: Date.now() - this._startTime.getTime(),
       url: 'http://127.0.0.1:' + port,
     };
