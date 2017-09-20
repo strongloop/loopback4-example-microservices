@@ -34,6 +34,7 @@ export class TodoApplication extends Application {
     const port: Number = await this.get('http.port');
 
     return JSON.stringify({
+      appName: "todo-legecy",
       uptime: Date.now() - this._startTime.getTime(),
       url: 'http://127.0.0.1:' + port,
     }, null, 2);

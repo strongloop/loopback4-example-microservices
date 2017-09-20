@@ -20,6 +20,7 @@ class TransactionApplication extends Application {
     const port: Number = await this.get('http.port');
 
     return {
+      appName: "transaction",
       uptime: Date.now() - this._startTime.getTime(),
       url: 'http://127.0.0.1:' + port,
     };

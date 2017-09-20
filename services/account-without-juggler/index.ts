@@ -23,6 +23,7 @@ class AccountMicroservice extends Application {
     const port: Number = await this.get('http.port');
 
     return {
+      appName: "account-without-juggler",
       uptime: Date.now() - this._startTime.getTime(),
       url: 'http://127.0.0.1:' + port,
     };
