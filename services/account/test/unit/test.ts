@@ -1,11 +1,11 @@
 // test/unit/test.js
 import 'mocha';
-import { AccountController } from '../../controllers/AccountController';
-import { expect } from '@loopback/testlab';
-import { AccountRepository } from '../../repositories/account';
+import {AccountController} from '../../controllers/AccountController';
+import {expect} from '@loopback/testlab';
+import {AccountRepository} from '../../repositories/account';
 import * as path from 'path';
 import {Context} from '@loopback/context';
-import {juggler, DataSourceConstructor} from '@loopback/repository';
+import {DataSourceConstructor, juggler} from '@loopback/repository';
 
 let accCtrl: AccountController;
 
@@ -100,13 +100,13 @@ describe('AccountController Unit Test Suite', () => {
   });
 
   describe('AccountController.updateAccount("{"id":"brokenAccountId1"}", {"balance":2000})', () => {
-      it('fails to update Account instance.', async () => {
-          let result = await accCtrl.updateAccount('{"id":"brokenAccountId1"}', {
-                  balance: 2000
-              });
-
-          expect(result).to.be.equal(0);
+    it('fails to update Account instance.', async () => {
+      let result = await accCtrl.updateAccount('{"id":"brokenAccountId1"}', {
+        balance: 2000
       });
+
+      expect(result).to.be.equal(0);
+    });
   });
 
   describe('AccountController.getAccounts("{"where":{"id":"test1"}}")', () => {
@@ -127,10 +127,10 @@ describe('AccountController Unit Test Suite', () => {
   });
 
   describe('AccountController.deleteAccount("{"id":"brokenAccountId1"}"', () => {
-      it('fails to delete Account instance.', async () => {
-          let result = await accCtrl.deleteAccount('{"id":"brokenAccountId1"}');
-          expect(result).to.be.equal(0);
-      });
+    it('fails to delete Account instance.', async () => {
+      let result = await accCtrl.deleteAccount('{"id":"brokenAccountId1"}');
+      expect(result).to.be.equal(0);
+    });
   });
 
   describe('AccountController.getAccounts("{"where":{"id":"test1"}}")', () => {
@@ -157,20 +157,20 @@ describe('AccountController Unit Test Suite', () => {
 
 async function createAccountController() {
 
-    const ctx = new Context();
+  const ctx = new Context();
 
-    const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
-        connector: 'memory',
-        file:  path.resolve(__dirname, 'test.data.json')
-    });
+  const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
+    connector: 'memory',
+    file: path.resolve(__dirname, 'test.data.json')
+  });
 
-    ctx.bind('dataSources.memory').to(dataSource);
+  ctx.bind('dataSources.memory').to(dataSource);
 
-    ctx.bind('repositories.AccountRepository').toClass(AccountRepository);
+  ctx.bind('repositories.AccountRepository').toClass(AccountRepository);
 
-    // Bind the controller class
-    ctx.bind('controllers.AccountController').toClass(AccountController);
+  // Bind the controller class
+  ctx.bind('controllers.AccountController').toClass(AccountController);
 
-    // Resolve the controller
-    accCtrl = await ctx.get('controllers.AccountController');
+  // Resolve the controller
+  accCtrl = await ctx.get('controllers.AccountController');
 }

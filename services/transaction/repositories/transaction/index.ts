@@ -3,8 +3,8 @@ import {Transaction} from './models/transaction/transaction';
 import {inject} from '@loopback/context';
 
 export class TransactionRepository extends DefaultCrudRepository<Transaction, string> {
-    constructor(@inject('dataSources.memory') dataSource) {
-        super(Transaction, dataSource);
-    }
+  constructor(@inject('dataSources.memory') dataSource) {
+    super(Transaction, dataSource);
+  }
 }
 

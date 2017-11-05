@@ -15,18 +15,18 @@ export const def = {
             format: 'JSON',
           },
         ],
-          responses: {
-              200: {
-                  schema: {
-                      type: 'array',
-                      items: '#/definitions/Transaction'
-                  },
-              },
+        responses: {
+          200: {
+            schema: {
+              type: 'array',
+              items: '#/definitions/Transaction'
+            },
           },
+        },
       },
     }
   },
   definitions: {
-      Transaction: require('../repositories/transaction/models/transaction/transaction-definition.json')
+    Transaction: require('../repositories/transaction/models/transaction/transaction-definition.json')
   },
 };

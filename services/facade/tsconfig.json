@@ -8,7 +8,10 @@
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2017",

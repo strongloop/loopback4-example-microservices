@@ -1,8 +1,8 @@
-import { api } from '@loopback/rest';
-import { def } from './AccountManagementController.api';
-import { AccountRepository } from '../repositories/account';
-import { CustomerRepository } from '../repositories/customer';
-import { TransactionRepository } from '../repositories/transaction';
+import {api} from '@loopback/rest';
+import {def} from './AccountManagementController.api';
+import {AccountRepository} from '../repositories/account';
+import {CustomerRepository} from '../repositories/customer';
+import {TransactionRepository} from '../repositories/transaction';
 import bluebird = require('bluebird');
 
 @api(def)
@@ -24,9 +24,9 @@ export class AccountController {
     const transaction = await this.transactionRepository.find(accountNumber);
 
     const summary = await bluebird.props({
-        account,
-        customer,
-        transaction
+      account,
+      customer,
+      transaction
     });
     return JSON.stringify(summary);
   }

@@ -1,4 +1,4 @@
-import {DataSourceConstructor} from '@loopback/repository';
+import {juggler, DataSourceConstructor} from '@loopback/repository';
 
 // mixin of data source into service is not yet available, swagger.json needs to
 // be loaded synchronously (ie. can't instantiate in the class constructor)

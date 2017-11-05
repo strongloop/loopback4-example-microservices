@@ -1,6 +1,6 @@
-import { Application, ApplicationConfig} from '@loopback/core';
-import { TransactionController } from './controllers/TransactionController';
-import { RestBindings, RestComponent, RestServer } from '@loopback/rest';
+import {Application, ApplicationConfig} from '@loopback/core';
+import {TransactionController} from './controllers/TransactionController';
+import {RestBindings, RestComponent, RestServer} from '@loopback/rest';
 import {TransactionRepository} from './repositories/transaction/index';
 import {DataSourceConstructor} from '@loopback/repository';
 
@@ -8,27 +8,27 @@ class TransactionApplication extends Application {
   private _startTime: Date;
 
   constructor(options?: ApplicationConfig) {
-      options = Object.assign(
-          {},
-          {
-              components: [RestComponent],
-              rest: {
-                  port: 3003
-              }
-          },
-          options
-      );
-      super(options);
+    options = Object.assign(
+      {},
+      {
+        components: [RestComponent],
+        rest: {
+          port: 3003
+        }
+      },
+      options
+    );
+    super(options);
 
-      const dataSource = new DataSourceConstructor('local-fs', {
-          connector: 'memory',
-          file:  './repositories/transaction/datasources/local-fs/data.json'
-      });
+    const dataSource = new DataSourceConstructor('local-fs', {
+      connector: 'memory',
+      file: './repositories/transaction/datasources/local-fs/data.json'
+    });
 
-      const app = this;
-      app.bind('dataSources.memory').to(dataSource);
-      app.bind('repositories.TransactionRepository').toClass(TransactionRepository);
-      app.controller(TransactionController);
+    const app = this;
+    app.bind('dataSources.memory').to(dataSource);
+    app.bind('repositories.TransactionRepository').toClass(TransactionRepository);
+    app.controller(TransactionController);
   }
 
   async start() {
@@ -37,13 +37,13 @@ class TransactionApplication extends Application {
   }
 
   async info() {
-      const rest = await this.getServer(RestServer);
-      const port: Number = await rest.get(RestBindings.PORT);
-      return {
-          appName: 'transaction',
-          uptime: Date.now() - this._startTime.getTime(),
-          url: `http://127.0.0.1:${port}`,
-      };
+    const rest = await this.getServer(RestServer);
+    const port: Number = await rest.get(RestBindings.PORT);
+    return {
+      appName: 'transaction',
+      uptime: Date.now() - this._startTime.getTime(),
+      url: `http://127.0.0.1:${port}`,
+    };
   }
 }
 

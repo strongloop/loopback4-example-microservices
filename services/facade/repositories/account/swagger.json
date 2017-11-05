@@ -39,7 +39,7 @@
         },
         "deprecated": false
       }
-    }, 
+    },
     "/accounts/create": {
       "post": {
         "summary": "Create an account instance.",
