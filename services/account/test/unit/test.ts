@@ -1,11 +1,13 @@
 // test/unit/test.js
 import 'mocha';
-import {AccountController} from '../../controllers/AccountController';
-import {expect} from '@loopback/testlab';
-import {AccountRepository} from '../../repositories/account';
+import { AccountController } from '../../controllers/AccountController';
+import { expect } from '@loopback/testlab';
+import { AccountRepository } from '../../repositories/account';
 import * as path from 'path';
+import {Context} from '@loopback/context';
+import {juggler, DataSourceConstructor} from '@loopback/repository';
 
-let accCtrl;
+let accCtrl: AccountController;
 
 const testAcc = {
   id: 'test1',
@@ -36,7 +38,7 @@ describe('AccountController Unit Test Suite', () => {
         'CHK52321122',
         'CHK54520000',
         'CHK52321199',
-        'CHK99999999',
+        'CHK99999999'
       ]);
     });
   });
@@ -93,8 +95,18 @@ describe('AccountController Unit Test Suite', () => {
       const result = await accCtrl.updateAccount('{"id":"test1"}', {
         balance: 2000,
       });
-      expect(result.count).to.be.equal(1);
+      expect(result).to.be.equal(1);
     });
+  });
+
+  describe('AccountController.updateAccount("{"id":"brokenAccountId1"}", {"balance":2000})', () => {
+      it('fails to update Account instance.', async () => {
+          let result = await accCtrl.updateAccount('{"id":"brokenAccountId1"}', {
+                  balance: 2000
+              });
+
+          expect(result).to.be.equal(0);
+      });
   });
 
   describe('AccountController.getAccount("{"where":{"id":"test1"}}")', () => {
@@ -110,8 +122,15 @@ describe('AccountController Unit Test Suite', () => {
   describe('AccountController.deleteAccount("{"id":"test1"}")', () => {
     it('deletes the Account instance', async () => {
       const result = await accCtrl.deleteAccount('{"id":"test1"}');
-      expect(result.count).to.be.equal(1);
+      expect(result).to.be.equal(1);
     });
+  });
+
+  describe('AccountController.deleteAccount("{"id":"brokenAccountId1"}"', () => {
+      it('fails to delete Account instance.', async () => {
+          let result = await accCtrl.deleteAccount('{"id":"brokenAccountId1"}');
+          expect(result).to.be.equal(0);
+      });
   });
 
   describe('AccountController.getAccount("{"where":{"id":"test1"}}")', () => {
@@ -130,16 +149,28 @@ describe('AccountController Unit Test Suite', () => {
         'CHK52321122',
         'CHK54520000',
         'CHK52321199',
-        'CHK99999999',
+        'CHK99999999'
       ]);
     });
   });
 });
 
-function createAccountController() {
-  accCtrl = new AccountController();
+async function createAccountController() {
 
-  accCtrl.repository = new AccountRepository(
-    path.resolve(__dirname, 'test.data.json'),
-  );
+    const ctx = new Context();
+
+    const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
+        connector: 'memory',
+        file:  path.resolve(__dirname, 'test.data.json')
+    });
+
+    ctx.bind('dataSources.memory').to(dataSource);
+
+    ctx.bind('repositories.AccountRepository').toClass(AccountRepository);
+
+    // Bind the controller class
+    ctx.bind('controllers.AccountController').toClass(AccountController);
+
+    // Resolve the controller
+    accCtrl = await ctx.get('controllers.AccountController');
 }

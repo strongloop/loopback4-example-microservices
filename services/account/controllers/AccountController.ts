@@ -1,28 +1,28 @@
 import {api} from '@loopback/rest';
 import {def} from './AccountController.api';
 import {AccountRepository} from '../repositories/account';
+import {repository} from '@loopback/repository';
 
 @api(def)
 export class AccountController {
-  repository: AccountRepository;
 
-  constructor() {
-    this.repository = new AccountRepository();
-  }
+    constructor(@repository('AccountRepository') private repository: AccountRepository) {
 
-  async getAccount(filter) {
-    return await this.repository.find(JSON.parse(filter));
-  }
+    }
 
-  async createAccount(accountInstance) {
-    return await this.repository.create(accountInstance);
-  }
+    async getAccount(filter) {
+        return await this.repository.find(JSON.parse(filter));
+    }
 
-  async updateAccount(where, data) {
-    return await this.repository.update(JSON.parse(where), data);
-  }
+    async createAccount(accountInstance) {
+        return await this.repository.create(accountInstance);
+    }
 
-  async deleteAccount(where) {
-    return await this.repository.deleteAccount(JSON.parse(where));
-  }
+    async updateAccount(where = '', data) {
+        return await this.repository.updateAll(data, JSON.parse(where));
+    }
+
+    async deleteAccount(where = '{}') {
+        return await this.repository.deleteAll(JSON.parse(where));
+    }
 }

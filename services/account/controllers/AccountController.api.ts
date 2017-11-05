@@ -112,6 +112,6 @@ export const def = {
     },
   },
   definitions: {
-    Account: require('../repositories/account/models/account/model-definition.json'),
-  },
+    Account: require('../repositories/account/models/account/account-definition.json')
+  }
 };

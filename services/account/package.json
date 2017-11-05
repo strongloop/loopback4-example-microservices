@@ -7,19 +7,19 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@loopback/core": "^4.0.0-alpha.10",
-    "@loopback/repository": "^4.0.0-alpha.5",
-    "@loopback/rest": "^4.0.0-alpha.25",
+    "@loopback/core": "^4.0.0-alpha.19",
+    "@loopback/repository": "^4.0.0-alpha.13",
+    "@loopback/rest": "^4.0.0-alpha.6",
     "loopback-connector-mysql": "^4.2.0",
-    "loopback-datasource-juggler": "^3.4.1",
-    "ts-node": "^3.1.0",
-    "typescript": "^2.3.4"
+    "loopback-datasource-juggler": "^3.13.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1"
   },
   "devDependencies": {
-    "@loopback/testlab": "^4.0.0-alpha.6",
-    "@types/node": "^7.0.12",
-    "mocha": "^3.4.2",
-    "@types/mocha": "^2.2.41"
+    "@loopback/testlab": "^4.0.0-alpha.12",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.47",
+    "mocha": "^4.0.1"
   },
   "scripts": {
     "start": "ts-node index.ts",

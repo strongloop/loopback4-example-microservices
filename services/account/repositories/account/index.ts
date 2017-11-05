@@ -1,33 +1,10 @@
-import {juggler, DataSourceConstructor} from '@loopback/repository';
-const modelDefinition = require('./models/account/model-definition.json');
+import {DefaultCrudRepository} from '@loopback/repository';
+import {Account} from './models/account/account';
+import {inject} from '@loopback/context';
 
-export class AccountRepository {
-  model;
+export class AccountRepository extends DefaultCrudRepository<Account, string> {
 
-  constructor(file?: string) {
-    const ds: juggler.DataSource = new DataSourceConstructor('local-fs', {
-      connector: 'memory',
-      file: file || './repositories/account/datasources/local-fs/data.json',
-    });
-
-    this.model = ds.createModel('Account', modelDefinition.properties, {});
-  }
-
-  async find(filter): Promise<Account[]> {
-    return await this.model.find(filter);
-  }
-
-  async create(accountInstance): Promise<Account> {
-    return await this.model.create(accountInstance);
-  }
-
-  // tslint:disable-next-line:no-any
-  async update(where, data): Promise<any> {
-    return await this.model.updateAll(where, data, {});
-  }
-
-  // tslint:disable-next-line:no-any
-  async deleteAccount(where): Promise<any> {
-    return await this.model.destroyAll(where);
-  }
+    constructor(@inject('dataSources.memory') dataSource) {
+        super(Account, dataSource);
+    }
 }
