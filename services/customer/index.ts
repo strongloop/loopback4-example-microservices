@@ -22,7 +22,7 @@ class CustomerApplication extends Application {
 
         const dataSource = new DataSourceConstructor('local-fs', {
             connector: 'memory',
-            file:  './repositories/account/datasources/local-fs/data.json'
+            file:  './repositories/customer/datasources/local-fs/data.json'
         });
 
         const app = this;

@@ -22,6 +22,26 @@ export const def = {
                     },
                 },
             },
+        },
+        '/customers/{id}': {
+            get: {
+                'x-operation-name': 'getCustomer',
+                parameters: [
+                    {
+                        name: 'id',
+                        in: 'path',
+                        description: 'The customer id.',
+                        required: true,
+                        type: 'string',
+                        format: 'JSON'
+                    }
+                ],
+                responses: {
+                    200: {
+                        schema: '#/definitions/Customer',
+                    },
+                },
+            },
         }
     },
     definitions: {

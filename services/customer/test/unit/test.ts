@@ -79,7 +79,7 @@ describe('CustomerController Unit Test Suite', () => {
         });
     });
 
-    describe('CustomerController.getCustomers("{"where": {"id": 0000000000}}}")', () => {
+    describe('CustomerController.getCustomer("{"where": {"id": 0000000000}}}")', () => {
         it('searches and returns an empty array', async () => {
             const id = '0000000000';
             const filter = {'where': {id}};
@@ -88,14 +88,13 @@ describe('CustomerController Unit Test Suite', () => {
         });
     });
 
-    describe('CustomerController.getCustomers("{"where": {"id": 000343223}}}")', () => {
+    describe('CustomerController.getCustomer("000343223")', () => {
         it('searches and returns customer using id', async () => {
             const id = '000343223';
-            const filter = {'where': {id}};
-            const result = await custCtrl.getCustomers(JSON.stringify(filter));
+            const result = await custCtrl.getCustomer(id);
             expect(result).to.not.be.empty();
-            expect(result).have.lengthOf(1);
-            expect(result[0].id).to.be.equal(id);
+            expect(result.firstName).to.be.equal('Ron');
+            expect(result.lastName).to.be.equal('Simpson');
         });
     });
 });
