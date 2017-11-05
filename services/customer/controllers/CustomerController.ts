@@ -1,17 +1,17 @@
-import {api} from '@loopback/core';
+import {api} from '@loopback/rest';
 import {def} from './CustomerController.api';
-import {CustomerRepository} from '../repositories/customer';
+import {repository} from '@loopback/repository';
+import {Customer} from '../repositories/customer/models/customer/customer';
+import {CustomerRepository} from '../repositories/customer/index';
 
 @api(def)
 export class CustomerController {
-  repository: CustomerRepository;
 
-  constructor() {
-    this.repository = new CustomerRepository();
-  }
+    constructor(@repository('CustomerRepository') private repository: CustomerRepository) {
 
-  // tslint:disable-next-line:no-any
-  async getCustomers(filter): Promise<any> {
-    return await this.repository.find(filter);
-  }
+    }
+
+    async getCustomers(filter): Promise<Customer[]> {
+        return await this.repository.find(JSON.parse(filter))
+    }
 }

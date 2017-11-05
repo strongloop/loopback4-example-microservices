@@ -1,19 +1,9 @@
-import {juggler, DataSourceConstructor} from '@loopback/repository';
-const modelDefinition = require('./models/customer/model-definition.json');
+import {DefaultCrudRepository} from '@loopback/repository';
+import {Customer} from './models/customer/customer';
+import {inject} from '@loopback/context';
 
-export class CustomerRepository {
-  model;
-
-  constructor() {
-    const ds: juggler.DataSource = new DataSourceConstructor('local-fs', {
-      connector: 'memory',
-      file: './repositories/customer/datasources/local-fs/data.json',
-    });
-    this.model = ds.createModel('Customer', modelDefinition);
-  }
-
-  // tslint:disable-next-line:no-any
-  async find(id): Promise<any> {
-    return await this.model.find({where: {id: id}});
-  }
+export class CustomerRepository extends DefaultCrudRepository<Customer, string> {
+    constructor(@inject('dataSources.memory') dataSource) {
+        super(Customer, dataSource);
+    }
 }
