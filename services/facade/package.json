@@ -7,13 +7,14 @@
     "node": ">=8"
   },
   "dependencies": {
+    "@loopback/core": "^4.0.0-alpha.19",
+    "@loopback/repository": "^4.0.0-alpha.13",
+    "@loopback/rest": "^4.0.0-alpha.6",
     "loopback-connector-swagger": "^3.2.0",
-    "loopback-datasource-juggler": "^3.4.1",
-    "@loopback/core": "^4.0.0-alpha.10",
-    "@loopback/repository": "^4.0.0-alpha.5"
+    "loopback-datasource-juggler": "^3.13.0"
   },
   "devDependencies": {
-    "@types/node": "^7.0.12"
+    "@types/node": "^8.0.47"
   },
   "scripts": {
     "start": "ts-node index.ts",

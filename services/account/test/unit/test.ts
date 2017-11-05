@@ -29,9 +29,9 @@ const brokenAcc = {
 describe('AccountController Unit Test Suite', () => {
   before(createAccountController);
 
-  describe('AccountController.getAccount("{}")', () => {
+  describe('AccountController.getAccounts("{}")', () => {
     it('returns an array of all accounts', async () => {
-      const result = await accCtrl.getAccount('{}');
+      const result = await accCtrl.getAccounts('{}');
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(4);
       expect(result[0].id).to.equalOneOf([
@@ -43,11 +43,11 @@ describe('AccountController Unit Test Suite', () => {
     });
   });
 
-  describe('AccountController.getAccount("")', () => {
+  describe('AccountController.getAccounts("")', () => {
     it('rejects promise for invalid args', async () => {
       let flag = true;
       try {
-        await accCtrl.getAccount('');
+        await accCtrl.getAccounts('');
       } catch (err) {
         flag = false;
       }
@@ -55,9 +55,9 @@ describe('AccountController Unit Test Suite', () => {
     });
   });
 
-  describe('AccountController.getAccount("{"where":{"id":"test1"}}")', () => {
+  describe('AccountController.getAccounts("{"where":{"id":"test1"}}")', () => {
     it('searches and returns an empty array', async () => {
-      const result = await accCtrl.getAccount('{"where":{"id":"test1"}}');
+      const result = await accCtrl.getAccounts('{"where":{"id":"test1"}}');
       expect(result).to.be.empty();
     });
   });
@@ -69,9 +69,9 @@ describe('AccountController Unit Test Suite', () => {
     });
   });
 
-  describe('AccountController.getAccount("{"where":{"id":"test1"}}")', () => {
+  describe('AccountController.getAccounts("{"where":{"id":"test1"}}")', () => {
     it('searches and returns newly created account', async () => {
-      const result = await accCtrl.getAccount('{"where":{"id":"test1"}}');
+      const result = await accCtrl.getAccounts('{"where":{"id":"test1"}}');
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
       expect(result[0].id).to.be.equal(testAcc.id);
@@ -109,9 +109,9 @@ describe('AccountController Unit Test Suite', () => {
       });
   });
 
-  describe('AccountController.getAccount("{"where":{"id":"test1"}}")', () => {
+  describe('AccountController.getAccounts("{"where":{"id":"test1"}}")', () => {
     it('returns account with updated balance', async () => {
-      const result = await accCtrl.getAccount('{"where":{"id":"test1"}}');
+      const result = await accCtrl.getAccounts('{"where":{"id":"test1"}}');
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
       expect(result[0].id).to.be.equal(testAcc.id);
@@ -133,16 +133,16 @@ describe('AccountController Unit Test Suite', () => {
       });
   });
 
-  describe('AccountController.getAccount("{"where":{"id":"test1"}}")', () => {
+  describe('AccountController.getAccounts("{"where":{"id":"test1"}}")', () => {
     it('searches and returns an empty array', async () => {
-      const result = await accCtrl.getAccount('{"where":{"id":"test1"}}');
+      const result = await accCtrl.getAccounts('{"where":{"id":"test1"}}');
       expect(result).to.be.empty();
     });
   });
 
-  describe('AccountController.getAccount("{}")', () => {
+  describe('AccountController.getAccounts("{}")', () => {
     it('returns an array of all accounts', async () => {
-      const result = await accCtrl.getAccount('{}');
+      const result = await accCtrl.getAccounts('{}');
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(4);
       expect(result[0].id).to.equalOneOf([

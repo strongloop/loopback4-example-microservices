@@ -7,24 +7,16 @@
    "host": "localhost:3003",
    "basePath":"/",
    "paths":{
-      "/transactions":{
+      "/transactions/":{
         "get":{
             "summary":"Find all instances of the model matched by filter from the data source.",
-            "operationId":"findById",
-            "parameters":[  
-               {  
-                  "name":"id",
-                  "in":"query",
-                  "description":"Model id",
-                  "required":true,
-                  "type":"string",
-                  "format":"JSON"
-               },
+            "operationId":"find",
+            "parameters":[
                {  
                   "name":"filter",
                   "in":"query",
                   "description":"Filter defining fields and include - must be a JSON-encoded string ({\"something\":\"value\"})",
-                  "required":false,
+                  "required":true,
                   "type":"string",
                   "format":"JSON"
                }

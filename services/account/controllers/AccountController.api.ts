@@ -3,7 +3,7 @@ export const def = {
   paths: {
     '/accounts': {
       get: {
-        'x-operation-name': 'getAccount',
+        'x-operation-name': 'getAccounts',
         parameters: [
           {
             name: 'filter',
@@ -24,6 +24,26 @@ export const def = {
         },
       },
     },
+    '/accounts/{id}': {
+          get: {
+              'x-operation-name': 'getAccount',
+              parameters: [
+                  {
+                      "name": "id",
+                      "in": "path",
+                      "description": "Model id",
+                      "required": true,
+                      "type": "string",
+                      "format": "JSON"
+                  }
+              ],
+              responses: {
+                  200: {
+                      schema: '#/definitions/Account',
+                  },
+              },
+          },
+      },
     '/accounts/create': {
       post: {
         'x-operation-name': 'createAccount',

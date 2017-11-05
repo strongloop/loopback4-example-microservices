@@ -7,14 +7,14 @@
    "host": "localhost:3002",
    "basePath":"/",
    "paths":{
-      "/customers":{
+      "/customers/{id}":{
         "get":{
             "summary":"Find all instances of the model matched by filter from the data source.",
             "operationId":"findById",
-            "parameters":[  
-               {  
+            "parameters":[
+               {
                   "name":"id",
-                  "in":"query",
+                  "in":"path",
                   "description":"Model id",
                   "required":true,
                   "type":"string",

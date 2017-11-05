@@ -15,10 +15,11 @@
   },
   "devDependencies": {
     "@loopback/testlab": "^4.0.0-alpha.12",
+    "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.47",
+    "mocha": "^4.0.1",
     "debug": "^2.6.8",
     "lodash": "^4.17.4",
-    "mocha": "^4.0.1",
     "ts-node": "^3.0.4",
     "tslint": "^5.4.3",
     "typescript": "^2.4.1"

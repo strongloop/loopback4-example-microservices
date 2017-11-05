@@ -10,7 +10,12 @@ export class AccountController {
 
     }
 
-    async getAccount(filter) {
+    async getAccount(id) {
+        console.log(id)
+        return await this.repository.findById(id);
+    }
+
+    async getAccounts(filter) {
         return await this.repository.find(JSON.parse(filter));
     }
 

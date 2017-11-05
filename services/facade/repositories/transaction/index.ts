@@ -17,7 +17,13 @@ export class TransactionRepository {
   }
 
   async find(accountNumber) {
-    const response = await this.model.findById({id: accountNumber});
-    return (response && response.obj) || [];
+    const response = await this.model.find({ filter:JSON.stringify(
+        {
+            where:{
+                accountNo : accountNumber
+            }
+        }
+    )});
+    return response && response.obj || [];
   }
 }
