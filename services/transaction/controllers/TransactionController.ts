@@ -1,18 +1,17 @@
-import {api} from '@loopback/core';
+import {api} from '@loopback/rest';
 import {def} from './TransactionController.api';
 import {TransactionRepository} from '../repositories/transaction';
+import {Transaction} from '../repositories/transaction/models/transaction/transaction';
+import {repository} from '@loopback/repository';
 
 @api(def)
 export class TransactionController {
-  repository: TransactionRepository;
 
-  constructor() {
-    this.repository = new TransactionRepository();
+  constructor(@repository('TransactionRepository') private repository: TransactionRepository) {
   }
 
-  // tslint:disable-next-line:no-any
-  async getTransactions(filter): Promise<any> {
-    const transactions = await this.repository.find(filter);
+  async getTransactions(filter): Promise<Transaction[]> {
+    let transactions = await this.repository.find(JSON.parse(filter));
     const response = [];
     transactions.forEach(transaction => {
       response.push(transaction.toJSON());

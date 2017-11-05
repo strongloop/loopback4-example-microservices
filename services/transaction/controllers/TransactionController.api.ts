@@ -6,14 +6,6 @@ export const def = {
         'x-operation-name': 'getTransactions',
         parameters: [
           {
-            name: 'id',
-            in: 'query',
-            description: 'The transaction id',
-            required: true,
-            type: 'string',
-            format: 'JSON',
-          },
-          {
             name: 'filter',
             in: 'query',
             description:
@@ -23,34 +15,18 @@ export const def = {
             format: 'JSON',
           },
         ],
-        responses: {
-          200: {
-            schema: {
-              TransactionId: {
-                type: 'string',
-                description: 'The unique identifier for the transaction.',
+          responses: {
+              200: {
+                  schema: {
+                      type: 'array',
+                      items: '#/definitions/Transaction'
+                  },
               },
-              dateTime: {
-                type: 'date',
-                description: 'The date and time of the transaction.',
-              },
-              accountNo: {
-                type: 'string',
-                description: 'The associated account number.',
-              },
-              amount: {
-                type: 'number',
-                description: 'The amount being consider in the transaction.',
-              },
-              transactionType: {
-                type: 'string',
-                description:
-                  'The type of transaction. Can be "credit" or "debit".',
-              },
-            },
           },
-        },
       },
-    },
+    }
+  },
+  definitions: {
+      Transaction: require('../repositories/transaction/models/transaction/transaction-definition.json')
   },
 };
