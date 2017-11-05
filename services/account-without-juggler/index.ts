@@ -1,17 +1,26 @@
-import {Application} from '@loopback/core';
+import {Application, ApplicationConfig} from '@loopback/core';
 import {AccountController} from './controllers/AccountController';
 import {AccountRepository} from './repositories/account';
+import {RestBindings, RestComponent, RestServer} from '@loopback/rest';
 
 class AccountMicroservice extends Application {
   private _startTime: Date;
 
-  constructor() {
-    super();
-
+  constructor(options?: ApplicationConfig) {
+    options = Object.assign(
+      {},
+      {
+        components: [RestComponent],
+        rest: {
+          port: 3001,
+        },
+      },
+      options,
+    );
+    super(options);
     const app = this;
-    app.controller(AccountController);
-    app.bind('http.port').to(3001);
     app.bind('repositories.account').toClass(AccountRepository);
+    app.controller(AccountController);
   }
 
   async start() {
@@ -20,12 +29,12 @@ class AccountMicroservice extends Application {
   }
 
   async info() {
-    const port: Number = await this.get('http.port');
-
+    const rest = await this.getServer(RestServer);
+    const port: Number = await rest.get(RestBindings.PORT);
     return {
-      appName: 'account-without-juggler',
+      appName: 'account',
       uptime: Date.now() - this._startTime.getTime(),
-      url: 'http://127.0.0.1:' + port,
+      url: `http://127.0.0.1:${port}`,
     };
   }
 }

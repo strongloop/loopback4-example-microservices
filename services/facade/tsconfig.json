@@ -1,29 +1,16 @@
 {
+  "extends": "./node_modules/@loopback/build/config/tsconfig.common.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/loopback-next/packages/*"
-      ]
-    },
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es2017",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "inlineSources": true
+    "noImplicitAny": false
   },
   "include": [
-    "**/*"
+    "index.ts",
+    "src",
+    "test"
   ],
   "exclude": [
+    "node_modules/**",
+    "packages/*/node_modules/**",
     "**/*.d.ts"
   ]
 }

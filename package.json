@@ -4,7 +4,12 @@
   "description": "How to use LoopBack.next and some recommended best practices.",
   "main": "facade/index.js",
   "scripts": {
-    "build": "bin/build",
+    "postinstall": "bin/install",
+    "build:account":"cd ./services/account && npm run build",
+    "build:customer":"cd ./services/customer && npm run build",
+    "build:transaction":"cd ./services/transaction && npm run build",
+    "build:facade":"cd ./services/facade && npm run build",
+    "build": "npm run build:account && npm run build:customer && npm run build:transaction && npm run build:facade",
     "lint": "npm run prettier:check && npm run tslint",
     "lint:fix": "npm run prettier:fix && npm run tslint:fix",
     "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
@@ -12,10 +17,17 @@
     "prettier:fix": "npm run prettier:cli -- --write",
     "tslint": "lb-tslint",
     "tslint:fix": "npm run tslint -- --fix",
-    "restart": "npm run stop && npm run build && npm run start",
-    "start": "bin/start",
-    "stop": "bin/stop",
-    "test": "node bin/test.js",
+    "start": "concurrently --kill-others \"npm run start:account\" \"npm run start:customer\" \"npm run start:transaction\" \"npm run start:facade\"",
+    "start:account":"cd ./services/account && npm run start",
+    "start:customer":"cd ./services/customer && npm run start",
+    "start:transaction":"cd ./services/transaction && npm run start",
+    "start:facade":"cd ./services/facade && npm run start",
+    "test": "npm run test:account && npm run test:customer && npm run test:transaction",
+    "test:account":"cd ./services/account && npm run test",
+    "test:customer":"cd ./services/customer && npm run test",
+    "test:transaction":"cd ./services/transaction && npm run test",
+    "test:concurrently": "concurrently --kill-others \"npm run test:account\" \"npm run test:customer\" \"npm run test:transaction\"",
+    "test:ts": "./bin/test",
     "posttest": "npm run lint"
   },
   "engines": {
@@ -39,9 +51,10 @@
     "bluebird": "^3.5.0",
     "mocha": "^5.0.3",
     "ts-node": "^3.1.0",
-    "typescript": "^2.4.1"
+    "typescript": "^2.6.2"
   },
   "devDependencies": {
-    "@loopback/build": "^0.1.1"
+    "@loopback/build": "^0.3.2",
+    "concurrently": "^3.5.1"
   }
 }

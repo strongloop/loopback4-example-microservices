@@ -2,28 +2,38 @@
   "name": "account",
   "version": "1.0.0",
   "description": "The Account microservice.",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=8"
   },
   "dependencies": {
-    "@loopback/core": "^4.0.0-alpha.10",
-    "@loopback/repository": "^4.0.0-alpha.5",
-    "@loopback/rest": "^4.0.0-alpha.25",
-    "loopback-connector-mysql": "^4.2.0",
-    "loopback-datasource-juggler": "^3.4.1",
-    "ts-node": "^3.1.0",
-    "typescript": "^2.3.4"
+    "@loopback/boot": "^0.4.0",
+    "@loopback/core": "^0.3.0",
+    "@loopback/repository": "^0.3.0",
+    "@loopback/rest": "^0.4.0",
+    "@types/cors": "^2.8.3",
+    "loopback-datasource-juggler": "^3.15.5"
   },
   "devDependencies": {
-    "@loopback/testlab": "^4.0.0-alpha.6",
-    "@types/node": "^7.0.12",
-    "mocha": "^3.4.2",
-    "@types/mocha": "^2.2.41"
+    "@loopback/build": "^0.3.2",
+    "@loopback/testlab": "^0.4.0"
   },
   "scripts": {
-    "start": "ts-node index.ts",
-    "test": "mocha --opts test/mocha.opts 'test/unit/*.ts'"
+    "build": "lb-tsc && ./bin/generate-example-file-db",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run prettier:fix && npm run tslint:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
+    "pretest": "npm run clean && npm run build",
+    "test": "lb-mocha \"dist/test/unit/**/*.js\"",
+    "posttest": "npm run lint",
+    "start": "npm run build && node ./dist/index.js",
+    "prepublishOnly": "npm run test"
   },
   "keywords": [
     "loopback-next",
@@ -31,6 +41,14 @@
     "account",
     "microservice"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongloop/loopback4-example-microservices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strongloop/loopback4-example-microservices/issues"
+  },
+  "homepage": "https://github.com/strongloop/loopback4-example-microservices#readme",
   "author": "IBM",
   "license": "MIT"
 }
