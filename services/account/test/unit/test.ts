@@ -126,10 +126,22 @@ describe('AccountController Unit Test Suite', () => {
     });
   });
 
-  describe('AccountController.deleteAccount("{"id":"brokenAccountId1"}"', () => {
+  describe('AccountController.deleteAccount("{"id":"brokenAccountId1"}")', () => {
     it('fails to delete Account instance.', async () => {
       let result = await accCtrl.deleteAccount('{"id":"brokenAccountId1"}');
       expect(result).to.be.equal(0);
+    });
+  });
+
+  describe('AccountController.deleteAccount()', () => {
+    it('fails to delete Account instance.', async () => {
+      let works = true;
+      try {
+        await accCtrl.deleteAccount('');
+      } catch (err) {
+        works = false;
+      }
+      expect(works).to.be.false();
     });
   });
 

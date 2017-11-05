@@ -26,7 +26,7 @@ export class AccountController {
     return await this.repository.updateAll(data, JSON.parse(where));
   }
 
-  async deleteAccount(where = '{}') {
+  async deleteAccount(where) {
     return await this.repository.deleteAll(JSON.parse(where));
   }
 }
