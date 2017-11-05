@@ -5,7 +5,7 @@
   "main": "index",
   "scripts": {
     "start": "ts-node index.ts",
-    "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register test/**/*.test.ts"
+    "test": "mocha --require ts-node/register,tsx:ts-node/register test/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
