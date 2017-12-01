@@ -29,7 +29,7 @@
   "homepage": "https://github.com/strongloop/loopback-next-example#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "mocha": "^3.4.2",
+    "mocha": "^4.0.0",
     "ts-node": "^3.1.0",
     "typescript": "^2.4.1"
   }
