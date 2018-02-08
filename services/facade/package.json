@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The Facade microservice.",
   "main": "index.ts",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "loopback-connector-swagger": "^3.2.0",
     "loopback-datasource-juggler": "^3.4.1",

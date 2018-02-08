@@ -11,8 +11,7 @@ import { Todo } from '../../models/todo';
 
 import * as util from 'util';
 
-describe('TodoController', () => {
-  let controller = new TodoController();
+describe('TodoController', () => { 
   // NOTE: Creating the datasource and model definition with
   // the real functions, and then stubbing them is easier than
   // building the stubs and fakes by hand!
@@ -24,7 +23,7 @@ describe('TodoController', () => {
     Todo,
     datasource
   );
-  controller.repository = repository;
+  let controller = new TodoController(repository);
 
   describe('getTodo', () => {
     let sandbox = sinon.sandbox.create();

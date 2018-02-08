@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The Transaction microservice.",
   "main": "index.ts",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "loopback-datasource-juggler": "^3.4.1",
     "@loopback/repository": "^4.0.0-alpha.5",

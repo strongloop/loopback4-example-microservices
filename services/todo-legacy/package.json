@@ -21,6 +21,7 @@
   "dependencies": {
     "@loopback/core": "^4.0.0-alpha.13",
     "@loopback/repository": "^4.0.0-alpha.5",
+    "@loopback/rest": "^4.0.0-alpha.25",
     "@types/lodash": "^4.14.67",
     "loopback-connector-mysql": "^4.2.0",
     "ts-node": "^3.0.4",
