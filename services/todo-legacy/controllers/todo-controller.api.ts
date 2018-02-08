@@ -2,17 +2,20 @@ export const def = {
   basePath: '/',
   definitions: {
     todo: {
-      id: {
-        type: 'number',
-        description: 'The ID number of the Todo entry.'
-      },
-      title: {
-        type: 'string',
-        description: 'The title of the Todo entry.'
-      },
-      body: {
-        type: 'string',
-        description: 'The body of the Todo entry.'
+      properties: {
+        id: {
+          type: 'number',
+          description: 'The ID number of the Todo entry.'
+        },
+        title: {
+          type: 'string',
+          description: 'The title of the Todo entry.'
+        },
+        body: {
+          type: 'string',
+          description: 'The body of the Todo entry.'
+        }
+        
       }
     }
   },

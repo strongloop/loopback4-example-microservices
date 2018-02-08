@@ -6,10 +6,10 @@
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": ["es2017", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "es2017",
     "typeRoots": ["node_modules/@types"],
     "inlineSources": true
   },

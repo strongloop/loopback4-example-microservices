@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The Customer microservice.",
   "main": "index.ts",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "@loopback/core": "^4.0.0-alpha.10",
     "@loopback/repository": "^4.0.0-alpha.5",

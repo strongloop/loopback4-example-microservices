@@ -1,4 +1,5 @@
-import { api, Application, inject } from '@loopback/core';
+import { Application, inject } from '@loopback/core';
+import { api } from '@loopback/rest';
 import { def } from './todo-controller.api';
 import { Todo } from '../models/todo';
 import * as util from 'util';
@@ -6,10 +7,11 @@ import { EntityCrudRepository, repository } from '@loopback/repository';
 
 @api(def)
 export class TodoController {
-  @repository(Todo, 'ds')
-  repository: EntityCrudRepository<Todo, number>;
+  
 
-  constructor() {}
+  constructor(
+    @repository(Todo, 'ds') public repository: EntityCrudRepository<Todo, number>
+  ) {}
  
   async get(title?: string): Promise<Todo[]> {
     let filter = title ? { where: { title: title } } : {};

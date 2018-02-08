@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The Account microservice.",
   "main": "index.ts",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "mysql": "^2.13.0",
     "mysql-promise": "^4.1.0",

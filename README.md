@@ -11,7 +11,7 @@ How to build scalable microservices using LoopBack.next.
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/en/download/) >= 7.0.0
+- [Node.js](https://nodejs.org/en/download/) >= 8.0.0
 - [TypeScript](https://www.typescriptlang.org/index.html#download-links) >= 2.0.0 `npm i -g typescript`
 - [TypeScript Node](https://github.com/TypeStrong/ts-node#installation) >= 3.0.0 `npm i -g ts-node`
 
