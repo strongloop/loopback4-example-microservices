@@ -4,31 +4,31 @@ module.exports = {
     id: {
       type: 'string',
       required: true,
-      id: true
+      id: true,
     },
     customerNumber: {
       type: 'string',
-      required: true
+      required: true,
     },
     balance: {
       type: 'number',
-      required: true
+      required: true,
     },
     branch: {
       type: 'string',
-      required: true
+      required: true,
     },
     type: {
       type: 'string',
-      required: true
+      required: true,
     },
     avgBalance: {
       type: 'number',
-      required: true
+      required: true,
     },
     minimumBalance: {
       type: 'number',
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };

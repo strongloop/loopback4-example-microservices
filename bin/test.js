@@ -22,7 +22,7 @@ return fs.readdirAsync(services).then(folders => {
             let testArgs = args.push(path.resolve(dir, 'test/**/*test.ts'));
             // Install dependencies
             exec('npm i', {
-              cwd: dir
+              cwd: dir,
             });
             let test = spawn(cmd, args);
             test.stdout.on('data', out => {

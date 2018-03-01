@@ -5,19 +5,18 @@ export const def = {
       properties: {
         id: {
           type: 'number',
-          description: 'The ID number of the Todo entry.'
+          description: 'The ID number of the Todo entry.',
         },
         title: {
           type: 'string',
-          description: 'The title of the Todo entry.'
+          description: 'The title of the Todo entry.',
         },
         body: {
           type: 'string',
-          description: 'The body of the Todo entry.'
-        }
-        
-      }
-    }
+          description: 'The body of the Todo entry.',
+        },
+      },
+    },
   },
   paths: {
     '/todo': {
@@ -30,7 +29,7 @@ export const def = {
             description: 'The title of the todo entry.',
             required: false,
             type: 'string',
-            format: 'JSON'
+            format: 'JSON',
           },
           {
             name: 'filter',
@@ -38,16 +37,16 @@ export const def = {
             description: 'The title of the todo entry.',
             required: false,
             type: 'object',
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           200: {
             schema: {
-              $ref: '#/definitions/todo'
-            }
-          }
-        }
+              $ref: '#/definitions/todo',
+            },
+          },
+        },
       },
       post: {
         'x-operation-name': 'create',
@@ -57,16 +56,16 @@ export const def = {
             in: 'body',
             description: 'The Todo model instance.',
             required: true,
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           201: {
             schema: {
-              $ref: '#/definitions/todo'
-            }
-          }
-        }
+              $ref: '#/definitions/todo',
+            },
+          },
+        },
       },
       delete: {
         'x-operation-name': 'delete',
@@ -78,15 +77,15 @@ export const def = {
               'The criteria used to narrow down the number of customers returned.',
             required: false,
             type: 'string',
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           204: {
-            description: 'The resource has been deleted.'
-          }
-        }
-      }
+            description: 'The resource has been deleted.',
+          },
+        },
+      },
     },
     '/todo/{id}': {
       get: {
@@ -99,16 +98,16 @@ export const def = {
               'The criteria used to narrow down the number of customers returned.',
             required: false,
             type: 'string',
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           200: {
             schema: {
-              $ref: '#/definitions/todo'
-            }
-          }
-        }
+              $ref: '#/definitions/todo',
+            },
+          },
+        },
       },
       put: {
         'x-operation-name': 'replace',
@@ -119,23 +118,23 @@ export const def = {
             description: 'The todo ID.',
             required: true,
             type: 'string',
-            format: 'JSON'
+            format: 'JSON',
           },
           {
             name: 'data',
             in: 'body',
             description: 'The Todo model instance.',
             required: true,
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           201: {
             schema: {
-              $ref: '#/definitions/todo'
-            }
-          }
-        }
+              $ref: '#/definitions/todo',
+            },
+          },
+        },
       },
       patch: {
         'x-operation-name': 'update',
@@ -146,23 +145,23 @@ export const def = {
             description: 'The todo ID.',
             required: true,
             type: 'string',
-            format: 'JSON'
+            format: 'JSON',
           },
           {
             name: 'data',
             in: 'body',
             description: 'The Todo model instance.',
             required: true,
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           200: {
             schema: {
-              $ref: '#/definitions/todo'
-            }
-          }
-        }
+              $ref: '#/definitions/todo',
+            },
+          },
+        },
       },
       delete: {
         'x-operation-name': 'deleteById',
@@ -173,15 +172,15 @@ export const def = {
             description: 'The todo ID.',
             required: false,
             type: 'string',
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           204: {
-            description: 'The resource has been deleted.'
-          }
-        }
-      }
-    }
-  }
+            description: 'The resource has been deleted.',
+          },
+        },
+      },
+    },
+  },
 };

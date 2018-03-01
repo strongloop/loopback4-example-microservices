@@ -1,7 +1,6 @@
-import { Filter, Where } from '@loopback/repository';
-import { api } from '@loopback/rest';
-import { def } from './AccountController.api';
-import { AccountRepository } from '../repositories/account';
+import {api} from '@loopback/rest';
+import {def} from './AccountController.api';
+import {AccountRepository} from '../repositories/account';
 
 @api(def)
 export class AccountController {
@@ -15,7 +14,7 @@ export class AccountController {
     return await this.repository.find(JSON.parse(filter));
   }
 
- async createAccount(accountInstance) {
+  async createAccount(accountInstance) {
     return await this.repository.create(accountInstance);
   }
 
@@ -23,7 +22,7 @@ export class AccountController {
     return await this.repository.update(JSON.parse(where), data);
   }
 
-   async deleteAccount(where) {
+  async deleteAccount(where) {
     return await this.repository.deleteAccount(JSON.parse(where));
   }
 }

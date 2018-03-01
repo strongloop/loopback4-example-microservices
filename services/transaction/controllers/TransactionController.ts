@@ -1,6 +1,6 @@
-import { api } from '@loopback/core';
-import { def } from './TransactionController.api';
-import { TransactionRepository } from '../repositories/transaction';
+import {api} from '@loopback/core';
+import {def} from './TransactionController.api';
+import {TransactionRepository} from '../repositories/transaction';
 
 @api(def)
 export class TransactionController {
@@ -10,6 +10,7 @@ export class TransactionController {
     this.repository = new TransactionRepository();
   }
 
+  // tslint:disable-next-line:no-any
   async getTransactions(filter): Promise<any> {
     const transactions = await this.repository.find(filter);
     const response = [];

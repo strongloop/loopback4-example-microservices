@@ -1,28 +1,22 @@
 import 'mocha';
 import * as _ from 'lodash';
-import { expect, sinon } from '@loopback/testlab';
+import {expect, sinon} from '@loopback/testlab';
 import {
   DefaultCrudRepository,
   DataSourceConstructor,
-  ModelBaseConstructor,
 } from '@loopback/repository';
-import { TodoController } from '../../controllers/todo-controller';
-import { Todo } from '../../models/todo';
+import {TodoController} from '../../controllers/todo-controller';
+import {Todo} from '../../models/todo';
 
-import * as util from 'util';
-
-describe('TodoController', () => { 
+describe('TodoController', () => {
   // NOTE: Creating the datasource and model definition with
   // the real functions, and then stubbing them is easier than
   // building the stubs and fakes by hand!
   let datasource = new DataSourceConstructor({
     name: 'ds',
-    connector: 'memory'
+    connector: 'memory',
   });
-  let repository = new DefaultCrudRepository<Todo, number>(
-    Todo,
-    datasource
-  );
+  let repository = new DefaultCrudRepository<Todo, number>(Todo, datasource);
   let controller = new TodoController(repository);
 
   describe('getTodo', () => {
@@ -49,10 +43,10 @@ describe('TodoController', () => {
         stub.getCall(0).args,
         [
           {
-            where: { title: 'test2' }
-          }
+            where: {title: 'test2'},
+          },
         ],
-        'controller created correct filter object'
+        'controller created correct filter object',
       );
     });
   });
@@ -66,7 +60,7 @@ describe('TodoController', () => {
       let stub = sandbox.stub(repository, 'create');
       let result = await controller.create({
         title: 'foo',
-        body: 'bar'
+        body: 'bar',
       });
       expect.ok(stub.called, 'create was called');
     });
@@ -78,12 +72,12 @@ describe('TodoController', () => {
       sandbox.restore();
     });
     it('returns an affected item count of 1 on success', async () => {
-      let stub = sandbox.stub(controller.repository, 'replaceById');
+      let stub = sandbox.stub(controller.todoRepository, 'replaceById');
       let replacement = new Todo();
       Object.assign(replacement, {
         id: 1,
         title: 'foo',
-        body: 'bar'
+        body: 'bar',
       });
       let result = await controller.replace(1, replacement);
       expect.ok(stub.called, 'replace was called');
@@ -96,12 +90,12 @@ describe('TodoController', () => {
       sandbox.restore();
     });
     it('returns the updated version of the object', async () => {
-      let stub = sandbox.stub(controller.repository, 'updateById');
+      let stub = sandbox.stub(controller.todoRepository, 'updateById');
       let replacement = {
         id: 1,
-        title: 'foo'
+        title: 'foo',
       };
-      let expected = _.merge({ id: 1 }, replacement);
+      let expected = _.merge({id: 1}, replacement);
       let result = await controller.update(1, replacement);
       expect.ok(stub.called, 'update was called');
     });
@@ -115,7 +109,7 @@ describe('TodoController', () => {
       sandbox.restore();
     });
     it('works on one item', async () => {
-      let stub = sandbox.stub(controller.repository, 'deleteById');
+      let stub = sandbox.stub(controller.todoRepository, 'deleteById');
       let result = await controller.deleteById(1);
       expect.ok(stub.called, 'delete was called');
       // The null filter is automatically replaced with an empty object in
@@ -124,7 +118,7 @@ describe('TodoController', () => {
     });
 
     it('can filter by title', async () => {
-      let stub = sandbox.stub(controller.repository, 'deleteAll');
+      let stub = sandbox.stub(controller.todoRepository, 'deleteAll');
       let result = await controller.delete('test2');
       expect.ok(stub.called, 'result exists');
       expect.deepEqual(
@@ -132,11 +126,11 @@ describe('TodoController', () => {
         [
           {
             where: {
-              title: 'test2'
-            }
-          }
+              title: 'test2',
+            },
+          },
         ],
-        'controller created correct filter object'
+        'controller created correct filter object',
       );
     });
   });

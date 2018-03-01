@@ -1,8 +1,8 @@
-import { api } from '@loopback/core';
-import { def } from './AccountManagementController.api';
-import { AccountRepository } from '../repositories/account';
-import { CustomerRepository } from '../repositories/customer';
-import { TransactionRepository } from '../repositories/transaction';
+import {api} from '@loopback/core';
+import {def} from './AccountManagementController.api';
+import {AccountRepository} from '../repositories/account';
+import {CustomerRepository} from '../repositories/customer';
+import {TransactionRepository} from '../repositories/transaction';
 import bluebird = require('bluebird');
 
 @api(def)
@@ -17,7 +17,7 @@ export class AccountController {
     this.transactionRepository = new TransactionRepository();
   }
 
-  async getSummary(accountNumber): Promise<any> {
+  async getSummary(accountNumber): Promise<string> {
     const account = await this.accountRepository.find(accountNumber);
     const summary = await bluebird.props({
       account: account,
@@ -27,12 +27,12 @@ export class AccountController {
     return JSON.stringify(summary);
   }
 
-  async getAccount(accountNumber): Promise<any> {
+  async getAccount(accountNumber): Promise<string> {
     const account = await this.accountRepository.find(accountNumber);
     return JSON.stringify(account);
   }
 
-  async createAccount(accountInstance): Promise<any> {
+  async createAccount(accountInstance): Promise<string> {
     const account = await this.accountRepository.create(accountInstance);
     return JSON.stringify(account);
   }

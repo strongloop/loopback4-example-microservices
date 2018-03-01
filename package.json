@@ -5,10 +5,18 @@
   "main": "facade/index.js",
   "scripts": {
     "build": "bin/build",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run prettier:fix && npm run tslint:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
     "restart": "npm run stop && npm run build && npm run start",
     "start": "bin/start",
     "stop": "bin/stop",
-    "test": "node bin/test.js"
+    "test": "node bin/test.js",
+    "posttest": "npm run lint"
   },
   "engines": {
     "node": ">=8"
@@ -32,5 +40,8 @@
     "mocha": "^4.0.0",
     "ts-node": "^3.1.0",
     "typescript": "^2.4.1"
+  },
+  "devDependencies": {
+    "@loopback/build": "^0.1.1"
   }
 }

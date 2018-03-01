@@ -1,6 +1,4 @@
-import { Application } from '@loopback/core';
-import { TodoApplication } from './application';
-
+import {TodoApplication} from './application';
 
 async function main(): Promise<void> {
   const app = new TodoApplication();
