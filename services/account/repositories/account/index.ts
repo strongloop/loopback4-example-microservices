@@ -21,10 +21,12 @@ export class AccountRepository {
     return await this.model.create(accountInstance);
   }
 
+  // tslint:disable-next-line:no-any
   async update(where, data): Promise<any> {
     return await this.model.updateAll(where, data, {});
   }
 
+  // tslint:disable-next-line:no-any
   async deleteAccount(where): Promise<any> {
     return await this.model.destroyAll(where);
   }

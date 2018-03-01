@@ -6,17 +6,19 @@ const db = require('mysql-promise')();
 import {
   Class,
   CrudConnector,
-  DataSource,
   Entity,
   EntityData,
   Filter,
-  ObjectType,
   Options,
   Where,
 } from '@loopback/repository';
 
+// tslint:disable-next-line:no-any
+export type AnyIdType = any;
+
 export class MySqlConn implements CrudConnector {
   //fixme make connection strongly typed
+  // tslint:disable-next-line:no-any
   private connection: any;
 
   constructor(config: Object) {
@@ -51,17 +53,18 @@ export class MySqlConn implements CrudConnector {
   ): Promise<EntityData> {
     let self = this;
     let placeHolders = [];
-    for (var prop in modelClass.definition.properties) {
+    for (let prop in modelClass.definition.properties) {
       placeHolders.push('?');
     }
     let createQuery = 'INSERT INTO ?? VALUES (' + placeHolders.join(',') + ')';
-    var vals = [modelClass.modelName];
-    for (var prop in entity) {
+    let vals = [modelClass.modelName];
+    for (let prop in entity) {
       vals.push(entity[prop]);
     }
     let sqlStmt = mysql.format(createQuery, vals);
     debug('Insert ', sqlStmt);
 
+    // tslint:disable-next-line:no-any
     return self.connection.query(sqlStmt).spread(function(result: any) {
       if (result) {
         //MySQL returns count of affected rows, but as part of our API
@@ -89,12 +92,13 @@ export class MySqlConn implements CrudConnector {
     findQuery = mysql.format(findQuery, [modelClass.modelName]);
     if (filter.where) {
       let whereClause = '?? = ?';
-      for (var key in filter.where) {
+      for (let key in filter.where) {
         whereClause = mysql.format(whereClause, [key, filter.where[key]]);
       }
       findQuery += ' WHERE ' + whereClause;
     }
     debug('Find ', findQuery);
+    // tslint:disable-next-line:no-any
     return self.connection.query(findQuery).spread(function(rows: any) {
       return rows;
     });
@@ -102,7 +106,7 @@ export class MySqlConn implements CrudConnector {
 
   findById(
     modelClass: Class<Entity>,
-    id: any,
+    id: AnyIdType,
     options: Options,
   ): Promise<EntityData> {
     throw new Error('Not implemented yet.');
@@ -134,7 +138,7 @@ export class MySqlConn implements CrudConnector {
 
   updateById(
     modelClass: Class<Entity>,
-    id: any,
+    id: AnyIdType,
     data: EntityData,
     options: Options,
   ): Promise<boolean> {
@@ -142,7 +146,7 @@ export class MySqlConn implements CrudConnector {
     let updateQuery = 'UPDATE ?? SET ';
     updateQuery = mysql.format(updateQuery, [modelClass.modelName]);
     let updateClause = [];
-    for (var prop in data) {
+    for (let prop in data) {
       updateClause.push(mysql.format('??=?', [prop, data[prop]]));
     }
     updateQuery += updateClause.join(',');
@@ -150,6 +154,7 @@ export class MySqlConn implements CrudConnector {
     updateQuery += whereClause;
 
     debug('updateById ', updateQuery);
+    // tslint:disable-next-line:no-any
     return self.connection.query(updateQuery).spread(function(result: any) {
       return result.affectedRows;
     });
@@ -157,7 +162,7 @@ export class MySqlConn implements CrudConnector {
 
   replaceById(
     modelClass: Class<Entity>,
-    id: any,
+    id: AnyIdType,
     data: EntityData,
     options: Options,
   ): Promise<boolean> {
@@ -174,7 +179,7 @@ export class MySqlConn implements CrudConnector {
 
   deleteById(
     modelClass: Class<Entity>,
-    id: any,
+    id: AnyIdType,
     options: Options,
   ): Promise<boolean> {
     let self = this;
@@ -184,6 +189,7 @@ export class MySqlConn implements CrudConnector {
     deleteQuery += whereClause;
 
     debug('deleteById ', deleteQuery);
+    // tslint:disable-next-line:no-any
     return self.connection.query(deleteQuery).spread(function(result: any) {
       return result.affectedRows;
     });
@@ -199,7 +205,7 @@ export class MySqlConn implements CrudConnector {
 
   exists(
     modelClass: Class<Entity>,
-    id: any,
+    id: AnyIdType,
     options: Options,
   ): Promise<boolean> {
     throw new Error('Not implemented yet.');

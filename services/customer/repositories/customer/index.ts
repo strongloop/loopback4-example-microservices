@@ -12,6 +12,7 @@ export class CustomerRepository {
     this.model = ds.createModel('Customer', modelDefinition);
   }
 
+  // tslint:disable-next-line:no-any
   async find(id): Promise<any> {
     return await this.model.find({where: {id: id}});
   }

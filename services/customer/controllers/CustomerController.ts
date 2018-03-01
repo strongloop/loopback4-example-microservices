@@ -10,6 +10,7 @@ export class CustomerController {
     this.repository = new CustomerRepository();
   }
 
+  // tslint:disable-next-line:no-any
   async getCustomers(filter): Promise<any> {
     return await this.repository.find(filter);
   }

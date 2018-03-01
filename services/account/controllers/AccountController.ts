@@ -1,4 +1,3 @@
-import {Filter, Where} from '@loopback/repository';
 import {api} from '@loopback/rest';
 import {def} from './AccountController.api';
 import {AccountRepository} from '../repositories/account';

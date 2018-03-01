@@ -1,10 +1,6 @@
 import {Application} from '@loopback/core';
 import {TodoController} from './controllers/todo-controller';
-import {
-  juggler,
-  DataSourceConstructor,
-  DefaultCrudRepository,
-} from '@loopback/repository';
+import {DataSourceConstructor} from '@loopback/repository';
 import {datasources} from './datasources';
 
 export class TodoApplication extends Application {

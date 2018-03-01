@@ -52,6 +52,8 @@ export interface DataSourceDefinition {
    * @memberof DataSourceDefinition
    */
   port: number;
+
   // Allow arbitrary extension of object.
+  // tslint:disable-next-line:no-any
   [extras: string]: any;
 }

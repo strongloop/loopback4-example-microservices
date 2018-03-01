@@ -1,4 +1,4 @@
-import {juggler, DataSourceConstructor} from '@loopback/repository';
+import {DataSourceConstructor} from '@loopback/repository';
 
 // mixin of data source into service is not yet available, swagger.json needs to
 // be loaded synchronously (ie. can't instantiate in the class constructor)
@@ -21,6 +21,7 @@ export class AccountRepository {
     return accounts.length ? accounts[0] : {};
   }
 
+  // tslint:disable-next-line:no-any
   async create(accountInstance): Promise<any> {
     return await this.model.create(accountInstance);
   }

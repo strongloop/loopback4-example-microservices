@@ -4,12 +4,9 @@ import {expect, sinon} from '@loopback/testlab';
 import {
   DefaultCrudRepository,
   DataSourceConstructor,
-  ModelBaseConstructor,
 } from '@loopback/repository';
 import {TodoController} from '../../controllers/todo-controller';
 import {Todo} from '../../models/todo';
-
-import * as util from 'util';
 
 describe('TodoController', () => {
   // NOTE: Creating the datasource and model definition with
@@ -75,7 +72,7 @@ describe('TodoController', () => {
       sandbox.restore();
     });
     it('returns an affected item count of 1 on success', async () => {
-      let stub = sandbox.stub(controller.repository, 'replaceById');
+      let stub = sandbox.stub(controller.todoRepository, 'replaceById');
       let replacement = new Todo();
       Object.assign(replacement, {
         id: 1,
@@ -93,7 +90,7 @@ describe('TodoController', () => {
       sandbox.restore();
     });
     it('returns the updated version of the object', async () => {
-      let stub = sandbox.stub(controller.repository, 'updateById');
+      let stub = sandbox.stub(controller.todoRepository, 'updateById');
       let replacement = {
         id: 1,
         title: 'foo',
@@ -112,7 +109,7 @@ describe('TodoController', () => {
       sandbox.restore();
     });
     it('works on one item', async () => {
-      let stub = sandbox.stub(controller.repository, 'deleteById');
+      let stub = sandbox.stub(controller.todoRepository, 'deleteById');
       let result = await controller.deleteById(1);
       expect.ok(stub.called, 'delete was called');
       // The null filter is automatically replaced with an empty object in
@@ -121,7 +118,7 @@ describe('TodoController', () => {
     });
 
     it('can filter by title', async () => {
-      let stub = sandbox.stub(controller.repository, 'deleteAll');
+      let stub = sandbox.stub(controller.todoRepository, 'deleteAll');
       let result = await controller.delete('test2');
       expect.ok(stub.called, 'result exists');
       expect.deepEqual(

@@ -10,6 +10,7 @@ export class TransactionController {
     this.repository = new TransactionRepository();
   }
 
+  // tslint:disable-next-line:no-any
   async getTransactions(filter): Promise<any> {
     const transactions = await this.repository.find(filter);
     const response = [];
