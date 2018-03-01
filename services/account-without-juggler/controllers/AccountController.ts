@@ -1,12 +1,12 @@
-import { api } from '@loopback/core';
-import { def } from './AccountController.api';
-import { AccountRepository } from '../repositories/account';
-import { inject } from '@loopback/context';
-import { Account } from '../repositories/account/models/Account';
+import {api} from '@loopback/core';
+import {def} from './AccountController.api';
+import {AccountRepository} from '../repositories/account';
+import {inject} from '@loopback/context';
+import {Account} from '../repositories/account/models/Account';
 
 @api(def)
 export class AccountController {
-  @inject('repositories.account') private repository: AccountRepository
+  @inject('repositories.account') private repository: AccountRepository;
   constructor() {}
 
   //fixme figure out how to use Filter interface

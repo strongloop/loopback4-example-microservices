@@ -1,5 +1,5 @@
-import { Application } from '@loopback/core';
-import { AccountController } from './controllers/AccountManagementController';
+import {Application} from '@loopback/core';
+import {AccountController} from './controllers/AccountManagementController';
 
 class FacadeMicroservice extends Application {
   private _startTime: Date;
@@ -18,7 +18,7 @@ class FacadeMicroservice extends Application {
     const port: Number = await this.get('http.port');
 
     return {
-      appName: "facade",
+      appName: 'facade',
       uptime: Date.now() - this._startTime.getTime(),
       url: 'http://127.0.0.1:' + port,
     };

@@ -1,4 +1,4 @@
-import { juggler, DataSourceConstructor } from '@loopback/repository';
+import {juggler, DataSourceConstructor} from '@loopback/repository';
 
 // mixin of data source into service is not yet available, swagger.json needs to
 // be loaded synchronously (ie. can't instantiate in the class constructor)
@@ -6,7 +6,7 @@ import { juggler, DataSourceConstructor } from '@loopback/repository';
 var SwaggerClient = require('swagger-client');
 const ds = new DataSourceConstructor('CustomerService', {
   connector: 'swagger',
-  spec: 'repositories/customer/swagger.json'
+  spec: 'repositories/customer/swagger.json',
 });
 
 export class CustomerRepository {
@@ -17,7 +17,7 @@ export class CustomerRepository {
   }
 
   async find(customerNumber) {
-    const response = await this.model.findById({ id: customerNumber });
-    return response && response.obj || [];
+    const response = await this.model.findById({id: customerNumber});
+    return (response && response.obj) || [];
   }
 }

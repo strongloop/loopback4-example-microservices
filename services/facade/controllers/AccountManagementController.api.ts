@@ -8,10 +8,11 @@ export const def = {
           {
             name: 'accountNumber',
             in: 'query',
-            description: 'The account number to use when retrieving data from the underlying microservices.',
+            description:
+              'The account number to use when retrieving data from the underlying microservices.',
             required: true,
             type: 'string',
-          }
+          },
         ],
         responses: {
           200: {
@@ -42,8 +43,8 @@ export const def = {
                   avgBalance: {
                     type: 'number',
                     description: 'average balance',
-                  }
-                }
+                  },
+                },
               },
               customer: {
                 type: 'array',
@@ -91,10 +92,10 @@ export const def = {
                         type: 'string',
                         description: 'lastUpdated date of address of customer',
                       },
-                    }
-                  }
-                ]
-              }
+                    },
+                  },
+                ],
+              },
             },
           },
         },
@@ -110,8 +111,8 @@ export const def = {
             description: 'The account instance.',
             required: true,
             type: 'object',
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           200: {
@@ -148,6 +149,6 @@ export const def = {
           },
         },
       },
-    }
+    },
   },
 };

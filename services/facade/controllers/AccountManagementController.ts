@@ -1,8 +1,8 @@
-import { api } from '@loopback/core';
-import { def } from './AccountManagementController.api';
-import { AccountRepository } from '../repositories/account';
-import { CustomerRepository } from '../repositories/customer';
-import { TransactionRepository } from '../repositories/transaction';
+import {api} from '@loopback/core';
+import {def} from './AccountManagementController.api';
+import {AccountRepository} from '../repositories/account';
+import {CustomerRepository} from '../repositories/customer';
+import {TransactionRepository} from '../repositories/transaction';
 import bluebird = require('bluebird');
 
 @api(def)

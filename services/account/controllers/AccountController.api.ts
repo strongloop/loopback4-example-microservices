@@ -8,16 +8,17 @@ export const def = {
           {
             name: 'filter',
             in: 'query',
-            description: 'The criteria used to narrow down the number of accounts returned.',
+            description:
+              'The criteria used to narrow down the number of accounts returned.',
             required: false,
-            type: 'object'
-          }
+            type: 'object',
+          },
         ],
         responses: {
           200: {
             schema: {
               type: 'array',
-              items: '#/definitions/Account'
+              items: '#/definitions/Account',
             },
           },
         },
@@ -32,13 +33,13 @@ export const def = {
             in: 'body',
             description: 'The account instance to create.',
             required: true,
-            type: 'object'
+            type: 'object',
           },
         ],
         responses: {
           200: {
             schema: {
-              accountInstance: "#/definitions/Account"
+              accountInstance: '#/definitions/Account',
             },
           },
         },
@@ -51,17 +52,18 @@ export const def = {
           {
             name: 'where',
             in: 'query',
-            description: 'The criteria used to narrow down the number of accounts returned.',
+            description:
+              'The criteria used to narrow down the number of accounts returned.',
             required: false,
-            type: 'object'
+            type: 'object',
           },
-         {
+          {
             name: 'data',
             in: 'body',
             description: 'An object of model property name/value pairs',
             required: true,
-            type: 'object'
-          }
+            type: 'object',
+          },
         ],
         responses: {
           200: {
@@ -71,13 +73,13 @@ export const def = {
               properties: {
                 count: {
                   type: 'number',
-                  description: 'number of records updated'
-                }
-              }
+                  description: 'number of records updated',
+                },
+              },
             },
           },
         },
-      }
+      },
     },
     '/accounts/delete': {
       delete: {
@@ -86,10 +88,11 @@ export const def = {
           {
             name: 'where',
             in: 'query',
-            description: 'The criteria used to narrow down which account instances to delete.',
+            description:
+              'The criteria used to narrow down which account instances to delete.',
             required: true,
-            type:'object'
-          }
+            type: 'object',
+          },
         ],
         responses: {
           200: {
@@ -99,16 +102,16 @@ export const def = {
               properties: {
                 count: {
                   type: 'number',
-                  description: 'number of records deleted'
-                }
-              }
+                  description: 'number of records deleted',
+                },
+              },
             },
           },
         },
-      }
-    }
+      },
+    },
   },
   definitions: {
-    Account: require('../repositories/account/models/account/model-definition.json')
-  }
+    Account: require('../repositories/account/models/account/model-definition.json'),
+  },
 };
