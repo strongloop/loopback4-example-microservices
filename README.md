@@ -1,5 +1,4 @@
-# loopback-next-example
-
+# loopback4-example-microservices
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/strongloop/loopback)
 
 How to build scalable microservices using LoopBack.next.
@@ -16,8 +15,8 @@ Make sure you have the following installed:
 - [TypeScript Node](https://github.com/TypeStrong/ts-node#installation) >= 3.0.0 `npm i -g ts-node`
 
 ```shell
-# install loopback-next-example
-git clone https://github.com/strongloop/loopback-next-example
+# install loopback4-example-microservices
+git clone https://github.com/strongloop/loopback4-example-microservices
 cd loopback-next-example
 npm run build
 ```
