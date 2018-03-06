@@ -17,7 +17,7 @@ Make sure you have the following installed:
 ```shell
 # install loopback4-example-microservices
 git clone https://github.com/strongloop/loopback4-example-microservices
-cd loopback-next-example
+cd loopback4-example-microservices
 npm run build
 ```
 
@@ -37,7 +37,7 @@ curl localhost:3001/accounts?accountNumber=CHK52321122
 npm stop
 ```
 
-> Helper scripts for the above commands are in [`/bin`](https://github.com/strongloop/loopback-next-example/tree/master/bin)
+> Helper scripts for the above commands are in [`/bin`](https://github.com/strongloop/loopback4-example-microservices/tree/master/bin)
 directory.
 
 # Team
@@ -46,7 +46,7 @@ Ritchie Martori|Simon Ho|Siddhi Pai|Mahesh Patsute|Deepak Rajamohan
 :-:|:-:|:-:|:-:|:-:
 [<img src="https://avatars2.githubusercontent.com/u/462228?v=3&s=60">](http://github.com/ritch)|[<img src="https://avatars1.githubusercontent.com/u/1617364?v=3&s=60">](http://github.com/superkhau)|[<img src="https://avatars0.githubusercontent.com/u/15273582?v=3&u=d53eb3a459e72484c0ffed865c4e41f9ed9b4fdf&s=60">](http://github.com/siddhipai)|[<img src="https://avatars3.githubusercontent.com/u/24725376?v=3&s=60">](http://github.com/mpatsute)|[<img src="https://avatars2.githubusercontent.com/u/7688315?v=3&s=60">](http://github.com/deepakrkris)
 
-[See all contributors](https://github.com/strongloop/loopback-next-example/graphs/contributors)
+[See all contributors](https://github.com/strongloop/loopback4-example-microservices/graphs/contributors)
 
 # Contributing
 

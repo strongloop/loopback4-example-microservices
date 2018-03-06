@@ -1,5 +1,5 @@
 {
-  "name": "loopback-next-example",
+  "name": "loopback4-example-microservices",
   "version": "1.0.0",
   "description": "How to use LoopBack.next and some recommended best practices.",
   "main": "facade/index.js",
@@ -29,12 +29,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/strongloop/loopback-next-example.git"
+    "url": "git+https://github.com/strongloop/loopback4-example-microservices.git"
   },
   "bugs": {
-    "url": "https://github.com/strongloop/loopback-next-example/issues"
+    "url": "https://github.com/strongloop/loopback4-example-microservices/issues"
   },
-  "homepage": "https://github.com/strongloop/loopback-next-example#readme",
+  "homepage": "https://github.com/strongloop/loopback4-example-microservices#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
     "mocha": "^4.0.0",
