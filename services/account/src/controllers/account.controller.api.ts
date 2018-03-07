@@ -29,13 +29,13 @@ export const def = {
         'x-operation-name': 'getAccount',
         parameters: [
           {
-            'name': 'id',
-            'in': 'path',
-            'description': 'Model id',
-            'required': true,
-            'type': 'string',
-            'format': 'JSON'
-          }
+            name: 'id',
+            in: 'path',
+            description: 'Model id',
+            required: true,
+            type: 'string',
+            format: 'JSON',
+          },
         ],
         responses: {
           200: {
@@ -59,7 +59,7 @@ export const def = {
         responses: {
           200: {
             schema: {
-              accountInstance: '#/definitions/Account'
+              accountInstance: '#/definitions/Account',
             },
           },
         },
@@ -111,8 +111,8 @@ export const def = {
             description:
               'The criteria used to narrow down which account instances to delete.',
             required: true,
-            type: 'object'
-          }
+            type: 'object',
+          },
         ],
         responses: {
           200: {
@@ -132,6 +132,6 @@ export const def = {
     },
   },
   definitions: {
-    Account: require('../repositories/account/models/account/account-definition.json')
-  }
+    Account: require('../models/account.definition'),
+  },
 };

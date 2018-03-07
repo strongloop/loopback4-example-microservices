@@ -1,11 +1,11 @@
 // test/unit/test.js
 import 'mocha';
-import {AccountController} from '../../controllers/AccountController';
+import {AccountController} from '../../src/controllers';
 import {expect} from '@loopback/testlab';
-import {AccountRepository} from '../../repositories/account';
+import {AccountRepository} from '../../src/repositories';
 import * as path from 'path';
 import {Context} from '@loopback/context';
-import {DataSourceConstructor, juggler} from '@loopback/repository';
+import {DataSourceConstructor, DataSourceType} from '@loopback/repository';
 
 let accCtrl: AccountController;
 
@@ -38,7 +38,7 @@ describe('AccountController Unit Test Suite', () => {
         'CHK52321122',
         'CHK54520000',
         'CHK52321199',
-        'CHK99999999'
+        'CHK99999999',
       ]);
     });
   });
@@ -102,7 +102,7 @@ describe('AccountController Unit Test Suite', () => {
   describe('AccountController.updateAccount("{"id":"brokenAccountId1"}", {"balance":2000})', () => {
     it('fails to update Account instance.', async () => {
       let result = await accCtrl.updateAccount('{"id":"brokenAccountId1"}', {
-        balance: 2000
+        balance: 2000,
       });
 
       expect(result).to.be.equal(0);
@@ -161,19 +161,18 @@ describe('AccountController Unit Test Suite', () => {
         'CHK52321122',
         'CHK54520000',
         'CHK52321199',
-        'CHK99999999'
+        'CHK99999999',
       ]);
     });
   });
 });
 
 async function createAccountController() {
-
   const ctx = new Context();
 
-  const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
+  const dataSource: DataSourceType = new DataSourceConstructor('local-fs', {
     connector: 'memory',
-    file: path.resolve(__dirname, 'test.data.json')
+    file: path.resolve(__dirname, 'test.data.json'),
   });
 
   ctx.bind('dataSources.memory').to(dataSource);
@@ -184,5 +183,5 @@ async function createAccountController() {
   ctx.bind('controllers.AccountController').toClass(AccountController);
 
   // Resolve the controller
-  accCtrl = await ctx.get('controllers.AccountController');
+  accCtrl = await ctx.get<AccountController>('controllers.AccountController');
 }
