@@ -53,7 +53,7 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.getAccounts({"where":{"id":"test1"}})', () => {
     it('searches and returns an empty array', async () => {
-      const result = await accCtrl.getAccounts({'where': {'id': 'test1'}});
+      const result = await accCtrl.getAccounts({where: {id: 'test1'}});
       expect(result).to.be.empty();
     });
   });
@@ -67,7 +67,7 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.getAccounts({"where":{"id":"test1"}})', () => {
     it('searches and returns newly created account', async () => {
-      const result = await accCtrl.getAccounts({'where': {'id': 'test1'}});
+      const result = await accCtrl.getAccounts({where: {id: 'test1'}});
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
       expect(result[0].id).to.be.equal(testAcc.id);
@@ -88,18 +88,24 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.updateAccount({"id":"test1"}", {"balance":2000})', () => {
     it('updates an Account instance', async () => {
-      const result = await accCtrl.updateAccount({'id': 'test1'}, {
-        balance: 2000,
-      });
+      const result = await accCtrl.updateAccount(
+        {id: 'test1'},
+        {
+          balance: 2000,
+        },
+      );
       expect(result).to.be.equal(1);
     });
   });
 
   describe('AccountController.updateAccount({"id":"brokenAccountId1"}", {"balance":2000})', () => {
     it('fails to update Account instance.', async () => {
-      let result = await accCtrl.updateAccount({'id': 'brokenAccountId1'}, {
-        balance: 2000,
-      });
+      let result = await accCtrl.updateAccount(
+        {id: 'brokenAccountId1'},
+        {
+          balance: 2000,
+        },
+      );
 
       expect(result).to.be.equal(0);
     });
@@ -107,7 +113,7 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.getAccounts({"where":{"id":"CHK52321122"}})', () => {
     it('returns account with updated balance', async () => {
-      const result = await accCtrl.getAccounts({'where': {'id': 'test1'}});
+      const result = await accCtrl.getAccounts({where: {id: 'test1'}});
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
       expect(result[0].id).to.be.equal(testAcc.id);
@@ -117,7 +123,7 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.getAccounts({"where":{"id":"test1"}})', () => {
     it('returns account with updated balance', async () => {
-      const result = await accCtrl.getAccounts({'where': {'id': 'test1'}});
+      const result = await accCtrl.getAccounts({where: {id: 'test1'}});
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
       expect(result[0].id).to.be.equal(testAcc.id);
@@ -127,14 +133,14 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.deleteAccount({"id":"test1"})', () => {
     it('deletes the Account instance', async () => {
-      const result = await accCtrl.deleteAccount({'id': 'test1'});
+      const result = await accCtrl.deleteAccount({id: 'test1'});
       expect(result).to.be.equal(1);
     });
   });
 
   describe('AccountController.deleteAccount({"id":"brokenAccountId1"})', () => {
     it('fails to delete Account instance.', async () => {
-      let result = await accCtrl.deleteAccount({'id': 'brokenAccountId1'});
+      let result = await accCtrl.deleteAccount({id: 'brokenAccountId1'});
       expect(result).to.be.equal(0);
     });
   });
@@ -156,7 +162,7 @@ describe('AccountController Unit Test Suite', () => {
 
   describe('AccountController.getAccounts({"where":{"id":"test1"}})', () => {
     it('searches and returns an empty array', async () => {
-      const result = await accCtrl.getAccounts({'where': {'id': 'test1'}});
+      const result = await accCtrl.getAccounts({where: {id: 'test1'}});
       expect(result).to.be.empty();
     });
   });

@@ -7,8 +7,10 @@ import {Filter, Where} from '@loopback/repository/src/query';
 
 @api(def)
 export class AccountController {
-  constructor(@repository('AccountRepository') private accountRepository: AccountRepository,) {
-  }
+  constructor(
+    @repository('AccountRepository')
+    private accountRepository: AccountRepository,
+  ) {}
 
   async getAccount(id: string): Promise<Account> {
     return await this.accountRepository.findById(id);
@@ -30,11 +32,11 @@ export class AccountController {
     return await this.accountRepository.create(accountInstance);
   }
 
-  async updateAccount(where: Where, data: { balance: number }) {
-    if (typeof  where === 'string') {
+  async updateAccount(where: Where, data: {balance: number}) {
+    if (typeof where === 'string') {
       where = JSON.parse(where) as Where;
     }
-    if (typeof  data === 'string') {
+    if (typeof data === 'string') {
       data = JSON.parse(data);
     }
 
@@ -42,7 +44,7 @@ export class AccountController {
   }
 
   async deleteAccount(where: Where) {
-    if (typeof  where === 'string') {
+    if (typeof where === 'string') {
       where = JSON.parse(where) as Where;
     }
     return await this.accountRepository.deleteAll(where);
