@@ -32,14 +32,7 @@ describe('AccountController Unit Test Suite', () => {
   describe('AccountController.getAccounts()', () => {
     it('returns an array of all accounts', async () => {
       const result = await accCtrl.getAccounts({});
-      expect(result).to.not.be.empty();
-      expect(result).have.lengthOf(4);
-      expect(result[0].id).to.equalOneOf([
-        'CHK52321122',
-        'CHK54520000',
-        'CHK52321199',
-        'CHK99999999',
-      ]);
+      expect(result).to.be.empty();
     });
   });
 
@@ -171,14 +164,7 @@ describe('AccountController Unit Test Suite', () => {
   describe('AccountController.getAccounts()', () => {
     it('returns an array of all accounts', async () => {
       const result = await accCtrl.getAccounts();
-      expect(result).to.not.be.empty();
-      expect(result).have.lengthOf(4);
-      expect(result[0].id).to.equalOneOf([
-        'CHK52321122',
-        'CHK54520000',
-        'CHK52321199',
-        'CHK99999999',
-      ]);
+      expect(result).to.be.empty();
     });
   });
 });
@@ -200,6 +186,4 @@ async function createAccountController() {
 
   // Resolve the controller
   accCtrl = await ctx.get<AccountController>('controllers.AccountController');
-
-  return;
 }

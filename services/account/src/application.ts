@@ -10,6 +10,7 @@ import {
 } from '@loopback/repository';
 /* tslint:disable:no-unused-variable */
 import {BootMixin, Booter, Binding} from '@loopback/boot';
+import {dataSource} from './datasources/memory.datasource';
 
 export class AccountMicroservice extends BootMixin(
   RepositoryMixin(RestApplication),
@@ -34,13 +35,6 @@ export class AccountMicroservice extends BootMixin(
   }
 
   setupDataSources() {
-    const dataSource: juggler.DataSource = new DataSourceConstructor(
-      'local-fs',
-      {
-        connector: 'memory',
-        file: './src/datasources/local-fs/data.json',
-      },
-    );
     this.bind('dataSources.memory').to(dataSource);
   }
 }
