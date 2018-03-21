@@ -5,7 +5,7 @@ import {DataSourceConstructor} from '@loopback/repository';
 
 const ds = new DataSourceConstructor('AccountService', {
   connector: 'swagger',
-  spec: 'repositories/account/swagger.json'
+  spec: 'repositories/account/swagger.json',
 });
 
 export class AccountRepository {
@@ -16,11 +16,11 @@ export class AccountRepository {
   }
 
   async find(accountNumber) {
-    const response = await this.model.findById({'id': `${accountNumber}`});
-    return response && response.obj || [];
+    const response = await this.model.findById({id: `${accountNumber}`});
+    return (response && response.obj) || [];
   }
 
-  async create(accountInstance): Promise<any> {
+  async create(accountInstance): Promise<Account> {
     return await this.model.create(accountInstance);
   }
 }

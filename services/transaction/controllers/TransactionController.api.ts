@@ -19,14 +19,14 @@ export const def = {
           200: {
             schema: {
               type: 'array',
-              items: '#/definitions/Transaction'
+              items: '#/definitions/Transaction',
             },
           },
         },
       },
-    }
+    },
   },
   definitions: {
-    Transaction: require('../repositories/transaction/models/transaction/transaction-definition.json')
+    Transaction: require('../repositories/transaction/models/transaction/transaction-definition.json'),
   },
 };

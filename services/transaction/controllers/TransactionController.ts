@@ -6,12 +6,15 @@ import {repository} from '@loopback/repository';
 
 @api(def)
 export class TransactionController {
-
-  constructor(@repository('TransactionRepository') private repository: TransactionRepository) {
-  }
+  constructor(
+    @repository('TransactionRepository')
+    private transactionRepository: TransactionRepository,
+  ) {}
 
   async getTransactions(filter): Promise<Transaction[]> {
-    let transactions = await this.repository.find(JSON.parse(filter));
+    let transactions = await this.transactionRepository.find(
+      JSON.parse(filter),
+    );
     const response = [];
     transactions.forEach(transaction => {
       response.push(transaction.toJSON());

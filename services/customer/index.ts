@@ -13,16 +13,16 @@ class CustomerApplication extends Application {
       {
         components: [RestComponent],
         rest: {
-          port: 3002
-        }
+          port: 3002,
+        },
       },
-      options
+      options,
     );
     super(options);
 
     const dataSource = new DataSourceConstructor('local-fs', {
       connector: 'memory',
-      file: './repositories/customer/datasources/local-fs/data.json'
+      file: './repositories/customer/datasources/local-fs/data.json',
     });
 
     const app = this;

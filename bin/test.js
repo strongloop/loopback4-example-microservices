@@ -6,7 +6,13 @@ let spawn = require('child_process').spawn;
 let fs = Promise.promisifyAll(require('fs'));
 let path = require('path');
 
-let cmd = path.resolve(__dirname, '..', 'node_modules', '.bin', /^win/.test(process.platform) ? '_mocha.cmd' : '_mocha');
+let cmd = path.resolve(
+  __dirname,
+  '..',
+  'node_modules',
+  '.bin',
+  /^win/.test(process.platform) ? '_mocha.cmd' : '_mocha',
+);
 let args = ['--require', 'ts-node/register'];
 
 let services = path.resolve('services');

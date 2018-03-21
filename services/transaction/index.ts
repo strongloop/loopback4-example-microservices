@@ -13,21 +13,23 @@ class TransactionApplication extends Application {
       {
         components: [RestComponent],
         rest: {
-          port: 3003
-        }
+          port: 3003,
+        },
       },
-      options
+      options,
     );
     super(options);
 
     const dataSource = new DataSourceConstructor('local-fs', {
       connector: 'memory',
-      file: './repositories/transaction/datasources/local-fs/data.json'
+      file: './repositories/transaction/datasources/local-fs/data.json',
     });
 
     const app = this;
     app.bind('dataSources.memory').to(dataSource);
-    app.bind('repositories.TransactionRepository').toClass(TransactionRepository);
+    app
+      .bind('repositories.TransactionRepository')
+      .toClass(TransactionRepository);
     app.controller(TransactionController);
   }
 

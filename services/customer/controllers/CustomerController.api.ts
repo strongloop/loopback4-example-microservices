@@ -8,16 +8,17 @@ export const def = {
           {
             name: 'filter',
             in: 'query',
-            description: 'The criteria used to narrow down the number of customer returned.',
+            description:
+              'The criteria used to narrow down the number of customer returned.',
             required: false,
-            type: 'object'
-          }
+            type: 'object',
+          },
         ],
         responses: {
           200: {
             schema: {
               type: 'array',
-              items: '#/definitions/Customer'
+              items: '#/definitions/Customer',
             },
           },
         },
@@ -33,8 +34,8 @@ export const def = {
             description: 'The customer id.',
             required: true,
             type: 'string',
-            format: 'JSON'
-          }
+            format: 'JSON',
+          },
         ],
         responses: {
           200: {
@@ -42,9 +43,9 @@ export const def = {
           },
         },
       },
-    }
+    },
   },
   definitions: {
-    Customer: require('../repositories/customer/models/customer/customer-definition.json')
+    Customer: require('../repositories/customer/models/customer/customer-definition.json'),
   },
 };

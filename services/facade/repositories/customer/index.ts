@@ -18,6 +18,6 @@ export class CustomerRepository {
 
   async find(customerNumber) {
     const response = await this.model.findById({id: `${customerNumber}`});
-    return response && response.obj || [];
+    return (response && response.obj) || [];
   }
 }

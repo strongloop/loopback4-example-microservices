@@ -10,17 +10,17 @@ import {Context} from '@loopback/context';
 let transCtrl: TransactionController;
 
 const testTrans = {
-  'TransactionId': 'DEBIT99999',
-  'dateTime': '2017-11-04T00:27:52.422Z',
-  'accountNo': 'CHK52321122',
-  'amount': 20,
-  'transactionType': 'debit'
+  TransactionId: 'DEBIT99999',
+  dateTime: '2017-11-04T00:27:52.422Z',
+  accountNo: 'CHK52321122',
+  amount: 20,
+  transactionType: 'debit',
 };
 
 const brokenTrans = {
   from: 'CHK5232112',
   to: 'DEBIT99999',
-  amount: 'twenty'
+  amount: 'twenty',
 };
 
 describe('TransactionController Unit Test Suite', () => {
@@ -60,17 +60,20 @@ describe('TransactionController Unit Test Suite', () => {
     });
   });
 
-
   describe('TransactionController.getTransactions("{"where": {"dateTime":"2019-03-11T00:27:52.422Z","accountNo":"CHK52321122","amount":20,"transactionType":"debit"}}")', () => {
     it('searches and returns an empty array', async () => {
-      const result = await transCtrl.getTransactions('{"where": {"dateTime":"2019-03-11T00:27:52.422Z","accountNo":"CHK52321122","amount":20,"transactionType":"debit"}}');
+      const result = await transCtrl.getTransactions(
+        '{"where": {"dateTime":"2019-03-11T00:27:52.422Z","accountNo":"CHK52321122","amount":20,"transactionType":"debit"}}',
+      );
       expect(result).to.be.empty();
     });
   });
 
   describe('TransactionController.getTransactions("{"where": {"dateTime":"2017-03-11T00:27:52.422Z","accountNo":"CHK52321122"}}")', () => {
     it('searches and returns transaction using filter', async () => {
-      const filter = {'where': {'dateTime': '2017-03-11T00:27:52.422Z', 'accountNo': 'CHK52321122'}};
+      const filter = {
+        where: {dateTime: '2017-03-11T00:27:52.422Z', accountNo: 'CHK52321122'},
+      };
       const result = await transCtrl.getTransactions(JSON.stringify(filter));
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(5);
@@ -88,7 +91,7 @@ async function createTransactionController() {
 
   const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
     connector: 'memory',
-    file: path.resolve(__dirname, 'test.data.json')
+    file: path.resolve(__dirname, 'test.data.json'),
   });
 
   ctx.bind('dataSources.memory').to(dataSource);

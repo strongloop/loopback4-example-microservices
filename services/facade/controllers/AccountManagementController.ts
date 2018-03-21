@@ -17,8 +17,7 @@ export class AccountController {
     this.transactionRepository = new TransactionRepository();
   }
 
-  async getSummary(accountNumber): Promise<any> {
-
+  async getSummary(accountNumber): Promise<string> {
     const account = await this.accountRepository.find(accountNumber);
     const customer = await this.customerRepository.find(account.customerNumber);
     const transaction = await this.transactionRepository.find(accountNumber);
@@ -26,7 +25,7 @@ export class AccountController {
     const summary = await bluebird.props({
       account,
       customer,
-      transaction
+      transaction,
     });
     return JSON.stringify(summary);
   }

@@ -19,7 +19,7 @@ const testCust = {
   state: 'TX',
   city: 'Houston',
   zip: '77001',
-  lastUpdated: '2017-11-04T09:04:00.000Z'
+  lastUpdated: '2017-11-04T09:04:00.000Z',
 };
 
 const brokenCust = {
@@ -30,8 +30,8 @@ const brokenCust = {
     street: '742 Neverred Terrace',
     state: 'TX',
     city: 'Houston',
-    zip: '77001'
-  }
+    zip: '77001',
+  },
 };
 
 describe('CustomerController Unit Test Suite', () => {
@@ -42,10 +42,7 @@ describe('CustomerController Unit Test Suite', () => {
       const result = await custCtrl.getCustomers('{}');
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(2);
-      expect(result[0].id).to.equalOneOf([
-        '000343223',
-        '003499223'
-      ]);
+      expect(result[0].id).to.equalOneOf(['000343223', '003499223']);
     });
   });
 
@@ -63,14 +60,16 @@ describe('CustomerController Unit Test Suite', () => {
 
   describe('CustomerController.getCustomers("{"where": {"firstName":"Simpson","lastName": "Ron"}}")', () => {
     it('searches and returns an empty array', async () => {
-      const result = await custCtrl.getCustomers('{"where": {"firstName":"Simpson","lastName": "Ron"}}');
+      const result = await custCtrl.getCustomers(
+        '{"where": {"firstName":"Simpson","lastName": "Ron"}}',
+      );
       expect(result).to.be.empty();
     });
   });
 
   describe('CustomerController.getCustomers("{"where": {"firstName":"Ron","lastName": "Simpson"}}")', () => {
     it('searches and returns customer using filter', async () => {
-      const filter = {'where': {'firstName': 'Ron', 'lastName': 'Simpson'}};
+      const filter = {where: {firstName: 'Ron', lastName: 'Simpson'}};
       const result = await custCtrl.getCustomers(JSON.stringify(filter));
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
@@ -82,7 +81,7 @@ describe('CustomerController Unit Test Suite', () => {
   describe('CustomerController.getCustomer("{"where": {"id": 0000000000}}}")', () => {
     it('searches and returns an empty array', async () => {
       const id = '0000000000';
-      const filter = {'where': {id}};
+      const filter = {where: {id}};
       const result = await custCtrl.getCustomers(JSON.stringify(filter));
       expect(result).to.be.empty();
     });
@@ -104,7 +103,7 @@ async function createCustomerController() {
 
   const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
     connector: 'memory',
-    file: path.resolve(__dirname, 'test.data.json')
+    file: path.resolve(__dirname, 'test.data.json'),
   });
 
   ctx.bind('dataSources.memory').to(dataSource);

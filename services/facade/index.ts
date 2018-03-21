@@ -11,7 +11,7 @@ class FacadeMicroservice extends Application {
       {
         components: [RestComponent],
       },
-      options
+      options,
     );
     super(options);
     const app = this;
