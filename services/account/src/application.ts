@@ -29,6 +29,7 @@ export class AccountMicroservice extends BootMixin(
 
     super(options);
     this.projectRoot = __dirname;
+    this._startTime = new Date();
     this.setupDataSources();
   }
 
@@ -37,7 +38,7 @@ export class AccountMicroservice extends BootMixin(
       'local-fs',
       {
         connector: 'memory',
-        file: './datasources/local-fs/data.json',
+        file: './src/datasources/local-fs/data.json',
       },
     );
     this.bind('dataSources.memory').to(dataSource);
