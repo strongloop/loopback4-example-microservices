@@ -7,16 +7,16 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@loopback/boot": "^0.3.0",
-    "@loopback/core": "^0.2.1",
-    "@loopback/repository": "^0.2.1",
-    "@loopback/rest": "^0.3.0",
+    "@loopback/boot": "^0.3.4",
+    "@loopback/core": "^0.2.4",
+    "@loopback/repository": "^0.2.4",
+    "@loopback/rest": "^0.3.4",
     "@types/cors": "^2.8.3",
-    "loopback-connector-mysql": "^4.2.0",
-    "loopback-datasource-juggler": "^3.13.0"
+    "loopback-connector-mysql": "^5.2.0",
+    "loopback-datasource-juggler": "^3.15.5"
   },
   "devDependencies": {
-    "@loopback/build": "^0.2.0",
+    "@loopback/build": "^0.3.2",
     "@loopback/testlab": "^0.3.0"
   },
   "scripts": {
@@ -31,9 +31,9 @@
     "tslint": "lb-tslint",
     "tslint:fix": "npm run tslint -- --fix",
     "pretest": "npm run clean && npm run build",
-    "test": "lb-mocha \"DIST/test/unit/**/*.js\"",
+    "test": "lb-mocha \"dist/test/unit/**/*.js\"",
     "posttest": "npm run lint",
-    "start": "npm run build && node .",
+    "start": "npm run build && node index.js",
     "prepublishOnly": "npm run test"
   },
   "keywords": [
