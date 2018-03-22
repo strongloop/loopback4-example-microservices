@@ -20,7 +20,7 @@
     "@loopback/testlab": "^0.3.0"
   },
   "scripts": {
-    "build": "lb-tsc",
+    "build": "lb-tsc && ./bin/generate-example-file-db",
     "build:watch": "lb-tsc --watch",
     "clean": "lb-clean",
     "lint": "npm run prettier:check && npm run tslint",

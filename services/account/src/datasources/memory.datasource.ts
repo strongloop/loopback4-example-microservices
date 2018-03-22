@@ -3,5 +3,5 @@ import * as path from 'path';
 
 export const dataSource: DataSourceType = new DataSourceConstructor('memory', {
   connector: 'memory',
-  file: path.resolve('./data.json'),
+  file: path.resolve(__dirname, './data.json'),
 });
