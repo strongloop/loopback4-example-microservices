@@ -33,7 +33,7 @@
     "pretest": "npm run clean && npm run build",
     "test": "lb-mocha \"dist/test/unit/**/*.js\"",
     "posttest": "npm run lint",
-    "start": "npm run build && node index.js",
+    "start": "npm run build && node ./dist/index.js",
     "prepublishOnly": "npm run test"
   },
   "keywords": [
