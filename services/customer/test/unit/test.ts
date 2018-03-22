@@ -1,38 +1,37 @@
-// test/unit/test.js
 import 'mocha';
-import {CustomerController} from '../../controllers/CustomerController';
+import {CustomerController} from '../../src/controllers';
 import {expect} from '@loopback/testlab';
-import {CustomerRepository} from '../../repositories/customer';
+import {CustomerRepository} from '../../src/repositories';
 import * as path from 'path';
 import {Context} from '@loopback/context';
-import {DataSourceConstructor, juggler} from '@loopback/repository';
+import {DataSourceConstructor, DataSourceType} from '@loopback/repository';
 
 let custCtrl: CustomerController;
 
-const testCust = {
-  id: '000222333',
-  firstName: 'Harry',
-  lastName: 'Simpleton',
-  ssn: '141-XX-C900',
-  customerSince: '2017-11-04T09:04:00.000Z',
-  street: '742 Neverred Terrace',
-  state: 'TX',
-  city: 'Houston',
-  zip: '77001',
-  lastUpdated: '2017-11-04T09:04:00.000Z',
-};
-
-const brokenCust = {
-  id: '000222333',
-  namFirst: 'Harry',
-  nameLast: 'Simpleton',
-  address: {
-    street: '742 Neverred Terrace',
-    state: 'TX',
-    city: 'Houston',
-    zip: '77001',
-  },
-};
+// const testCust = {
+//   id: '000222333',
+//   firstName: 'Harry',
+//   lastName: 'Simpleton',
+//   ssn: '141-XX-C900',
+//   customerSince: '2017-11-04T09:04:00.000Z',
+//   street: '742 Neverred Terrace',
+//   state: 'TX',
+//   city: 'Houston',
+//   zip: '77001',
+//   lastUpdated: '2017-11-04T09:04:00.000Z',
+// };
+//
+// const brokenCust = {
+//   id: '000222333',
+//   namFirst: 'Harry',
+//   nameLast: 'Simpleton',
+//   address: {
+//     street: '742 Neverred Terrace',
+//     state: 'TX',
+//     city: 'Houston',
+//     zip: '77001',
+//   },
+// };
 
 describe('CustomerController Unit Test Suite', () => {
   before(createCustomerController);
@@ -58,19 +57,19 @@ describe('CustomerController Unit Test Suite', () => {
     });
   });
 
-  describe('CustomerController.getCustomers("{"where": {"firstName":"Simpson","lastName": "Ron"}}")', () => {
+  describe('CustomerController.getCustomers({"where": {"firstName":"Simpson","lastName": "Ron"}})', () => {
     it('searches and returns an empty array', async () => {
-      const result = await custCtrl.getCustomers(
-        '{"where": {"firstName":"Simpson","lastName": "Ron"}}',
-      );
+      const result = await custCtrl.getCustomers({
+        where: {firstName: 'Simpson', lastName: 'Ron'},
+      });
       expect(result).to.be.empty();
     });
   });
 
-  describe('CustomerController.getCustomers("{"where": {"firstName":"Ron","lastName": "Simpson"}}")', () => {
+  describe('CustomerController.getCustomers({"where": {"firstName":"Ron","lastName": "Simpson"}})', () => {
     it('searches and returns customer using filter', async () => {
       const filter = {where: {firstName: 'Ron', lastName: 'Simpson'}};
-      const result = await custCtrl.getCustomers(JSON.stringify(filter));
+      const result = await custCtrl.getCustomers(filter);
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(1);
       expect(result[0].firstName).to.be.equal(filter.where.firstName);
@@ -101,7 +100,7 @@ describe('CustomerController Unit Test Suite', () => {
 async function createCustomerController() {
   const ctx = new Context();
 
-  const dataSource: juggler.DataSource = new DataSourceConstructor('local-fs', {
+  const dataSource: DataSourceType = new DataSourceConstructor('local-fs', {
     connector: 'memory',
     file: path.resolve(__dirname, 'test.data.json'),
   });
@@ -114,5 +113,7 @@ async function createCustomerController() {
   ctx.bind('controllers.CustomerController').toClass(CustomerController);
 
   // Resolve the controller
-  custCtrl = await ctx.get('controllers.CustomerController');
+  custCtrl = await ctx.get<CustomerController>(
+    'controllers.CustomerController',
+  );
 }
