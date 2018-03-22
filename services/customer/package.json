@@ -19,7 +19,7 @@
     "@loopback/testlab": "^0.3.0"
   },
   "scripts": {
-    "build": "lb-tsc",
+    "build": "lb-tsc && ./bin/generate-example-file-db",
     "build:watch": "lb-tsc --watch",
     "clean": "lb-clean",
     "lint": "npm run prettier:check && npm run tslint",
@@ -32,7 +32,7 @@
     "pretest": "npm run clean && npm run build",
     "test": "lb-mocha \"dist/test/unit/**/*.js\"",
     "posttest": "npm run lint",
-    "start": "npm run build && node index.js",
+    "start": "npm run clean && npm run build && node dist/index.js",
     "prepublishOnly": "npm run test"
   },
   "keywords": [
