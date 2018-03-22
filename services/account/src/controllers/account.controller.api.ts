@@ -2,7 +2,12 @@ import {accountDefinition} from '../models';
 
 export const def = {
   openapi: '3.0.0',
-  basePath: '/',
+  info: {
+    version: '1.0.0',
+    title: 'Accounts Microservice',
+    description:
+      'This is the api for the accounts service created by loopback.',
+  },
   paths: {
     '/accounts': {
       get: {
@@ -21,9 +26,16 @@ export const def = {
         ],
         responses: {
           '200': {
-            schema: {
-              type: 'array',
-              items: '#/components/schemas/Account',
+            description: 'filtered accounts to be returned',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    $ref: '#/components/schemas/Account',
+                  },
+                },
+              },
             },
           },
         },
@@ -38,13 +50,21 @@ export const def = {
             in: 'path',
             description: 'Model id',
             required: true,
-            type: 'string',
-            format: 'JSON',
+            schema: {
+              type: 'string',
+            },
           },
         ],
         responses: {
           '200': {
-            schema: '#/components/schemas/Account',
+            description: 'OK',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/Account',
+                },
+              },
+            },
           },
         },
       },
@@ -54,20 +74,24 @@ export const def = {
         'x-operation-name': 'createAccount',
         requestBody: {
           description: 'The account instance to create.',
-          name: 'accountInstance',
           required: true,
           content: {
             'application/json': {
               schema: {
-                accountInstance: '#/components/schemas/Account',
+                $ref: '#/components/schemas/Account',
               },
             },
           },
         },
         responses: {
           '200': {
-            schema: {
-              accountInstance: '#/components/schemas/Account',
+            description: 'OK',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/Account',
+                },
+              },
             },
           },
         },
@@ -103,16 +127,18 @@ export const def = {
         },
         responses: {
           '200': {
-            schema: {
-              description: 'update information',
-              properties: {
-                count: {
-                  type: 'number',
-                  description: 'number of records updated',
+            description: 'update information',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    count: {
+                      type: 'number',
+                      description: 'number of records updated',
+                    },
+                  },
                 },
-              },
-              schema: {
-                type: 'object',
               },
             },
           },
@@ -136,13 +162,17 @@ export const def = {
         ],
         responses: {
           '200': {
-            schema: {
-              type: 'object',
-              description: 'delete information',
-              properties: {
-                count: {
-                  type: 'number',
-                  description: 'number of records deleted',
+            description: 'delete information',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    count: {
+                      type: 'number',
+                      description: 'number of records deleted',
+                    },
+                  },
                 },
               },
             },
@@ -151,26 +181,17 @@ export const def = {
       },
     },
   },
-  info: {
-    version: '1.0.0',
-    title: 'Accounts Microservice',
-    contact: {},
-    description:
-      'This is the api for the accounts service created by loopback.',
-  },
   components: {
-    links: {},
-    callbacks: {},
     schemas: {
       Account: accountDefinition,
       Balance: {
+        type: 'object',
+        required: ['balance'],
         properties: {
           balance: {
             type: 'number',
-            required: true,
           },
         },
-        type: 'object',
       },
     },
   },

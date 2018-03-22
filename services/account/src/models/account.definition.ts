@@ -1,34 +1,29 @@
 export const accountDefinition = {
-  name: 'Account',
+  type: 'object',
+  name: 'Customer',
+  required: ['id', 'balance', 'branch', 'type', 'avgBalance', 'minimumBalance'],
   properties: {
     id: {
-      type: 'string',
-      required: true,
       id: true,
+      type: 'string',
     },
     customerNumber: {
       type: 'string',
-      required: true,
     },
     balance: {
       type: 'number',
-      required: true,
     },
     branch: {
       type: 'string',
-      required: true,
     },
     type: {
       type: 'string',
-      required: true,
     },
     avgBalance: {
       type: 'number',
-      required: true,
     },
     minimumBalance: {
       type: 'number',
-      required: true,
     },
   },
 };
