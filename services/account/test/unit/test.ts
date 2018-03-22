@@ -40,10 +40,7 @@ describe('AccountController Unit Test Suite', () => {
     it('rejects promise for invalid args', async () => {
       let flag = true;
       try {
-        // tslint:disable
-        const invalidArg = 'this should not be allowed' as any;
-        await accCtrl.getAccounts(invalidArg);
-        // tslint:enable
+        await accCtrl.getAccounts('this should not be allowed');
       } catch (err) {
         flag = false;
       }
