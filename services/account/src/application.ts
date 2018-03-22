@@ -30,8 +30,12 @@ export class AccountMicroservice extends BootMixin(
 
     super(options);
     this.projectRoot = __dirname;
-    this._startTime = new Date();
     this.setupDataSources();
+  }
+
+  async start() {
+    this._startTime = new Date();
+    return super.start();
   }
 
   setupDataSources() {
