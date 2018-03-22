@@ -4,4 +4,3 @@ npm-debug.log
 .idea
 package-lock.json
 dist/
-**/test.data.json
