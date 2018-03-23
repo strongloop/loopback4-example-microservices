@@ -1,7 +1,7 @@
 import {api} from '@loopback/rest';
 import {def} from './TransactionController.api';
-import {TransactionRepository} from '../repositories/transaction';
-import {Transaction} from '../repositories/transaction/models/transaction/transaction';
+import {TransactionRepository} from '../repositories/index';
+import {Transaction} from '../models/transaction';
 import {repository} from '@loopback/repository';
 
 @api(def)

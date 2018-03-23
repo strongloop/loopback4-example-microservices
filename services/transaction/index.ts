@@ -1,7 +1,7 @@
 import {Application, ApplicationConfig} from '@loopback/core';
-import {TransactionController} from './controllers/TransactionController';
+import {TransactionController} from './src/controllers/TransactionController';
 import {RestBindings, RestComponent, RestServer} from '@loopback/rest';
-import {TransactionRepository} from './repositories/transaction/index';
+import {TransactionRepository} from './src/repositories/index';
 import {DataSourceConstructor} from '@loopback/repository';
 
 class TransactionApplication extends Application {

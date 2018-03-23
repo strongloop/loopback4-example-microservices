@@ -27,6 +27,6 @@ export const def = {
     },
   },
   definitions: {
-    Transaction: require('../repositories/transaction/models/transaction/transaction-definition.json'),
+    Transaction: require('../models/transaction-definition.json'),
   },
 };

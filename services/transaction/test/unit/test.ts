@@ -1,8 +1,8 @@
 // test/unit/test.js
 import 'mocha';
-import {TransactionController} from '../../controllers/TransactionController';
+import {TransactionController} from '../../src/controllers/TransactionController';
 import {expect} from '@loopback/testlab';
-import {TransactionRepository} from '../../repositories/transaction';
+import {TransactionRepository} from '../../src/repositories/index';
 import * as path from 'path';
 import {DataSourceConstructor, juggler} from '@loopback/repository';
 import {Context} from '@loopback/context';

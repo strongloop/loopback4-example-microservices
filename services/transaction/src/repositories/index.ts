@@ -1,5 +1,5 @@
 import {DefaultCrudRepository} from '@loopback/repository';
-import {Transaction} from './models/transaction/transaction';
+import {Transaction} from '../models/transaction';
 import {inject} from '@loopback/context';
 
 export class TransactionRepository extends DefaultCrudRepository<
