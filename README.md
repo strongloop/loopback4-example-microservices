@@ -18,7 +18,7 @@ Make sure you have the following installed:
 # install loopback4-example-microservices
 git clone https://github.com/strongloop/loopback4-example-microservices
 cd loopback4-example-microservices
-npm run build
+npm i
 ```
 
 ## Basic use
