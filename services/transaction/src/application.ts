@@ -22,7 +22,7 @@ export class TranscationMicroservice extends BootMixin(
       {},
       {
         rest: {
-          port: 3001,
+          port: 3003,
         },
       },
       options,
