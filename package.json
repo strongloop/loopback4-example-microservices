@@ -16,6 +16,7 @@
     "start": "bin/start",
     "stop": "bin/stop",
     "test": "node bin/test.js",
+    "postinstall": "bin/install",
     "posttest": "npm run lint"
   },
   "engines": {
