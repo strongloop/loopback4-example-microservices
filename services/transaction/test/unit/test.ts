@@ -1,34 +1,33 @@
-// test/unit/test.js
 import 'mocha';
-import {TransactionController} from '../../src/controllers/TransactionController';
+import {TransactionController} from '../../src/controllers';
 import {expect} from '@loopback/testlab';
-import {TransactionRepository} from '../../src/repositories/index';
+import {TransactionRepository} from '../../src/repositories';
 import * as path from 'path';
 import {DataSourceConstructor, juggler} from '@loopback/repository';
 import {Context} from '@loopback/context';
 
 let transCtrl: TransactionController;
 
-const testTrans = {
-  TransactionId: 'DEBIT99999',
-  dateTime: '2017-11-04T00:27:52.422Z',
-  accountNo: 'CHK52321122',
-  amount: 20,
-  transactionType: 'debit',
-};
-
-const brokenTrans = {
-  from: 'CHK5232112',
-  to: 'DEBIT99999',
-  amount: 'twenty',
-};
+// const testTrans = {
+//   TransactionId: 'DEBIT99999',
+//   dateTime: '2017-11-04T00:27:52.422Z',
+//   accountNo: 'CHK52321122',
+//   amount: 20,
+//   transactionType: 'debit',
+// };
+//
+// const brokenTrans = {
+//   from: 'CHK5232112',
+//   to: 'DEBIT99999',
+//   amount: 'twenty',
+// };
 
 describe('TransactionController Unit Test Suite', () => {
   before(createTransactionController);
 
-  describe('TransactionController.getTransactions("", "{}")', () => {
+  describe('getTransactions', () => {
     it('returns an array of all Transactions', async () => {
-      const result = await transCtrl.getTransactions('{}');
+      const result = await transCtrl.getTransactions({});
       expect(result).to.not.be.empty();
       expect(result).have.lengthOf(11);
       expect(result).have.lengthOf(11);
@@ -46,9 +45,7 @@ describe('TransactionController Unit Test Suite', () => {
         'DEBIT0013',
       ]);
     });
-  });
 
-  describe('TransactionController.getTransactions("")', () => {
     it('rejects promise for invalid args', async () => {
       let flag = true;
       try {
@@ -58,18 +55,14 @@ describe('TransactionController Unit Test Suite', () => {
       }
       expect(flag).to.be.false();
     });
-  });
 
-  describe('TransactionController.getTransactions("{"where": {"dateTime":"2019-03-11T00:27:52.422Z","accountNo":"CHK52321122","amount":20,"transactionType":"debit"}}")', () => {
     it('searches and returns an empty array', async () => {
       const result = await transCtrl.getTransactions(
         '{"where": {"dateTime":"2019-03-11T00:27:52.422Z","accountNo":"CHK52321122","amount":20,"transactionType":"debit"}}',
       );
       expect(result).to.be.empty();
     });
-  });
 
-  describe('TransactionController.getTransactions("{"where": {"dateTime":"2017-03-11T00:27:52.422Z","accountNo":"CHK52321122"}}")', () => {
     it('searches and returns transaction using filter', async () => {
       const filter = {
         where: {dateTime: '2017-03-11T00:27:52.422Z', accountNo: 'CHK52321122'},
@@ -102,5 +95,7 @@ async function createTransactionController() {
   ctx.bind('controllers.TransactionController').toClass(TransactionController);
 
   // Resolve the controller
-  transCtrl = await ctx.get('controllers.TransactionController');
+  transCtrl = await ctx.get<TransactionController>(
+    'controllers.TransactionController',
+  );
 }
