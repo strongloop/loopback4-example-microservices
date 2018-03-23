@@ -4,6 +4,7 @@
   "description": "How to use LoopBack.next and some recommended best practices.",
   "main": "facade/index.js",
   "scripts": {
+    "postinstall": "bin/install",
     "build": "bin/build",
     "lint": "npm run prettier:check && npm run tslint",
     "lint:fix": "npm run prettier:fix && npm run tslint:fix",
@@ -12,11 +13,17 @@
     "prettier:fix": "npm run prettier:cli -- --write",
     "tslint": "lb-tslint",
     "tslint:fix": "npm run tslint -- --fix",
-    "restart": "npm run stop && npm run build && npm run start",
-    "start": "bin/start",
-    "stop": "bin/stop",
-    "test": "node bin/test.js",
-    "postinstall": "bin/install",
+    "start": "concurrently --kill-others \"npm run start:account\" \"npm run start:customer\" \"npm run start:transaction\" \"npm run start:facade\"",
+    "start:account":"cd ./services/account && npm run start",
+    "start:customer":"cd ./services/customer && npm run start",
+    "start:transaction":"cd ./services/transaction && npm run start",
+    "start:facade":"cd ./services/facade && npm run start",
+    "test:account":"cd ./services/account && npm run test",
+    "test:customer":"cd ./services/customer && npm run test",
+    "test:transaction":"cd ./services/transaction && npm run test",
+    "test": "npm run test:account && npm run test:customer && npm run test:transaction",
+    "test:concurrently": "concurrently --kill-others \"npm run test:account\" \"npm run test:customer\" \"npm run test:transaction\"",
+    "test:ts": "./bin/test",
     "posttest": "npm run lint"
   },
   "engines": {
@@ -43,6 +50,7 @@
     "typescript": "^2.6.2"
   },
   "devDependencies": {
-    "@loopback/build": "^0.3.2"
+    "@loopback/build": "^0.3.2",
+    "concurrently": "^3.5.1"
   }
 }
