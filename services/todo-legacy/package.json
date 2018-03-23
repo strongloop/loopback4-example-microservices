@@ -18,6 +18,14 @@
     "@types/mocha": "^2.2.43",
     "mocha": "^3.5.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongloop/loopback4-example-microservices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strongloop/loopback4-example-microservices/issues"
+  },
+  "homepage": "https://github.com/strongloop/loopback4-example-microservices#readme",
   "dependencies": {
     "@loopback/core": "^4.0.0-alpha.13",
     "@loopback/repository": "^4.0.0-alpha.5",

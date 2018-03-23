@@ -14,7 +14,7 @@
     "mysql-promise": "^4.1.0"
   },
   "devDependencies": {
-    "@loopback/testlab": "^0.3.0",
+    "@loopback/testlab": "^0.4.0",
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.47",
     "debug": "^2.6.8",
@@ -34,6 +34,14 @@
     "account",
     "microservice"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongloop/loopback4-example-microservices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strongloop/loopback4-example-microservices/issues"
+  },
+  "homepage": "https://github.com/strongloop/loopback4-example-microservices#readme",
   "author": "IBM",
   "license": "MIT"
 }

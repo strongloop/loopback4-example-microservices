@@ -7,16 +7,16 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@loopback/boot": "^0.3.4",
-    "@loopback/core": "^0.2.4",
-    "@loopback/repository": "^0.2.4",
-    "@loopback/rest": "^0.3.4",
+    "@loopback/boot": "^0.4.0",
+    "@loopback/core": "^0.3.0",
+    "@loopback/repository": "^0.3.0",
+    "@loopback/rest": "^0.4.0",
     "@types/cors": "^2.8.3",
     "loopback-datasource-juggler": "^3.15.5"
   },
   "devDependencies": {
     "@loopback/build": "^0.3.2",
-    "@loopback/testlab": "^0.3.0"
+    "@loopback/testlab": "^0.4.0"
   },
   "scripts": {
     "build": "lb-tsc && ./bin/generate-example-file-db",
@@ -41,6 +41,14 @@
     "account",
     "microservice"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongloop/loopback4-example-microservices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strongloop/loopback4-example-microservices/issues"
+  },
+  "homepage": "https://github.com/strongloop/loopback4-example-microservices#readme",
   "author": "IBM",
   "license": "MIT"
 }
