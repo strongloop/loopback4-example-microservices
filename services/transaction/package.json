@@ -7,20 +7,33 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@loopback/core": "^4.0.0-alpha.19",
-    "@loopback/repository": "^4.0.0-alpha.13",
-    "@loopback/rest": "^4.0.0-alpha.6",
-    "loopback-datasource-juggler": "^3.13.0"
+    "@loopback/boot": "^0.3.4",
+    "@loopback/core": "^0.2.4",
+    "@loopback/repository": "^0.2.4",
+    "@loopback/rest": "^0.3.4",
+    "@types/cors": "^2.8.3",
+    "loopback-datasource-juggler": "^3.15.5"
   },
   "devDependencies": {
-    "@loopback/testlab": "^4.0.0-alpha.12",
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^8.0.47",
-    "mocha": "^4.0.1"
+    "@loopback/build": "^0.3.2",
+    "@loopback/testlab": "^0.3.0"
   },
   "scripts": {
-    "start": "ts-node index.ts",
-    "test": "mocha --opts test/mocha.opts 'test/unit/*.ts'"
+    "build": "lb-tsc && ./bin/generate-example-file-db",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run prettier:fix && npm run tslint:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
+    "pretest": "npm run clean && npm run build",
+    "test": "lb-mocha \"dist/test/unit/**/*.js\"",
+    "posttest": "npm run lint",
+    "start": "npm run build && node ./dist/index.js",
+    "prepublishOnly": "npm run test"
   },
   "keywords": [
     "loopback-next",
