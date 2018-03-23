@@ -1,4 +1,5 @@
 import {Entity, model} from '@loopback/repository';
+import {transactionDefinition} from './transaction.definition';
 
-@model(require('./transaction-definition.json'))
+@model(transactionDefinition)
 export class Transaction extends Entity {}
