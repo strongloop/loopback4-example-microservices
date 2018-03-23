@@ -12,7 +12,6 @@
     "@loopback/repository": "^0.2.4",
     "@loopback/rest": "^0.3.4",
     "@types/cors": "^2.8.3",
-    "loopback-connector-mysql": "^5.2.0",
     "loopback-datasource-juggler": "^3.15.5"
   },
   "devDependencies": {
