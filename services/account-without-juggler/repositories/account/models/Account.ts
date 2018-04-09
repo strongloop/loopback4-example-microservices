@@ -3,7 +3,7 @@ import {Entity, model, ModelDefinition} from '@loopback/repository';
 @model(require('./account/model-definition'))
 export class Account extends Entity {
   static definition = new ModelDefinition(
-    require('./account/model-definition'),
+    require('./account/model-definition').properties,
   );
   static modelName = 'Account';
 

@@ -1,2 +1,7 @@
 node_modules
 npm-debug.log
+services/*/dist*
+.vscode
+.idea
+package-lock.json
+dist/
