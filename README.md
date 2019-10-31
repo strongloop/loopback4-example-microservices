@@ -1,6 +1,6 @@
 # loopback4-example-microservices
 
-:warning: This example has been deprecated and it does not reflect our recommendation to deploy LoopBack 4 applications as microservices. Please follow https://github.com/strongloop/loopback4-example-shopping/tree/master/kubernetes instead. :warning:
+## :warning: This example has been deprecated and it does not reflect our recommendation to deploy LoopBack 4 applications as microservices. Please follow https://github.com/strongloop/loopback4-example-shopping/tree/master/kubernetes instead. :warning:
 
 How to build scalable microservices using LoopBack.next.
 
