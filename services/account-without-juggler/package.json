@@ -9,7 +9,7 @@
   "dependencies": {
     "@loopback/core": "^0.2.1",
     "@loopback/repository": "^0.2.1",
-    "@loopback/rest": "^0.3.0",
+    "@loopback/rest": "^0.8.0",
     "mysql": "^2.13.0",
     "mysql-promise": "^4.1.0"
   },
